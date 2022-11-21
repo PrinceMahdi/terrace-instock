@@ -1,0 +1,31 @@
+/* ---------------- PARTIAL IMPORTS ---------------- */
+@use "./colors" as *;
+
+/* CSS resets */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Avenir";
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+::placeholder,
+button {
+  font-family: "Titillium";
+  color: $primary-dark;
+}
