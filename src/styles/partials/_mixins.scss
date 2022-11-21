@@ -1,0 +1,110 @@
+/* ------------- PARTIAL IMPORTS ------------- */
+@use "./colors" as *;
+
+/* ------------- MIXIN FOR PADDING ------------- */
+// Small Devices
+@mixin small-padding {
+  padding: 0 1rem;
+}
+// Medium Devices
+@mixin medium-padding {
+  padding: 0 3rem;
+}
+// Large Devices
+@mixin large-padding {
+  padding: 0 5rem;
+}
+
+/* ------------- MIXIN FOR BUTTON STYLING ------------- */
+// Primary Button
+@mixin btn-primary {
+  color: $primary-light;
+  background-color: $primary-semi-light;
+  border: 1px solid $primary-semi-light;
+  border-radius: 1.25rem;
+  transition: 0.3s ease;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+}
+// Primary Button Hover
+@mixin btn-primary-hover {
+  background-color: $background-dark;
+  border: 1px solid $background-dark;
+}
+// Primary Button Mobile
+@mixin btn-primary-mobile {
+  color: $primary-light;
+  background-color: $primary-semi-light;
+  border: 1px solid $primary-semi-light;
+  border-radius: 1.25rem;
+  transition: 0.3s ease;
+  padding: 0.75rem 3rem;
+  cursor: pointer;
+}
+// Secondary Button
+@mixin btn-secondary {
+  color: $secondary-dark;
+  border: 1px solid $secondary-light;
+  background-color: $primary-light;
+  border-radius: 1.25rem;
+  transition: 0.3s ease;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+}
+// Secondary Button Hover
+@mixin btn-secondary-hover {
+  color: $primary-semi-light;
+  border: 1px solid $primary-semi-light;
+}
+// Secondary Button Mobile
+@mixin btn-secondary-mobile {
+  color: $secondary-dark;
+  border: 1px solid $secondary-light;
+  background-color: $primary-light;
+  border-radius: 1.25rem;
+  transition: 0.3s ease;
+  padding: 0.75rem 3rem;
+  cursor: pointer;
+}
+// Delete Button
+@mixin delete-primary {
+  color: $primary-light;
+  background-color: $supporting-semi-light;
+  border: 1px solid $supporting-semi-light;
+  border-radius: 1.25rem;
+  transition: 0.3s ease;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+}
+// Delete Button Hover
+@mixin delete-primary-hover {
+  background-color: $background-dark;
+  border: 1px solid $background-dark;
+}
+// Delete Button Mobile
+@mixin delete-primary {
+  color: $primary-light;
+  background-color: $supporting-semi-light;
+  border: 1px solid $supporting-semi-light;
+  border-radius: 1.25rem;
+  transition: 0.3s ease;
+  padding: 0.75rem 3rem;
+  cursor: pointer;
+}
+/* ------------- MIXIN FOR LABEL STYLING ------------- */
+// in stock items
+@mixin inStock {
+  color: $supporting-light;
+  background-color: rgba(21, 132, 99, 0.3);
+  border-radius: 1.25rem;
+  text-transform: uppercase;
+  padding: 0.75rem 0.5rem;
+}
+// out of stock items
+@mixin outOfStock {
+  color: $supporting-semi-light;
+  background-color: rgba(201, 69, 21, 0.3);
+  border-radius: 1.25rem;
+  text-transform: uppercase;
+  padding: 0.75rem 0.5rem;
+}
