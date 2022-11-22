@@ -1,9 +1,14 @@
 /* ---------------- SCSS IMPORTS ---------------- */
 import "./HomePage.scss";
 /* ---------------- COMPONENT IMPORTS ---------------- */
+import WarehouseList from "../../Components/WarehouseList/WarehouseList";
 
 const HomePage = () => {
-  return <></>;
+  return (
+    <>
+      <WarehouseList />
+    </>
+  );
 };
 
 export default HomePage;
