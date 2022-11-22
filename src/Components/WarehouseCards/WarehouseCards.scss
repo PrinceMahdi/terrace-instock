@@ -1,0 +1,67 @@
+/* --------------- PARTIAL IMPORTS --------------- */
+@use "../../styles/partials/reset";
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/breakpoints" as bp;
+@use "../../styles/partials/typography" as tp;
+@use "../../styles/partials/mixins" as mx;
+
+.warehouse-cards {
+  &-wrap {
+    border-top: 1px solid $secondary-light;
+    border-bottom: 1px solid $secondary-light;
+    @include tp.small-body-small;
+    display: flex;
+    flex-direction: column;
+  }
+  &__warehouse-name {
+    &-contact-wrap {
+      display: flex;
+      justify-content: space-between;
+    }
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      padding: 4px;
+    }
+  }
+  &__contact-name {
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      padding: 4px;
+    }
+  }
+  &__address {
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      padding: 4px;
+    }
+  }
+  &__contact-info {
+    &-address-wrap {
+      display: flex;
+      justify-content: space-between;
+    }
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      padding: 4px;
+    }
+  }
+  &__icons-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+  }
+  &__icons {
+    &-del {
+      height: 20px;
+    }
+    &-edit {
+      height: 20px;
+    }
+  }
+}
