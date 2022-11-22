@@ -2,44 +2,44 @@
 import "./EditWarehouse.scss";
 
 /* ---------------- REACT IMPORTS ---------------- */
-import {useState} from 'react';
+import { useState } from "react";
 
 const EditWarehouse = () => {
-// track state for form fields
-const [nameState, setNameState] =useState('');
-const [addressState, setAddressState] = useState("");
-const [cityState, setCityState] = useState("");
-const [countryState, setCountryState] = useState("");
-const [contactState, setContactState] = useState("");
-const [positionState, setPositionState] = useState("");
-const [phoneState, setPhoneState] = useState("");
-const [emailState, setEmailState] = useState("");
+  // track state for form fields
+  const [nameState, setNameState] = useState("");
+  const [addressState, setAddressState] = useState("");
+  const [cityState, setCityState] = useState("");
+  const [countryState, setCountryState] = useState("");
+  const [contactState, setContactState] = useState("");
+  const [positionState, setPositionState] = useState("");
+  const [phoneState, setPhoneState] = useState("");
+  const [emailState, setEmailState] = useState("");
 
-//track and set form content via state
-const handleChangeName = (event) =>{
-  setNameState(event.target.value);
-};
-const handleChangeAddress = (event) => {
-  setAddressState(event.target.value);
-};
-const handleChangeCity = (event) => {
-  setCityState(event.target.value);
-};
-const handleChangeCountry = (event) => {
-  setCountryState(event.target.value);
-};
-const handleChangeContact = (event) => {
-  setContactState(event.target.value);
-};
-const handleChangePosition = (event) => {
-  setPositionState(event.target.value);
-};
-const handleChangePhone = (event) => {
-  setPhoneState(event.target.value);
-};
-const handleChangeEmail = (event) => {
-  setEmailState(event.target.value);
-};
+  //track and set form content via state
+  const handleChangeName = (event) => {
+    setNameState(event.target.value);
+  };
+  const handleChangeAddress = (event) => {
+    setAddressState(event.target.value);
+  };
+  const handleChangeCity = (event) => {
+    setCityState(event.target.value);
+  };
+  const handleChangeCountry = (event) => {
+    setCountryState(event.target.value);
+  };
+  const handleChangeContact = (event) => {
+    setContactState(event.target.value);
+  };
+  const handleChangePosition = (event) => {
+    setPositionState(event.target.value);
+  };
+  const handleChangePhone = (event) => {
+    setPhoneState(event.target.value);
+  };
+  const handleChangeEmail = (event) => {
+    setEmailState(event.target.value);
+  };
 
   return (
     <div className="warehouse__wrapper">
@@ -49,8 +49,8 @@ const handleChangeEmail = (event) => {
         </a>
         <h2 className="warehouse__edit">Edit Warehouse</h2>
       </div>
-      <div className="warehouse__form-container">
-        <form action="" className="warehouse__form">
+      <form action="" className="warehouse__form">
+        <div className="warehouse__form-container">
           <div className="warehouse__form-top">
             <h3 className="warehouse__form-subhead">Warehouse Details</h3>
             <label className="warehouse__form-label" htmlFor="warehouseName">
@@ -148,16 +148,16 @@ const handleChangeEmail = (event) => {
               value={emailState}
             />
           </div>
-          <div className="warehouse__buttons">
-            <button className="warehouse__button warehouse__button--secondary">
-              Cancel
-            </button>
-            <button className="warehouse__button warehouse__button--primary">
-              Save
-            </button>
-          </div>
-        </form>
-      </div>
+        </div>
+        <div className="warehouse__buttons">
+          <button className="warehouse__button warehouse__button--secondary">
+            Cancel
+          </button>
+          <button className="warehouse__button warehouse__button--primary">
+            Save
+          </button>
+        </div>
+      </form>
     </div>
   );
 };

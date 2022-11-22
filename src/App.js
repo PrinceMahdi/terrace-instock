@@ -12,8 +12,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      <EditWarehouse />
       <Routes>
+      <Route path="/edit-warehouse" element={<EditWarehouse/>} />
         <Route path="/" element={<HomePage />} />
         <Route path="/footer" element={<Footer />} />
       </Routes>
