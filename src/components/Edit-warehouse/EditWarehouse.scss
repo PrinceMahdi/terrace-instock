@@ -1,18 +1,68 @@
 /* ------------------------------- PARTIAL IMPORTS ------------------------------- */
 @use "../../styles/partials/mixins" as mx;
+@use "../../styles/partials/typography" as tp;
+@use "../../styles/partials/colors" as *;
 
-.warehouse{
-&__wrapper{
+.warehouse {
+  &__wrapper {
     border: 1px solid black;
-    @include mx.small-padding;
+
     margin: 1rem;
-    border-radius: .25rem;
-}
-&__form-top{
+    border-radius: 0.25rem;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+  &__edit {
+    @include tp.small-page-header;
+  }
+  &__form-top {
     display: flex;
     flex-direction: column;
-}
-&__input{
-    @include mx.formMobile
-}
+    border-top: 1px solid $secondary-light;
+    @include mx.small-padding;
+  }
+  &__form-subhead {
+    @include tp.small-sub-header;
+    margin: 0;
+    padding-top: 1rem;
+  }
+  &__form-label {
+    @include tp.small-auxiliary;
+    font-weight: 600;
+    padding-top: 1rem;
+  }
+  &__input {
+    @include mx.formMobile;
+  }
+  &__form-bottom {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid $secondary-light;
+    @include mx.small-padding;
+    margin-top: 1rem;
+  }
+  &__buttons {
+    display: flex;
+padding: 1rem;
+    background-color: $background-light;
+    margin-top: 1rem
+
+
+  }
+  &__button {
+    &--primary {
+      @include mx.btn-primary-mobile;
+      &:hover {
+        @include mx.btn-primary-hover;
+      }
+    }
+    &--secondary {
+      @include mx.btn-secondary-mobile;
+      &:hover {
+        @include mx.btn-secondary-hover;
+      }
+    }
+  }
 }
