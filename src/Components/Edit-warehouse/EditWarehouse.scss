@@ -24,6 +24,7 @@
     display: flex;
     align-items: center;
     border-bottom: 1px solid $secondary-light;
+    padding: 1rem 1rem 0 1rem;
     @include bp.medium {
       padding: 0 2rem;
     }
