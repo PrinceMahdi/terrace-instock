@@ -88,14 +88,26 @@
     }
   }
   &__input {
+    &:focus{
+      outline: none;
+      border-color: $primary-semi-light;
+    }
     @include mx.formMobile;
     font-family: "Titillium";
     color: $primary-dark;
     @include bp.medium{
-        @include tp.large-body-medium
+        @include tp.large-body-medium;
+        &:focus{
+          outline: none;
+      border-color: $primary-semi-light;
+    }
     }
         @include bp.large{
-        @include tp.large-body-medium
+        @include tp.large-body-medium;
+              &:focus{
+          outline: none;
+      border-color: $primary-semi-light;
+    }
     }
   }
   &__form-bottom {
