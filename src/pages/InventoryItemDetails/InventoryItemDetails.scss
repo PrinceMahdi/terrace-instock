@@ -5,14 +5,15 @@
 @use "../../styles/partials/breakpoints" as bp;
 @use "../../styles/partials/typography" as tp;
 @use "../../styles/partials/mixins" as mx;
-/* --------------- ASSET IMPORTS --------------- */
 
 .inventory {
   &__item {
     &-description {
+      /* --------------- STYLING FOR MOBILE DEVICES --------------- */
       @include bp.small {
         @include tp.small-auxiliary;
       }
+      /* --------------- STYLING FOR MEDIUM DEVICES --------------- */
       @include bp.medium {
         @include tp.large-auxiliary;
         width: 75%;
@@ -20,17 +21,21 @@
           margin-bottom: 1.5rem;
         }
       }
+      /* --------------- STYLING FOR LARGE DEVICES --------------- */
       @include bp.large {
         @include tp.large-auxiliary;
       }
       &__title {
         color: $secondary-dark;
+        /* --------------- STYLING FOR MOBILE DEVICES --------------- */
         @include bp.small {
           @include tp.small-table-header;
         }
+        /* --------------- STYLING FOR MOBILE DEVICES --------------- */
         @include bp.medium {
           @include tp.large-table-header;
         }
+        /* --------------- STYLING FOR LARGE DEVICES --------------- */
         @include bp.large {
           @include tp.large-table-header;
         }
@@ -46,11 +51,11 @@
       margin: -6.2rem 1rem 0 1rem;
       background-color: $primary-light;
       border-radius: 0.25rem;
-
+      /* --------------- STYLING FOR MOBILE DEVICES --------------- */
       @include bp.medium {
         margin: -6.85rem 3rem 0 3rem;
       }
-
+      /* --------------- STYLING FOR LARGE DEVICES --------------- */
       @include bp.large {
         margin: -6.85rem 5rem 0 5rem;
       }
@@ -74,6 +79,7 @@
         display: flex;
         align-items: center;
         gap: 0.3125rem;
+        /* --------------- STYLING FOR MOBILE DEVICES --------------- */
         @include bp.small {
           border-radius: 50%;
           width: 3rem;
@@ -86,6 +92,7 @@
         }
         &-text {
           display: inline;
+          /* --------------- STYLING FOR MOBILE DEVICES --------------- */
           @include bp.small {
             display: none;
           }
@@ -93,14 +100,17 @@
       }
 
       &__title {
+        /* --------------- STYLING FOR MOBILE DEVICES --------------- */
         @include bp.small {
           @include tp.small-page-header;
           font-weight: 600;
         }
+        /* --------------- STYLING FOR MEDIUM DEVICES --------------- */
         @include bp.medium {
           @include tp.large-page-header;
           font-weight: 600;
         }
+        /* --------------- STYLING FOR LARGE DEVICES --------------- */
         @include bp.large {
           @include tp.large-page-header;
           font-weight: 600;
@@ -122,10 +132,12 @@
 
       &--bottom {
         padding: 1rem;
+        /* --------------- STYLING FOR MEDIUM DEVICES --------------- */
         @include bp.medium {
           display: flex;
           gap: 5%;
         }
+        /* --------------- STYLING FOR LARGE DEVICES --------------- */
         @include bp.large {
           display: flex;
           gap: 5%;
@@ -133,7 +145,7 @@
         &-container {
           display: flex;
           gap: 5rem;
-
+          /* --------------- STYLING FOR LARGE DEVICES --------------- */
           @include bp.large {
             gap: 15rem;
           }
@@ -141,10 +153,12 @@
       }
 
       &--left {
+        /* --------------- STYLING FOR MEDIUM DEVICES --------------- */
         @include bp.medium {
           border-right: 1px solid $secondary-light;
           width: 50%;
         }
+        /* --------------- STYLING FOR LARGE DEVICES --------------- */
         @include bp.large {
           border-right: 1px solid $secondary-light;
           width: 50%;
