@@ -1,0 +1,28 @@
+@use "../../styles/partials/colors" as colors;
+@use "../../styles/partials/fonts";
+@import "../../styles/partials/breakpoints";
+@import "../../styles/partials/typography";
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #d1d1d1;
+  padding: 2.5rem 0;
+  @include large {
+    padding: 3rem 0;
+  }
+
+  &__text {
+    font-family: "Titillium";
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    @include small-body-small;
+    color: colors.$secondary-dark;
+
+    @include medium {
+      @include large-table-header;
+    }
+  }
+}
