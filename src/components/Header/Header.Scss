@@ -1,0 +1,89 @@
+/* --------------- PARTIAL IMPORTS --------------- */
+@use "../../styles/partials/reset";
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/breakpoints" as bp;
+@use "../../styles/partials/typography" as tp;
+@use "../../styles/partials/mixins" as mx;
+
+/* --------------- HEADER --------------- */
+.header {
+  background-color: $background-dark;
+  padding-top: 1rem;
+  padding-bottom: 7rem;
+}
+
+/* --------------- NAV --------------- */
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* --------------- STYLING FOR MEDIUM DEVICES --------------- */
+  @include bp.medium {
+    @include mx.medium-padding;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  /* --------------- STYLING FOR MEDIUM DEVICES --------------- */
+  @include bp.large {
+    @include mx.large-padding;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &-menu {
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    /* --------------- STYLING FOR SMALL DEVICES --------------- */
+    @include bp.small {
+      @include mx.small-padding;
+      justify-content: space-around;
+      width: 100vw;
+    }
+    /* --------------- STYLING FOR MEDIUM DEVICES --------------- */
+    @include bp.medium {
+      padding-left: 0;
+      gap: 10%;
+    }
+    /* --------------- STYLING FOR LARGE DEVICES --------------- */
+    @include bp.large {
+      padding-left: 0;
+      gap: 10%;
+    }
+  }
+
+  &-item {
+    text-align: center;
+    color: $secondary-light;
+
+    &--active {
+      @include mx.btn-primary;
+      background-color: $primary-dark;
+      border: 1px solid $primary-dark;
+      color: $primary-light;
+
+      /* --------------- STYLING FOR SMALL DEVICES --------------- */
+      @include bp.small {
+        padding: 0.7rem 2rem;
+      }
+      /* --------------- STYLING FOR MEDIUM DEVICES --------------- */
+      @include bp.medium {
+        padding: 0.5rem 1rem;
+        width: 9.4375rem;
+      }
+      /* --------------- STYLING FOR LARGE DEVICES --------------- */
+      @include bp.large {
+        padding: 0.5rem 1rem;
+        width: 9.4375rem;
+      }
+    }
+    /* --------------- STYLING FOR SMALL DEVICES --------------- */
+    @include bp.small {
+      @include tp.small-auxiliary;
+      width: 50%;
+    }
+  }
+}

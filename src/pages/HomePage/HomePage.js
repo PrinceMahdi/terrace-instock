@@ -3,7 +3,11 @@ import "./HomePage.scss";
 /* ---------------- COMPONENT IMPORTS ---------------- */
 
 const HomePage = () => {
-  return <></>;
+  return (
+    <>
+      
+    </>
+  );
 };
 
 export default HomePage;
