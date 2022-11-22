@@ -1,0 +1,43 @@
+/* ------------------------------- PARTIAL IMPORTS ------------------------------- */
+@use "../../styles/partials/reset";
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/breakpoints" as bp;
+@use "../../styles/partials/typography" as tp;
+@use "../../styles/partials/mixins" as mx;
+
+.header {
+  background-color: $background-dark;
+  padding-top: 1rem;
+}
+
+.nav {
+  @include mx.small-padding;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &-menu {
+    padding-left: 0;
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5%;
+  }
+
+  &-item {
+    color: $primary-light;
+    width: 50%;
+    text-align: center;
+    @include mx.btn-primary;
+
+    &--active {
+      //   @include mx.btn-primary;
+      //   background-color: $primary-dark;
+      //   border: 1px solid $primary-dark;
+      //   padding: 0.5rem 2rem;
+    }
+  }
+}
