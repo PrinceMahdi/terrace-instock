@@ -20,25 +20,24 @@ const WarehouseList = () => {
     };
     getWarehouseData();
   }, []);
-  console.log(warehouses);
 
   return (
     <section className="warehouse-list">
       <div className="warehouse-list-wrap">
-        <form className="warehouse-list__search-bar">
+        <form className="warehouse-list__search-form">
           <label htmlFor="warehouseList" className="warehouse-list__label">
             Warehouses
-            <input
-              name="warehouseList"
-              id="warehouseList"
-              placeholder="Search"
-              className="warehouse-list__search-input"
-            />
           </label>
+          <input
+            name="warehouseList"
+            id="warehouseList"
+            placeholder="Search"
+            className="warehouse-list__search-input"
+          />
+          <button className="warehouse-list__add-warehouse-btn">
+            + Add New Warehouse
+          </button>
         </form>
-        <button className="warehouse-list__add-warehouse-btn">
-          + Add New Warehouse
-        </button>
         <div className="video-list">
           <WarehouseCards warehouses={warehouses} />
         </div>
