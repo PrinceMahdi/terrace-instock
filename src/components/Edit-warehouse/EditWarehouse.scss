@@ -1,0 +1,18 @@
+/* ------------------------------- PARTIAL IMPORTS ------------------------------- */
+@use "../../styles/partials/mixins" as mx;
+
+.warehouse{
+&__wrapper{
+    border: 1px solid black;
+    @include mx.small-padding;
+    margin: 1rem;
+    border-radius: .25rem;
+}
+&__form-top{
+    display: flex;
+    flex-direction: column;
+}
+&__input{
+    @include mx.formMobile
+}
+}
