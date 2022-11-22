@@ -2,17 +2,25 @@
 import "./WarehouseList.scss";
 /* ---------------- REACT IMPORTS ---------------- */
 import WarehouseCards from "../WarehouseCards/WarehouseCards";
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 const warehouseData = "http://localhost:8080/warehouses";
 
 const WarehouseList = () => {
-  const getWarehouseData = async () => {
-    await axios.get(warehouseData).then((data) => {
-      
-    });
-  };
+  const [warehouses, setWarehouses] = useState([]);
+  useEffect(() => {
+    const getWarehouseData = async () => {
+      try {
+        const { data } = await axios.get(warehouseData);
+        setWarehouses(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getWarehouseData();
+  }, []);
+  console.log(warehouses);
 
   return (
     <section className="warehouse-list">
@@ -32,7 +40,7 @@ const WarehouseList = () => {
           + Add New Warehouse
         </button>
         <div className="video-list">
-          <WarehouseCards data={warehouseData} />
+          <WarehouseCards warehouses={warehouses} />
         </div>
       </div>
     </section>
