@@ -13,7 +13,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path"/" element={<Footer />}
+        <Route path="/footer" element={<Footer />} />
       </Routes>
     </BrowserRouter>
   );
