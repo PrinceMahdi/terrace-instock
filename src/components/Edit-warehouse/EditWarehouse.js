@@ -45,7 +45,7 @@ const handleChangeEmail = (event) => {
     <div className="warehouse__wrapper">
       <div className="warehouse__header">
         <a>
-          <div>back</div>
+          <div className="warehouse__back"></div>
         </a>
         <h2 className="warehouse__edit">Edit Warehouse</h2>
       </div>
