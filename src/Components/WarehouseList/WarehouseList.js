@@ -47,7 +47,9 @@ const WarehouseList = () => {
           <p className="warehouse-list-banner__warehouse">WAREHOUSE</p>
           <p className="warehouse-list-banner__address">ADDRESS</p>
           <p className="warehouse-list-banner__contact-name">CONTACT NAME</p>
-          <p className="warehouse-list-banner__contact-info">CONTACT INFORMATION</p>
+          <p className="warehouse-list-banner__contact-info">
+            CONTACT INFORMATION
+          </p>
           <p className="warehouse-list-banner__actions">ACCTIONS</p>
         </div>
         <WarehouseCards warehouses={warehouses} />

@@ -97,7 +97,7 @@
       padding: 1rem 1.5rem 0;
       @include bp.medium {
         width: 100%;
-        padding: 0;
+        padding: 0 1rem 0 0;
         order: 2;
         max-width: 20%;
         flex: 1;
