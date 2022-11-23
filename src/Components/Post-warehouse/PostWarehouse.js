@@ -1,12 +1,11 @@
 /* ---------------- SCSS IMPORTS ---------------- */
-import "./EditWarehouse.scss";
+import "./PostWarehouse.scss";
 
 /* ---------------- REACT IMPORTS ---------------- */
 import { useState } from "react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const EditWarehouse = () => {
+const PostWarehouse = () => {
   // track state for form fields
   const [nameState, setNameState] = useState("");
   const [addressState, setAddressState] = useState("");
@@ -16,9 +15,6 @@ const EditWarehouse = () => {
   const [positionState, setPositionState] = useState("");
   const [phoneState, setPhoneState] = useState("");
   const [emailState, setEmailState] = useState("");
-
-  const params = useParams();
-  const testId = '3190c8a3-6d5d-46f1-a107-f49168754b53'
 
   //track and set form content via state
   const handleChangeName = (event) => {
@@ -85,8 +81,8 @@ const EditWarehouse = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (isFormValid() && isPhoneValid() && isEmailValid()) {
-// take form field state, build newWarehouse object
-      const updateWarehouse = {
+      // take form field state, build newWarehouse object
+      const newWarehouse = {
         warehouse_name: nameState,
         address: addressState,
         city: cityState,
@@ -96,13 +92,15 @@ const EditWarehouse = () => {
         contact_phone: phoneState,
         contact_email: emailState,
       };
-      console.log(params.id)
+      console.log(newWarehouse);
       // send form to API
-      // TODO: this is post rather than put patch, will need to spread new warehouse into warehouses.
-      axios.put(`http://localhost:8080/warehouses/${testId}`, updateWarehouse).then((response) => {
-        console.log(response.data);
-        event.target.reset();
-      });
+      // TODO: this is post rather than put patch
+      axios
+        .post(`http://localhost:8080/warehouses`, newWarehouse)
+        .then((response) => {
+          console.log(response.data);
+          event.target.reset();
+        });
       alert("success");
     } else {
       console.log("form error");
@@ -114,7 +112,7 @@ const EditWarehouse = () => {
         <a>
           <div className="warehouse__back"></div>
         </a>
-        <h2 className="warehouse__edit">Edit Warehouse</h2>
+        <h2 className="warehouse__edit">Add New Warehouse</h2>
       </div>
       <form onSubmit={handleSubmit} className="warehouse__form">
         <div className="warehouse__form-container">
@@ -221,7 +219,7 @@ const EditWarehouse = () => {
             Cancel
           </button>
           <button className="warehouse__button warehouse__button--primary">
-            Save
+            Add Warehouse
           </button>
         </div>
       </form>
@@ -229,4 +227,4 @@ const EditWarehouse = () => {
   );
 };
 
-export default EditWarehouse;
+export default PostWarehouse;
