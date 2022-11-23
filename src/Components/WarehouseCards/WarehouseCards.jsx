@@ -6,7 +6,7 @@ const WarehouseCards = ({ warehouses }) => {
   return warehouses.map((warehouse) => {
     return (
       <section className="warehouse-cards-wrap" key={warehouse.id}>
-        <div className="warehouse-cards__warehouse-name-contact-wrap">
+        {/* <div className="warehouse-cards__warehouse-name-contact-wrap"> */}
           <div className="warehouse-cards__warehouse-name-wrap">
             <div className="warehouse-cards__warehouse-name-title">
               WAREHOUSE
@@ -23,8 +23,8 @@ const WarehouseCards = ({ warehouses }) => {
               {warehouse.contact_name}
             </div>
           </div>
-        </div>
-        <div className="warehouse-cards__contact-info-address-wrap">
+        {/* </div> */}
+        {/* <div className="warehouse-cards__contact-info-address-wrap"> */}
           <div className="warehouse-cards__address-wrap">
             <div className="warehouse-cards__address-title">ADDRESS</div>
             <div className="warehouse-cards__address">
@@ -42,7 +42,7 @@ const WarehouseCards = ({ warehouses }) => {
               {warehouse.contact_email}
             </div>
           </div>
-        </div>
+        {/* </div> */}
         <div className="warehouse-cards__icons-wrap">
           <img
             src={delIcon}

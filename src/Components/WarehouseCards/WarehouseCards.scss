@@ -12,7 +12,10 @@
     border-bottom: 1px solid $secondary-light;
     @include tp.small-body-small;
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
+    flex-wrap: wrap;
+    width: 18rem;
+    margin: 0 auto;
   }
   &__warehouse-name {
     &-contact-wrap {
