@@ -31,7 +31,7 @@ const App = () => {
           element={<WarehousedeleteModal />}
         />
         <Route
-          path="/iventories/delete/:id"
+          path="/inventories/delete/:id"
           element={<InventoryDeleteModal />}
         />
         <Route path="/inventory/item/:id" element={<InventoryItemDetails />} />
