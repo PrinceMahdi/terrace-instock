@@ -8,53 +8,73 @@
 
 .warehouse-cards {
   &-wrap {
-    border-top: 1px solid $secondary-light;
-    border-bottom: 1px solid $secondary-light;
+    border-top: 0.75px solid $secondary-light;
+    border-bottom: 0.75px solid $secondary-light;
     @include tp.small-body-small;
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
   }
   &__warehouse-name {
-    &-contact-wrap {
-      display: flex;
-      justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding-top: 4px;
+    &-link {
+      text-decoration: none;
     }
     &-wrap {
       display: flex;
       flex-direction: column;
-      padding: 4px;
+      padding: 1rem 1.5rem 0;
+      width: 50%;
     }
+    // &-contact-wrap {
+    //   display: flex;
+    //   justify-content: space-between;
+    // }
   }
   &__contact-name {
+    padding-top: 4px;
     &-wrap {
       display: flex;
       flex-direction: column;
-      padding: 4px;
+      padding-top: 1rem;
+      width: 50%;
     }
   }
   &__address {
+    padding-top: 4px;
     &-wrap {
       display: flex;
       flex-direction: column;
       padding: 4px;
+      width: 50%;
+      padding: 1rem 1.5rem 0;
     }
   }
   &__contact-info {
-    &-address-wrap {
-      display: flex;
-      justify-content: space-between;
-    }
     &-wrap {
       display: flex;
       flex-direction: column;
-      padding: 4px;
+      padding-top: 1rem;
     }
+    &-phone {
+      padding-top: 4px;
+    }
+    // &-email {
+    //   padding-top: 4px;
+    // }
+    //     &-address-wrap {
+    //   display: flex;
+    //   justify-content: space-between;
+    // }
   }
   &__icons-wrap {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 4px;
+    padding: 1.1875rem 1.75rem 1.6875rem;
   }
   &__icons {
     &-del {
