@@ -1,6 +1,8 @@
 /* ------------------ SCSS IMPORTS ------------------ */
 import "./App.scss";
 /* ---------------- COMPONENT IMPORTS ---------------- */
+import AddInventoryItem from "./pages/AddInventoryItem/AddInventoryItem";
+import EditInventoryItem from "./pages/EditInventoryItem/EditInventoryItem";
 import EditWarehouse from "./Components/Edit-warehouse/EditWarehouse";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
@@ -30,6 +32,8 @@ const App = () => {
           path="/inventory/details/:id"
           element={<InventoryItemDetails />}
         />
+        <Route path="/inventory/item/:id" element={<EditInventoryItem />} />
+        <Route path="/add/inventory/:id" element={<AddInventoryItem />} />
       </Routes>
       <Footer />
     </BrowserRouter>

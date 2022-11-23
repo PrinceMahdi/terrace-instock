@@ -9,55 +9,83 @@
 .warehouse-list {
   display: flex;
   justify-content: center;
-  //   width: 100%;
+  // margin-bottom: 1.5rem;
   &-wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-    margin: -6rem 1rem 0 1rem;
+    width: 100%;
+    margin: -6.2rem 1rem 0 1rem;
     background-color: $primary-light;
     border-radius: 0.25rem;
-    min-height: 30rem;
-    width: 100%;
 
     @include bp.medium {
-      margin: -2rem 3rem 0 3rem;
+      margin: -6.85rem 3rem 0 3rem;
     }
 
     @include bp.large {
-      margin: -2rem 5rem 0 5rem;
+      margin: -6.85rem 5rem 0 5rem;
     }
   }
-  &__label {
+  &__search-form {
+    width: 100%;
+  }
+  &__search-label {
     @include tp.small-page-header;
     display: flex;
-    flex-direction: column;
-    margin: 1rem;
-  }
-  &__search-form {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    text-align: left;
+    margin: 2rem 1.5rem 1rem;
   }
   &__search-input {
     outline: none;
-    background: #f5f5f5;
+    background: $primary-light;
     width: 100%;
-    height: 2.8rem;
-    border: none;
-    border-radius: 1.625rem;
+    height: 2.25rem;
+    @include bp.medium {
+      height: 2.375rem;
+    }
+    @include bp.large {
+      height: 2.375rem;
+    }
+    border: 1px solid $secondary-light;
+    border-radius: 1.25rem;
     padding: 0 3.5rem 0 1.5rem;
     margin: 1rem;
     background-image: url("../../assets/icons/search-24px.svg");
     background-repeat: no-repeat;
-    background-position: right 50%;
+    background-position: 95% 50%;
+    width: 100%;
+    margin: 0 1.5rem;
+    &:focus {
+      color: $primary-dark;
+      border-color: $primary-semi-light;
+    }
+    &::placeholder {
+      color: $secondary-dark;
+      @include tp.small-auxiliary;
+      @include bp.medium {
+        @include tp.large-auxiliary;
+      }
+      @include bp.large {
+        @include tp.large-auxiliary;
+      }
+    }
+    &-button-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 1.5rem;
+    }
   }
   &__add-warehouse-btn {
     // @include mx.btn-primary;
-    @include mx.btn-primary-hover;
+    &:hover {
+      @include mx.btn-primary-hover;
+    }
     @include mx.btn-primary-mobile;
-    margin-bottom: 1rem;
+    margin: 1rem 0 1.5rem;
+    width: 100%;
   }
 }
 
