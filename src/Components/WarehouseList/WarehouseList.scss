@@ -7,9 +7,70 @@
 @use "../../styles/partials/mixins" as mx;
 
 .warehouse-list {
+  &-banner {
+    color: $secondary-dark;
+    background-color: $background-light;
+    @include tp.large-body-small;
+    width: 100%;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    &__warehouse {
+      background-image: url(../../assets//icons/sort-24px.svg);
+      background-repeat: no-repeat;
+      background-size: 14px;
+      background-position: 5rem 50%;
+      @include bp.medium {
+        max-width: 20%;
+        flex: 1;
+      }
+    }
+    &__address {
+      background-image: url(../../assets//icons/sort-24px.svg);
+      background-repeat: no-repeat;
+      background-size: 14px;
+      background-position: 5rem 50%;
+      @include bp.medium {
+        max-width: 20%;
+        flex: 1;
+      }
+    }
+    &__contact-name {
+      background-image: url(../../assets//icons/sort-24px.svg);
+      background-repeat: no-repeat;
+      background-size: 14px;
+      background-position: 6rem 50%;
+      @include bp.medium {
+        max-width: 20%;
+        flex: 1;
+      }
+    }
+    &__contact-info {
+      background-image: url(../../assets//icons/sort-24px.svg);
+      background-repeat: no-repeat;
+      background-size: 14px;
+      background-position: right;
+      @include bp.medium {
+        max-width: 20%;
+        flex: 1;
+      }
+    }
+    &__actions {
+      @include bp.medium {
+        max-width: 20%;
+        flex: 1;
+        text-align: center;
+      }
+    }
+    @include bp.medium {
+      display: flex;
+    }
+    @include bp.small {
+      display: none;
+    }
+  }
   display: flex;
   justify-content: center;
-  // margin-bottom: 1.5rem;
   &-wrap {
     display: flex;
     flex-direction: column;
@@ -30,28 +91,35 @@
   }
   &__search-form {
     width: 100%;
+    @include bp.medium {
+      display: flex;
+      flex-direction: row;
+    }
   }
   &__search-label {
     @include tp.small-page-header;
     display: flex;
     text-align: left;
     margin: 2rem 1.5rem 1rem;
+    color: $primary-dark;
   }
   &__search-input {
-    outline: none;
-    background: $primary-light;
+    // outline: none;
+    // background: $primary-light;
     width: 100%;
     height: 2.25rem;
+    @include mx.btn-secondary;
     @include bp.medium {
       height: 2.375rem;
+      margin: 1rem;
     }
     @include bp.large {
       height: 2.375rem;
     }
-    border: 1px solid $secondary-light;
-    border-radius: 1.25rem;
+    // border: 1px solid $secondary-light;
+    // border-radius: 1.25rem;
     padding: 0 3.5rem 0 1.5rem;
-    margin: 1rem;
+    // margin: 1rem;
     background-image: url("../../assets/icons/search-24px.svg");
     background-repeat: no-repeat;
     background-position: 95% 50%;
@@ -59,7 +127,10 @@
     margin: 0 1.5rem;
     &:focus {
       color: $primary-dark;
-      border-color: $primary-semi-light;
+      border: 0.75 solid $primary-semi-light;
+    }
+    &:hover {
+      @include mx.btn-secondary-hover;
     }
     &::placeholder {
       color: $secondary-dark;
@@ -76,6 +147,12 @@
       flex-direction: column;
       align-items: center;
       margin: 0 1.5rem;
+      @include bp.medium {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
     }
   }
   &__add-warehouse-btn {
@@ -86,6 +163,11 @@
     @include mx.btn-primary-mobile;
     margin: 1rem 0 1.5rem;
     width: 100%;
+    @include bp.medium {
+      @include mx.btn-primary;
+      height: 2.375rem;
+      padding: 0;
+    }
   }
 }
 
