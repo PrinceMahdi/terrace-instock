@@ -18,6 +18,7 @@ const EditWarehouse = () => {
   const [emailState, setEmailState] = useState("");
 
   const params = useParams();
+  const testId = '3190c8a3-6d5d-46f1-a107-f49168754b53'
 
   //track and set form content via state
   const handleChangeName = (event) => {
@@ -98,7 +99,7 @@ const EditWarehouse = () => {
       console.log(params.id)
       // send form to API
       // TODO: this is post rather than put patch, will need to spread new warehouse into warehouses.
-      axios.patch(`http://localhost:8080/warehouses/${params.id}`, updateWarehouse).then((response) => {
+      axios.put(`http://localhost:8080/warehouses/${testId}`, updateWarehouse).then((response) => {
         console.log(response.data);
         event.target.reset();
       });
