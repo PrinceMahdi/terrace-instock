@@ -71,7 +71,7 @@ const AddInventoryItem = () => {
                   name="availability"
                   value="inStock"
                 ></input>
-                <label for="inStock">In Stock</label>
+                <label htmlFor="inStock">In Stock</label>
               </div>
               <div className="edit__inventory-item__radio--right">
                 <input
@@ -80,7 +80,7 @@ const AddInventoryItem = () => {
                   name="availability"
                   value="outOfStock"
                 ></input>
-                <label for="outOfStock">Out of Stock</label>
+                <label htmlFor="outOfStock">Out of Stock</label>
               </div>
             </div>
             <div className="edit__inventory-form__container">

@@ -33,7 +33,7 @@ const App = () => {
           element={<InventoryItemDetails />}
         />
         <Route path="/inventory/item/edit" element={<EditInventoryItem />} />
-        <Route path="/add/inventory/:id" element={<AddInventoryItem />} />
+        <Route path="/add/inventory/" element={<AddInventoryItem />} />
       </Routes>
       <Footer />
     </BrowserRouter>
