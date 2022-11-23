@@ -3,6 +3,7 @@ import "./EditWarehouse.scss";
 
 /* ---------------- REACT IMPORTS ---------------- */
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const EditWarehouse = () => {
@@ -15,6 +16,8 @@ const EditWarehouse = () => {
   const [positionState, setPositionState] = useState("");
   const [phoneState, setPhoneState] = useState("");
   const [emailState, setEmailState] = useState("");
+
+  const params = useParams();
 
   //track and set form content via state
   const handleChangeName = (event) => {
@@ -82,7 +85,7 @@ const EditWarehouse = () => {
     event.preventDefault();
     if (isFormValid() && isPhoneValid() && isEmailValid()) {
 // take form field state, build newWarehouse object
-      const newWarehouse = {
+      const updateWarehouse = {
         warehouse_name: nameState,
         address: addressState,
         city: cityState,
@@ -92,9 +95,10 @@ const EditWarehouse = () => {
         contact_phone: phoneState,
         contact_email: emailState,
       };
-      console.log(newWarehouse);
+      console.log(params.id)
       // send form to API
-      axios.post(`http://localhost:8080/warehouses`, newWarehouse).then((response) => {
+      // TODO: this is post rather than put patch, will need to spread new warehouse into warehouses.
+      axios.patch(`http://localhost:8080/warehouses/${params.id}`, updateWarehouse).then((response) => {
         console.log(response.data);
         event.target.reset();
       });
