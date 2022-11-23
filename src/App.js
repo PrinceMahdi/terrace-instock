@@ -29,10 +29,10 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/" element={<Footer />} />
         <Route
-          path="/inventory/details/:id"
+          path="/inventory/details/"
           element={<InventoryItemDetails />}
         />
-        <Route path="/inventory/item/:id" element={<EditInventoryItem />} />
+        <Route path="/inventory/item/edit" element={<EditInventoryItem />} />
         <Route path="/add/inventory/:id" element={<AddInventoryItem />} />
       </Routes>
       <Footer />
