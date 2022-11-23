@@ -25,18 +25,23 @@ const WarehouseList = () => {
     <section className="warehouse-list">
       <div className="warehouse-list-wrap">
         <form className="warehouse-list__search-form">
-          <label htmlFor="warehouseList" className="warehouse-list__label">
+          <label
+            htmlFor="warehouseList"
+            className="warehouse-list__search-label"
+          >
             Warehouses
           </label>
-          <input
-            name="warehouseList"
-            id="warehouseList"
-            placeholder="Search"
-            className="warehouse-list__search-input"
-          />
-          <button className="warehouse-list__add-warehouse-btn">
-            + Add New Warehouse
-          </button>
+          <div className="warehouse-list__search-input-button-wrap">
+            <input
+              name="warehouseList"
+              id="warehouseList"
+              placeholder="Search..."
+              className="warehouse-list__search-input"
+            />
+            <button className="warehouse-list__add-warehouse-btn">
+              + Add New Warehouse
+            </button>
+          </div>
         </form>
         <div className="video-list">
           <WarehouseCards warehouses={warehouses} />

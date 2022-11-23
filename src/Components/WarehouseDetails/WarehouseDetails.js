@@ -45,7 +45,9 @@ const inventory_array = [
 ];
 
 const WarehouseDetails = () => {
+
   return <></>;
+
 };
 
 export default WarehouseDetails;
