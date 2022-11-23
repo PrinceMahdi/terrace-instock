@@ -1,12 +1,12 @@
 /* ------------------ SCSS IMPORTS ------------------ */
 import "./App.scss";
 /* ---------------- COMPONENT IMPORTS ---------------- */
-import Header from "./components/Header/Header";
+import EditWarehouse from "./Components/Edit-warehouse/EditWarehouse";
+import Header from "./Components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
-import Footer from "./components/Footer/Footer";
-import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
-import WarehousedeleteModal from "./components/Modals/WarehouseDeleteModal";
-import InventoryDeleteModal from "./components/Modals/InventoryDeleteModal";
+import WarehouseDetails from "./Components/WarehouseDetails/WarehouseDetails";
+import WarehousedeleteModal from "./Components/Modals/WarehouseDeleteModal";
+import InventoryDeleteModal from "./Components/Modals/InventoryDeleteModal";
 import Footer from "./Components/Footer/Footer";
 import InventoryItemDetails from "./pages/InventoryItemDetails/InventoryItemDetails";
 /* ---------------- REACT IMPORTS ---------------- */
@@ -17,14 +17,14 @@ const App = () => {
     <BrowserRouter>
       <Header />
       <WarehouseDetails />
-      <WarehousedeleteModal />
+      {/* <WarehousedeleteModal /> */}
 
       <Footer />
 
       <Routes>
+        <Route path="/edit-warehouse" element={<EditWarehouse />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/" element={<Footer />} />
-        <Route path="/footer" element={<Footer />} />
         <Route
           path="/inventory/details/:id"
           element={<InventoryItemDetails />}

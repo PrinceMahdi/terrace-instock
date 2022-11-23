@@ -110,3 +110,19 @@
   padding: 0.2rem 0.5rem;
   font-weight: 600;
 }
+/* ------------- MIXIN FOR FORM FIELDS ------------- */
+// small form field
+@mixin formMobile{
+  height: 2rem;
+  border-radius: 1.25rem;
+  color: $secondary-dark;
+  border: 1px solid $secondary-light;
+  background-color: $primary-light;
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0 1rem;
+}
+// tablet/desktop form
+@mixin form{
+  height: 2.375rem;
+}
