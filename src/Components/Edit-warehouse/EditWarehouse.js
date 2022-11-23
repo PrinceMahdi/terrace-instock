@@ -81,7 +81,7 @@ const EditWarehouse = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (isFormValid() && isPhoneValid() && isEmailValid()) {
-
+// take form field state, build newWarehouse object
       const newWarehouse = {
         warehouse_name: nameState,
         address: addressState,
@@ -93,11 +93,11 @@ const EditWarehouse = () => {
         contact_email: emailState,
       };
       console.log(newWarehouse);
-      // axios.post(`${BACK_END}/warehouses`, newWarehouse).then((response) => {
-      //   console.log(response.data);
-      //   event.target.reset();
-      // });
       // send form to API
+      axios.post(`http://localhost:8080/warehouses`, newWarehouse).then((response) => {
+        console.log(response.data);
+        event.target.reset();
+      });
       alert("success");
     } else {
       console.log("form error");
