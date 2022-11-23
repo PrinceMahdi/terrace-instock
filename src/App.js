@@ -19,21 +19,27 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header />
-  
-      {/* <WarehousedeleteModal /> */}
 
+    
       <Routes>
-        <Route path='/:id' element={<WarehouseDetails />} />
-        <Route path="/edit" element={<EditWarehouse />} />
-        <Route path="/warehouses/post" element={<PostWarehouse />} />
         <Route path="/" element={<HomePage />} />
-        <Route path="/" element={<Footer />} />
+        <Route path="/warehouses/:id" element={<WarehouseDetails />} />
+        <Route path="/warehouses/edit/:id" element={<EditWarehouse />} />
+        <Route path="/warehouses/add" element={<PostWarehouse />} />
         <Route
-          path="/inventory/details/"
-          element={<InventoryItemDetails />}
+          path="/warehouses/delete/:id"
+          element={<WarehousedeleteModal />}
         />
-        <Route path="/inventory/item/edit" element={<EditInventoryItem />} />
-        <Route path="/add/inventory/" element={<AddInventoryItem />} />
+        <Route
+          path="/iventories/delete/:id"
+          element={<InventoryDeleteModal />}
+        />
+        <Route path="/inventory/item/:id" element={<InventoryItemDetails />} />
+        <Route
+          path="/inventories/item/edit/id"
+          element={<EditInventoryItem />}
+        />
+        <Route path="/inventories/add" element={<AddInventoryItem />} />
       </Routes>
       <Footer />
     </BrowserRouter>
