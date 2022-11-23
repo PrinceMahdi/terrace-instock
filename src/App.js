@@ -5,7 +5,7 @@ import EditWarehouse from "./Components/Edit-warehouse/EditWarehouse";
 import Header from "./Components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
 import WarehouseDetails from "./Components/WarehouseDetails/WarehouseDetails";
-import WarehousedeleteModal from "./Components/Modals/WarehouseDeleteModal";
+import WarehouseDeleteModal from "./Components/Modals/WarehouseDeleteModal";
 import InventoryDeleteModal from "./Components/Modals/InventoryDeleteModal";
 import Footer from "./Components/Footer/Footer";
 import InventoryItemDetails from "./pages/InventoryItemDetails/InventoryItemDetails";
@@ -18,19 +18,29 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      <WarehouseDetails />
-      {/* <WarehousedeleteModal /> */}
-
       <Routes>
-        <Route path="/edit-warehouse" element={<EditWarehouse />} />
         <Route path="/" element={<HomePage />} />
-        <Route path="/" element={<Footer />} />
+        <Route path="/warehouses/:id" element={<WarehouseDetails />} />
+        <Route path="/warehouses/edit/:id" element={<EditWarehouse />} />
+        {/* Add routing for warehouse add item /warehouse/add */}
         <Route
-          path="/inventory/details/:id"
+          path="/warehouses/delete/:id"
+          element={<WarehouseDeleteModal />}
+        />
+        {/* Add routing for inventory list /inventories */}
+        <Route
+          path="/inventories/delete/:id"
+          element={<InventoryDeleteModal />}
+        />
+        <Route
+          path="/inventories/item/:id"
           element={<InventoryItemDetails />}
         />
-        <Route path="/inventory/item/:id" element={<EditInventoryItem />} />
-        <Route path="/add/inventory/:id" element={<AddInventoryItem />} />
+        <Route
+          path="/inventories/item/edit/:id"
+          element={<EditInventoryItem />}
+        />
+        <Route path="/inventories/add" element={<AddInventoryItem />} />
       </Routes>
       <Footer />
     </BrowserRouter>
