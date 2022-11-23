@@ -1,0 +1,26 @@
+/* --------------- PARTIAL IMPORTS --------------- */
+@use "../../styles/partials/reset";
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/breakpoints" as bp;
+@use "../../styles/partials/typography" as tp;
+@use "../../styles/partials/mixins" as mx;
+
+.edit {
+  &__inventory {
+    &-form {
+      &__quantity {
+        @include bp.large {
+          width: 35%;
+        }
+      }
+    }
+    &-item {
+      &__radio {
+        &--left label {
+          font-size: 0.9375rem;
+        }
+      }
+    }
+  }
+}

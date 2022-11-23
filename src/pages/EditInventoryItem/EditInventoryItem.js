@@ -90,7 +90,21 @@ const EditInventoryItem = () => {
                   <label for="outOfStock">Out of Stock</label>
                 </div>
               </div>
-
+              <div className="edit__inventory-form__container">
+                <label
+                  htmlFor="itemName"
+                  className="edit__inventory-item__label"
+                >
+                  Quantity
+                </label>
+                <input
+                  type="text"
+                  className="edit__inventory-item__input edit__inventory-form__quantity"
+                  placeholder="Quantity"
+                  name="quantity"
+                  id="quantity"
+                />
+              </div>
               <div className="edit__inventory-form__container">
                 <label
                   htmlFor="location"
@@ -118,7 +132,6 @@ const EditInventoryItem = () => {
           </div>
         </form>
       </section>
-      
     </>
   );
 };
