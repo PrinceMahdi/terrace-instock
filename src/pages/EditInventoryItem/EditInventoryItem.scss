@@ -1,0 +1,217 @@
+/* --------------- PARTIAL IMPORTS --------------- */
+@use "../../styles/partials/reset";
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/breakpoints" as bp;
+@use "../../styles/partials/typography" as tp;
+@use "../../styles/partials/mixins" as mx;
+
+.header {
+  @include bp.small {
+    padding-bottom: 4rem;
+  }
+  @include bp.medium {
+    padding-bottom: 6rem;
+  }
+  @include bp.large {
+    padding-bottom: 6rem;
+  }
+}
+
+.edit {
+  &__inventory {
+    &-form {
+      &-wrapper {
+        @include bp.medium {
+          display: flex;
+        }
+        @include bp.large {
+          display: flex;
+        }
+      }
+      &__container {
+        display: flex;
+        flex-direction: column;
+
+        @include bp.small {
+          padding: 0 1rem;
+        }
+        @include bp.medium {
+          padding: 0 3rem;
+        }
+        @include bp.large {
+          padding: 0 5rem;
+        }
+        &--bottom {
+          padding-bottom: 1rem;
+          @include bp.small {
+            border-bottom: 1px solid $secondary-light;
+          }
+        }
+      }
+      &--left {
+        @include bp.medium {
+          width: 50%;
+          border-right: 1px solid $secondary-light;
+        }
+        @include bp.large {
+          width: 50%;
+          border-right: 1px solid $secondary-light;
+        }
+      }
+      &--right {
+        @include bp.medium {
+          width: 50%;
+        }
+        @include bp.large {
+          width: 50%;
+        }
+      }
+    }
+    &-item {
+      &__input {
+        border: 1px solid $secondary-light;
+        border-radius: 1.25rem;
+        padding: 0.75rem 1rem;
+        margin-bottom: 0.75rem;
+        resize: none;
+      }
+      &__label {
+        @include tp.small-auxiliary;
+        margin-bottom: 0.3rem;
+        font-weight: 600;
+
+        &--bottom {
+          @include bp.small {
+            padding: 0 1rem;
+          }
+          @include bp.medium {
+            padding: 0 3rem;
+          }
+          @include bp.large {
+            padding: 0 5rem;
+          }
+        }
+        &--top {
+          padding: 0;
+        }
+      }
+      &__header {
+        @include tp.small-sub-header;
+        font-weight: 600;
+        @include bp.small {
+          padding: 0 1rem;
+        }
+        @include bp.medium {
+          padding: 0 3rem;
+        }
+        @include bp.large {
+          padding: 0 5rem;
+        }
+        &--bottom {
+          padding: 0;
+        }
+      }
+      &--top {
+        display: flex;
+        align-items: center;
+        padding: 1.5rem;
+        gap: 0.6875rem;
+        border-bottom: 1px solid $secondary-light;
+      }
+      &-arrow {
+        background-image: url("../../assets/icons/arrow_back-24px.svg");
+        background-repeat: no-repeat;
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+      &__title {
+        @include tp.small-page-header;
+        font-size: 1.6rem;
+        font-weight: 600;
+      }
+      &__section {
+        box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+        margin: -3.2rem 1rem 0 1rem;
+        background-color: $primary-light;
+        border-radius: 0.25rem;
+        /* --------------- STYLING FOR MOBILE DEVICES --------------- */
+        @include bp.medium {
+          margin: -5.3rem 3rem 0 3rem;
+        }
+        /* --------------- STYLING FOR LARGE DEVICES --------------- */
+        @include bp.large {
+          margin: -5.3rem 5rem 0 5rem;
+        }
+      }
+      &__button {
+        &-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: $background-light;
+          gap: 1rem;
+
+          @include bp.small {
+            padding: 1rem 1rem;
+          }
+          @include bp.medium {
+            padding: 1rem 3rem;
+            justify-content: end;
+          }
+          @include bp.large {
+            padding: 1rem 5rem;
+            justify-content: end;
+          }
+        }
+      }
+      &__cancel {
+        &-button {
+          @include mx.btn-secondary-mobile;
+          @include bp.small {
+            width: 50%;
+          }
+
+          &:hover {
+            @include mx.btn-secondary-hover;
+          }
+        }
+      }
+      &__save {
+        &-button {
+          @include mx.btn-primary-mobile;
+          @include bp.small {
+            width: 50%;
+          }
+
+          &:hover {
+            @include mx.btn-primary-hover;
+          }
+        }
+      }
+    }
+    &-radio {
+      &__container {
+        display: flex;
+        gap: 4rem;
+        margin-bottom: 1rem;
+        @include bp.small {
+          padding: 0 1rem;
+        }
+        @include bp.medium {
+          padding: 0 3rem;
+        }
+        @include bp.large {
+          padding: 0 5rem;
+        }
+      }
+    }
+  }
+}
+.select {
+  appearance: none;
+  background-image: url("../../assets/icons/arrow_drop_down-24px.svg");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem top 50%;
+  background-size: 1.5rem 1.5rem;
+}
