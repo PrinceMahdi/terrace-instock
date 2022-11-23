@@ -3,6 +3,7 @@ import "./EditWarehouse.scss";
 
 /* ---------------- REACT IMPORTS ---------------- */
 import { useState } from "react";
+import axios from "axios";
 
 const EditWarehouse = () => {
   // track state for form fields
@@ -80,10 +81,26 @@ const EditWarehouse = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (isFormValid() && isPhoneValid() && isEmailValid()) {
+
+      const newWarehouse = {
+        warehouse_name: nameState,
+        address: addressState,
+        city: cityState,
+        country: countryState,
+        contact_name: contactState,
+        contact_position: positionState,
+        contact_phone: phoneState,
+        contact_email: emailState,
+      };
+      console.log(newWarehouse);
+      // axios.post(`${BACK_END}/warehouses`, newWarehouse).then((response) => {
+      //   console.log(response.data);
+      //   event.target.reset();
+      // });
       // send form to API
       alert("success");
     } else {
-      alert("form error");
+      console.log("form error");
     }
   };
   return (
