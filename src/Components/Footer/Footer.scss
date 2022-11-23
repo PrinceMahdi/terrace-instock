@@ -7,8 +7,9 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: #d1d1d1;
+  background-color: colors.$background-light;
   padding: 2.5rem 0;
+  margin-top: 2px;
   @include large {
     padding: 3rem 0;
   }
