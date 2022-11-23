@@ -41,6 +41,51 @@ const EditWarehouse = () => {
     setEmailState(event.target.value);
   };
 
+  const phoneRegex = new RegExp(
+    `^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$`
+  );
+  const emailRegex = new RegExp(".+@.+..+");
+
+  // check if phone valid
+  const isPhoneValid = () => {
+    if (!phoneState.match(phoneRegex)) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+  const isEmailValid = () => {
+    if (emailState.match(emailRegex)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  // check if full form valid
+  const isFormValid = () => {
+    // check each field validated for some content
+    if (
+      nameState.length < 1 ||
+      addressState.length < 1 ||
+      cityState.length < 1 ||
+      countryState < 1 ||
+      contactState < 1 ||
+      positionState < 1
+    ) {
+      return false;
+    } else return true;
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (isFormValid() && isPhoneValid() && isEmailValid()) {
+      // send form to API
+      alert("success");
+    } else {
+      alert("form error");
+    }
+  };
   return (
     <div className="warehouse__wrapper">
       <div className="warehouse__header">
@@ -49,7 +94,7 @@ const EditWarehouse = () => {
         </a>
         <h2 className="warehouse__edit">Edit Warehouse</h2>
       </div>
-      <form action="" className="warehouse__form">
+      <form onSubmit={handleSubmit} className="warehouse__form">
         <div className="warehouse__form-container">
           <div className="warehouse__form-top">
             <h3 className="warehouse__form-subhead">Warehouse Details</h3>
