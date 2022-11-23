@@ -19,8 +19,6 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header />
-
-    
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/warehouses/:id" element={<WarehouseDetails />} />
@@ -28,15 +26,19 @@ const App = () => {
         <Route path="/warehouses/add" element={<PostWarehouse />} />
         <Route
           path="/warehouses/delete/:id"
-          element={<WarehousedeleteModal />}
+          element={<WarehouseDeleteModal />}
         />
+        {/* Add routing for inventory list /inventories */}
         <Route
           path="/inventories/delete/:id"
           element={<InventoryDeleteModal />}
         />
-        <Route path="/inventory/item/:id" element={<InventoryItemDetails />} />
         <Route
-          path="/inventories/item/edit/id"
+          path="/inventories/item/:id"
+          element={<InventoryItemDetails />}
+        />
+        <Route
+          path="/inventories/item/edit/:id"
           element={<EditInventoryItem />}
         />
         <Route path="/inventories/add" element={<AddInventoryItem />} />

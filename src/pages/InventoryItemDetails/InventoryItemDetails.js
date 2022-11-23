@@ -11,9 +11,7 @@ const InventoryItemDetails = () => {
         </div>
         <button className="inventory__item-details__button">
           <div className="inventory__item-details__button-icon"></div>
-          <div className="inventory__item-details__button-text">
-            Edit
-          </div>
+          <div className="inventory__item-details__button-text">Edit</div>
         </button>
       </div>
       <div className="inventory__item-details--bottom">
