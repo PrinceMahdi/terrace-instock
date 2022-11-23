@@ -5,6 +5,7 @@ import Header from "./Components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
 import Footer from "./Components/Footer/Footer";
 import InventoryItemDetails from "./pages/InventoryItemDetails/InventoryItemDetails";
+import EditInventoryItem from "./pages/EditInventoryItem/EditInventoryItem";
 /* ---------------- REACT IMPORTS ---------------- */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -19,7 +20,9 @@ const App = () => {
           path="/inventory/details/:id"
           element={<InventoryItemDetails />}
         />
+        <Route path="/inventory/item/:id" element={<EditInventoryItem />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
