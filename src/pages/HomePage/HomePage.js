@@ -7,7 +7,7 @@ import WarehouseList from "../../Components/WarehouseList/WarehouseList";
 const HomePage = () => {
   return (
     <>
-      <WarehouseList />
+      {/* <WarehouseList /> */}
       {/* <InventoryList /> */}
     </>
   );
