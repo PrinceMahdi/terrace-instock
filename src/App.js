@@ -21,12 +21,13 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/warehouses" element={<HomePage />}/>
         <Route path="/warehouses/:id" element={<WarehouseDetails />} />
         <Route path="/warehouses/edit/:id" element={<EditWarehouse />} />
         <Route path="/warehouses/add" element={<PostWarehouse />} />
         <Route
           path="/warehouses/delete/:id"
-          element={<WarehouseDeleteModal />}
+          element={<WarehousedeleteModal />}
         />
         {/* Add routing for inventory list /inventories */}
         <Route

@@ -3,7 +3,7 @@ import "./EditWarehouse.scss";
 
 /* ---------------- REACT IMPORTS ---------------- */
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 const EditWarehouse = () => {
@@ -18,7 +18,6 @@ const EditWarehouse = () => {
   const [emailState, setEmailState] = useState("");
 
   const params = useParams();
-  const testId = '3190c8a3-6d5d-46f1-a107-f49168754b53'
 
   //track and set form content via state
   const handleChangeName = (event) => {
@@ -85,7 +84,7 @@ const EditWarehouse = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (isFormValid() && isPhoneValid() && isEmailValid()) {
-// take form field state, build newWarehouse object
+      // take form field state, build newWarehouse object
       const updateWarehouse = {
         warehouse_name: nameState,
         address: addressState,
@@ -96,13 +95,13 @@ const EditWarehouse = () => {
         contact_phone: phoneState,
         contact_email: emailState,
       };
-      console.log(params.id)
+
       // send form to API
-      // TODO: this is post rather than put patch, will need to spread new warehouse into warehouses.
-      axios.put(`http://localhost:8080/warehouses/${testId}`, updateWarehouse).then((response) => {
-        console.log(response.data);
-        event.target.reset();
-      });
+      axios
+        .put(`http://localhost:8080/warehouses/${params.id}`, updateWarehouse)
+        .then((response) => {
+          event.target.reset();
+        });
       alert("success");
     } else {
       console.log("form error");
@@ -111,9 +110,9 @@ const EditWarehouse = () => {
   return (
     <div className="warehouse__wrapper">
       <div className="warehouse__header">
-        <a>
+        <Link to=".." relative="path">
           <div className="warehouse__back"></div>
-        </a>
+        </Link>
         <h2 className="warehouse__edit">Edit Warehouse</h2>
       </div>
       <form onSubmit={handleSubmit} className="warehouse__form">

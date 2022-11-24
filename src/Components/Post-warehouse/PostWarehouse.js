@@ -3,7 +3,9 @@ import "./PostWarehouse.scss";
 
 /* ---------------- REACT IMPORTS ---------------- */
 import { useState } from "react";
+/* ---------------- DEPENDENCY IMPORTS ---------------- */
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const PostWarehouse = () => {
   // track state for form fields
@@ -92,13 +94,13 @@ const PostWarehouse = () => {
         contact_phone: phoneState,
         contact_email: emailState,
       };
-      console.log(newWarehouse);
+
       // send form to API
-      // TODO: this is post rather than put patch
+   
       axios
         .post(`http://localhost:8080/warehouses`, newWarehouse)
         .then((response) => {
-          console.log(response.data);
+
           event.target.reset();
         });
       alert("success");
@@ -109,9 +111,9 @@ const PostWarehouse = () => {
   return (
     <div className="warehouse__wrapper">
       <div className="warehouse__header">
-        <a>
+        <Link to='..' relative="path">
           <div className="warehouse__back"></div>
-        </a>
+        </Link>
         <h2 className="warehouse__edit">Add New Warehouse</h2>
       </div>
       <form onSubmit={handleSubmit} className="warehouse__form">
@@ -219,7 +221,7 @@ const PostWarehouse = () => {
             Cancel
           </button>
           <button className="warehouse__button warehouse__button--primary">
-            Add Warehouse
+            +Add Warehouse
           </button>
         </div>
       </form>
