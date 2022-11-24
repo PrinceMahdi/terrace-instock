@@ -94,13 +94,13 @@ const PostWarehouse = () => {
         contact_phone: phoneState,
         contact_email: emailState,
       };
-      console.log(newWarehouse);
+
       // send form to API
-      // TODO: this is post rather than put patch
+   
       axios
         .post(`http://localhost:8080/warehouses`, newWarehouse)
         .then((response) => {
-          console.log(response.data);
+
           event.target.reset();
         });
       alert("success");
