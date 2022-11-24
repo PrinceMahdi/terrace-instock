@@ -3,13 +3,16 @@ import "./AddInventoryItem.scss";
 /* ---------------- DEPENDENCY IMPORTS ---------------- */
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const AddInventoryItem = () => {
   const [itemNameState, setItemNameState] = useState("");
   const [itemDescriptionState, setItemDescriptionState] = useState("");
   const [itemCategoryState, setItemCategoryState] = useState("");
-  const [stockState, setStockState] =useState('inStock')
+  const [stockState, setStockState] = useState("");
+  const [quantityState, setQuantityState] = useState("");
+  const [warehouseState, setWarehouseState] = useState("");
+  const [warehouseListState, setWarehouseListState] = useState([]);
 
   const handleChangeName = (event) => {
     setItemNameState(event.target.value);
@@ -20,9 +23,48 @@ const AddInventoryItem = () => {
   const handleChangeCategory = (event) => {
     setItemCategoryState(event.target.value);
   };
-   const handleChangeStock = (event) => {
-     setStockState(event.target.value);
-   };
+  const handleChangeStock = (event) => {
+    setStockState(event.target.value);
+  };
+  const handleChangeQuantity = (event) => {
+    setQuantityState(event.target.value);
+  };
+  const handleChangeWarehouse = (event) => {
+    setWarehouseState(event.target.value);
+  };
+
+  // axios get to warehouses
+  // get list of ids
+  // for each id return warehouses.map((warehouse))
+  useEffect(() => {
+    axios.get(`http://localhost:8080/warehouses`).then((response) => {
+      setWarehouseListState(response.data);
+    });
+  }, []);
+
+  // TODO: check form validity
+
+  // function to handle form submission
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // if form valid
+    const newItem = {
+      warehouse_id: warehouseState,
+      item_name: itemNameState,
+      description: itemDescriptionState,
+      category: itemCategoryState,
+      status: stockState,
+      quantity: quantityState,
+    };
+    axios
+      .post(`http://localhost:8080/inventories`, newItem)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <section className="edit__inventory-item__section">
       <div className="edit__inventory-item--top">
@@ -34,7 +76,7 @@ const AddInventoryItem = () => {
         </div>
       </div>
 
-      <form action="" className="edit__inventory-form">
+      <form onSubmit={handleSubmit} className="edit__inventory-form">
         <div className="edit__inventory-form-wrapper">
           <div className="edit__inventory-form--left">
             <h1 className="edit__inventory-item__header">Item Details</h1>
@@ -79,6 +121,7 @@ const AddInventoryItem = () => {
                 name="category"
                 id="category"
                 onChange={handleChangeCategory}
+                value={itemCategoryState}
               >
                 <option defaultValue="" hidden>
                   Category
@@ -103,7 +146,6 @@ const AddInventoryItem = () => {
                   id="inStock"
                   name="availability"
                   value="inStock"
-                  checked="checked"
                   onChange={handleChangeStock}
                 ></input>
                 <label htmlFor="inStock">In Stock</label>
@@ -129,6 +171,8 @@ const AddInventoryItem = () => {
                 placeholder="Quantity"
                 name="quantity"
                 id="quantity"
+                value={quantityState}
+                onChange={handleChangeQuantity}
               />
             </div>
             <div className="edit__inventory-form__container">
@@ -142,18 +186,21 @@ const AddInventoryItem = () => {
                 className="edit__inventory-item__input select"
                 name="location"
                 id="location"
+                // value={warehouseState}
+                onChange={handleChangeWarehouse}
               >
                 <option defaultValue="" hidden>
                   Warehouse
                 </option>
-                <option value="Boston">Boston</option>
-                <option value="Jersey">Jersey</option>
-                <option value="Manhattan">Manhattan</option>
-                <option value="Miami">Miami</option>
-                <option value="Santa Monica">Santa Monica</option>
-                <option value="Seattle">Seattle</option>
-                <option value="SF">SF</option>
-                <option value="Washington">Washington</option>
+                {Object.keys(warehouseListState).length > 0 ? (
+                  warehouseListState.map((warehouse) => (
+                    <option key={warehouse.id} value={warehouse.id}>
+                      {warehouse.warehouse_name}
+                    </option>
+                  ))
+                ) : (
+                  <option>loading</option>
+                )}
               </select>
             </div>
           </div>

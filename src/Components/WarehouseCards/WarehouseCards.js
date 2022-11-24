@@ -12,7 +12,7 @@ const WarehouseCards = ({ warehouses }) => {
 
   const [openModal, setOpenModal] = useState(false);
 
-  return warehouses.map((warehouse) => (
+  if (warehouses)return warehouses.map((warehouse) => (
     <section className="warehouse-cards-wrap" key={warehouse.id}>
       <div className="warehouse-cards__warehouse-name-wrap">
         <div className="warehouse-cards__warehouse-name-title">WAREHOUSE</div>
