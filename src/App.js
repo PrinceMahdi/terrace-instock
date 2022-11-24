@@ -2,10 +2,10 @@
 import "./App.scss";
 /* ---------------- COMPONENT IMPORTS ---------------- */
 import EditWarehouse from "./Components/Edit-warehouse/EditWarehouse";
-import Header from "./Components/Header/Header";
+import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
-import WarehouseDetails from "./Components/WarehouseDetails/WarehouseDetails";
-import Footer from "./Components/Footer/Footer";
+import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
+import Footer from "./components/Footer/Footer";
 import WarehousedeleteModal from "./Components/Modals/WarehouseDeleteModal";
 import InventoryDeleteModal from "./Components/Modals/InventoryDeleteModal";
 import InventoryItemDetails from "./pages/InventoryItemDetails/InventoryItemDetails";
@@ -18,7 +18,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      <WarehouseDetails />
+      {/* <WarehouseDetails /> */}
       {/* <WarehousedeleteModal /> */}
 
       <Routes>
