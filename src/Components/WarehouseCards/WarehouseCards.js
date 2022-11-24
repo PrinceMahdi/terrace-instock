@@ -72,6 +72,7 @@ const WarehouseCards = ({ warehouses }) => {
         onClose={() => {
           setOpenModal(false);
         }}
+        warehouseID={warehouse.id}
       />
     </section>
   ));
