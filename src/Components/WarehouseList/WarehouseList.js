@@ -4,6 +4,9 @@ import "./WarehouseList.scss";
 import WarehouseCards from "../WarehouseCards/WarehouseCards";
 import { useEffect, useState } from "react";
 import axios from "axios";
+/* ---------------- ICONS IMPORTS ---------------- */
+import sortIcon from "../../assets/icons/sort-24px.svg";
+import { NavLink } from "react-router-dom";
 
 const warehouseData = "http://localhost:8080/warehouses";
 
@@ -43,9 +46,58 @@ const WarehouseList = () => {
             </button>
           </div>
         </form>
-        <div className="video-list">
-          <WarehouseCards warehouses={warehouses} />
+        <div className="warehouse-list-banner">
+          <div className="warehouse-list-banner__text-icon-wrap">
+            <p className="warehouse-list-banner__title">WAREHOUSE</p>
+            <img
+              src={sortIcon}
+              className="warehouse-list-banner__sort-icon"
+              alt="sort icon"
+              id="sortWarehouse"
+              onClick={() => {
+                alert("it's working");
+              }}
+            />
+          </div>
+          <div className="warehouse-list-banner__text-icon-wrap">
+            <p className="warehouse-list-banner__title">ADDRESS</p>
+            <img
+              src={sortIcon}
+              className="warehouse-list-banner__sort-icon"
+              alt="sort icon"
+              id="sortAddress"
+              onClick={() => {
+                alert("it's working");
+              }}
+            />
+          </div>
+          <div className="warehouse-list-banner__text-icon-wrap">
+            <p className="warehouse-list-banner__title">CONTACT NAME</p>
+            <img
+              src={sortIcon}
+              className="warehouse-list-banner__sort-icon"
+              alt="sort icon"
+              id="sortContactName"
+              onClick={() => {
+                alert("it's working");
+              }}
+            />
+          </div>
+          <div className="warehouse-list-banner__text-icon-wrap">
+            <p className="warehouse-list-banner__title">CONTACT INFORMATION</p>
+            <img
+              src={sortIcon}
+              className="warehouse-list-banner__sort-icon"
+              alt="sort icon"
+              id="sortContactInfo"
+              onClick={() => {
+                alert("it's working");
+              }}
+            />
+          </div>
+          <p className="warehouse-list-banner__actions">ACCTIONS</p>
         </div>
+        <WarehouseCards warehouses={warehouses} />
       </div>
     </section>
   );
