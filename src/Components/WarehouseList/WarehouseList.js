@@ -4,9 +4,9 @@ import "./WarehouseList.scss";
 import WarehouseCards from "../WarehouseCards/WarehouseCards";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 /* ---------------- ICONS IMPORTS ---------------- */
 import sortIcon from "../../assets/icons/sort-24px.svg";
-import { NavLink } from "react-router-dom";
 
 const warehouseData = "http://localhost:8080/warehouses";
 
@@ -23,6 +23,12 @@ const WarehouseList = () => {
     };
     getWarehouseData();
   }, []);
+
+  let navigate = useNavigate();
+  const toAddWarehouseComponent = () => {
+    let path = "/warehouses/add";
+    navigate(path);
+  };
 
   return (
     <section className="warehouse-list">
@@ -41,7 +47,10 @@ const WarehouseList = () => {
               placeholder="Search..."
               className="warehouse-list__search-input"
             />
-            <button className="warehouse-list__add-warehouse-btn">
+            <button
+              className="warehouse-list__add-warehouse-btn"
+              onClick={toAddWarehouseComponent}
+            >
               + Add New Warehouse
             </button>
           </div>
