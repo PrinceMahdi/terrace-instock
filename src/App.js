@@ -26,7 +26,7 @@ const App = () => {
         <Route path="/warehouses/add" element={<PostWarehouse />} />
         <Route
           path="/warehouses/delete/:id"
-          element={<WarehouseDeleteModal />}
+          element={<WarehousedeleteModal />}
         />
         {/* Add routing for inventory list /inventories */}
         <Route
