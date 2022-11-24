@@ -1,0 +1,593 @@
+@use "../../styles/partials/colors" as colors;
+@use "../../styles/partials/fonts";
+@import "../../styles/partials/breakpoints";
+@import "../../styles/partials/typography";
+
+.warehousedet {
+  background-color: white;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  position: relative;
+  top: -4rem;
+  border-radius: 0.1875rem;
+  box-shadow: 0px 2px 5px colors.$primary-dark;
+
+  @include medium {
+    margin-left: 3rem;
+    margin-right: 3rem;
+    top: -5.9rem;
+  }
+  @include large {
+    margin-left: 5rem;
+    margin-right: 5rem;
+    top: -5.9rem;
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+  }
+  &__name-edit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    border-bottom: 1px solid colors.$secondary-light;
+    @include medium {
+      padding: 2rem 2rem 1.4375rem 2rem;
+    }
+    @include large {
+      padding: 2rem 2.5rem 1.4375rem 2.5rem;
+    }
+  }
+  &__icon-name {
+    display: flex;
+    flex-direction: row;
+  }
+  &__icon {
+    margin-right: 0.75rem;
+  }
+  &__name {
+    @include small-page-header;
+    font-style: normal;
+    font-weight: 600;
+    color: colors.$primary-dark;
+    margin: 0;
+    @include medium {
+      font-style: normal;
+      font-weight: 600;
+      @include large-page-header;
+    }
+    @include large {
+      font-style: normal;
+      font-weight: 600;
+      @include large-page-header;
+    }
+  }
+  &__edit {
+    display: flex;
+    align-items: center;
+  }
+  &__icon-contain {
+    width: 2.25rem;
+    height: 2.25rem;
+    background-color: colors.$primary-semi-light;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      background-color: colors.$background-dark;
+      border: 1px solid colors.$background-dark;
+    }
+
+    @include medium {
+      width: 5.0625rem;
+      height: 2.375rem;
+      background-color: colors.$primary-semi-light;
+      border-radius: 1.25rem;
+      padding: 0.5rem 1rem;
+    }
+    @include large {
+      width: 5.0625rem;
+      height: 2.375rem;
+      background-color: colors.$primary-semi-light;
+      border-radius: 1.25rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+  &__icon-text {
+    display: none;
+    @include medium {
+      display: block;
+      font-style: normal;
+      font-weight: 600;
+      @include large-auxiliary;
+      color: colors.$primary-light;
+      margin-left: 0.25rem;
+    }
+    @include large {
+      display: block;
+      font-style: normal;
+      font-weight: 600;
+      @include large-auxiliary;
+      color: colors.$primary-light;
+      margin-left: 0.25rem;
+    }
+  }
+  &__address-name {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid colors.$secondary-light;
+
+    @include medium {
+      flex-direction: row;
+      border-bottom: none;
+      padding: 1.5rem 5.5625rem 1.5rem 2rem;
+    }
+    @include large {
+      flex-direction: row;
+      border-bottom: none;
+      padding: 1.5rem 5.5625rem 1.5rem 2.5rem;
+    }
+  }
+  &__add {
+    @include medium {
+      width: 40%;
+      border-right: 1px solid colors.$secondary-light;
+    }
+    @include large {
+      width: 40%;
+      border-right: 1px solid colors.$secondary-light;
+    }
+  }
+  &__add-title {
+    margin: 0;
+    margin-bottom: 0.25rem;
+    font-style: normal;
+    font-weight: 600;
+    @include small-table-header;
+    color: colors.$secondary-dark;
+    @include medium {
+      @include large-table-header;
+    }
+    @include large {
+      @include large-table-header;
+    }
+  }
+  &__title-mob {
+    @include small-auxiliary;
+    color: colors.$primary-dark;
+    margin: 0;
+    @include medium {
+      display: none;
+    }
+    @include large {
+      display: none;
+    }
+  }
+  &__title-tab {
+    display: none;
+    @include medium {
+      display: block;
+      font-style: normal;
+      font-weight: 400;
+      @include large-auxiliary;
+      color: colors.$primary-dark;
+      margin: 0;
+    }
+    @include large {
+      display: block;
+      font-style: normal;
+      font-weight: 400;
+      @include large-auxiliary;
+      color: colors.$primary-dark;
+      margin: 0;
+    }
+  }
+  &__name-info {
+    display: flex;
+    flex-direction: row;
+    padding-top: 2.25rem;
+    width: 87%;
+    // padding-right: 2.5rem;
+    justify-content: space-between;
+
+    @include medium {
+      padding-top: 0;
+      width: 60%;
+      justify-content: space-around;
+    }
+    @include large {
+      padding-top: 0;
+      width: 60%;
+      justify-content: space-around;
+    }
+  }
+  &__name-desi {
+  }
+  &__conname {
+    font-weight: 600;
+    margin: 0;
+    font-style: normal;
+    @include small-table-header;
+    color: colors.$secondary-dark;
+    margin-bottom: 0.25rem;
+
+    @include medium {
+      @include large-table-header;
+    }
+    @include large {
+      @include large-table-header;
+    }
+  }
+  &__fullname {
+    margin: 0;
+    font-weight: 400;
+    font-style: normal;
+    @include small-body-medium;
+    color: colors.$primary-dark;
+    @include medium {
+      @include large-auxiliary;
+    }
+    @include large {
+      @include large-auxiliary;
+    }
+  }
+  &__desi {
+    margin: 0;
+    font-weight: 400;
+    font-style: normal;
+    @include small-body-medium;
+    color: colors.$primary-dark;
+    @include medium {
+      @include large-auxiliary;
+    }
+    @include large {
+      @include large-auxiliary;
+    }
+  }
+  &__info-mail {
+  }
+  &__con-info {
+    font-weight: 600;
+    font-style: normal;
+    margin: 0;
+    @include small-table-header;
+    color: colors.$secondary-dark;
+    margin-bottom: 0.25rem;
+    @include medium {
+      @include large-table-header;
+    }
+    @include large {
+      @include large-table-header;
+    }
+  }
+  &__con-num {
+    margin: 0;
+    font-weight: 400;
+    font-style: normal;
+    @include small-body-medium;
+    color: colors.$primary-dark;
+    @include medium {
+      @include large-auxiliary;
+    }
+    @include large {
+      @include large-auxiliary;
+    }
+  }
+  &__con-mail {
+    margin: 0;
+    font-weight: 400;
+    font-style: normal;
+    @include small-body-medium;
+    color: colors.$primary-dark;
+    @include medium {
+      @include large-auxiliary;
+    }
+    @include large {
+      @include large-auxiliary;
+    }
+  }
+  &__label-container {
+    display: none;
+    @include medium {
+      display: block;
+      background: rgba(247, 248, 249, 0.7);
+      padding: 0 2rem;
+    }
+    @include large {
+      display: block;
+      background: rgba(247, 248, 249, 0.7);
+      padding: 0 2.5rem;
+    }
+  }
+
+  &__label-lists {
+    display: none;
+    @include medium {
+      display: flex;
+      flex-direction: row;
+    }
+    @include large {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  &__label-list {
+    display: flex;
+    width: 20%;
+    justify-content: center;
+  }
+  &__label-list:first-child {
+    justify-content: flex-start;
+  }
+  &__label-list:last-child {
+    justify-content: flex-end;
+  }
+  &__label-item {
+    margin: 0.6875rem 0;
+    font-style: normal;
+    font-weight: 600;
+    @include large-table-header;
+    color: colors.$secondary-dark;
+  }
+
+  &__list {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid colors.$secondary-light;
+    @include medium {
+      padding: 1.125rem 2rem;
+      position: relative;
+    }
+    @include large {
+      padding: 1.125rem 2.5rem;
+      position: relative;
+    }
+  }
+  &__list:last-child {
+    border-bottom: none;
+  }
+  &__item-status-icons {
+    display: flex;
+    flex-direction: column;
+    @include medium {
+      flex-direction: row;
+    }
+    @include large {
+      flex-direction: row;
+    }
+  }
+  &__item-status {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-between;
+  }
+  &__item-cat {
+    display: flex;
+    flex-direction: column;
+    @include medium {
+      flex-direction: row;
+      width: 50%;
+      justify-content: space-between;
+    }
+    @include large {
+      flex-direction: row;
+      width: 50%;
+      justify-content: space-between;
+    }
+  }
+  &__item {
+    @include medium {
+      width: 50%;
+    }
+    @include large {
+      width: 50%;
+    }
+  }
+  &__item-title {
+    font-style: normal;
+    font-weight: 600;
+    @include small-table-header;
+    color: colors.$secondary-dark;
+    margin: 0;
+    margin-bottom: 0.25rem;
+    @include medium {
+      display: none;
+    }
+    @include large {
+      display: none;
+    }
+  }
+  &__item-name-icon {
+    display: flex;
+  }
+  &__item-names {
+    font-style: normal;
+    font-weight: 600;
+    @include small-body-medium;
+    color: colors.$primary-semi-light;
+    margin: 0;
+    padding-top: 0.1rem;
+    @include medium {
+      @include large-body-medium;
+    }
+    @include large {
+      @include large-body-medium;
+    }
+  }
+  &__cat {
+    margin-top: 1.25rem;
+    @include medium {
+      margin: 0;
+      width: 50%;
+    }
+    @include large {
+      margin: 0;
+      width: 50%;
+    }
+  }
+  &__cat-title {
+    margin: 0;
+    font-style: normal;
+    font-weight: 600;
+    @include small-table-header;
+    color: colors.$secondary-dark;
+    margin-bottom: 0.25rem;
+    @include medium {
+      display: none;
+    }
+    @include large {
+      display: none;
+    }
+  }
+  &__cat-actual {
+    margin: 0;
+    font-style: normal;
+    font-weight: 400;
+    @include small-auxiliary;
+    color: colors.$primary-dark;
+    @include medium {
+      position: absolute;
+      left: 27%;
+      @include large-body-medium;
+    }
+    @include large {
+      position: absolute;
+      left: 27%;
+      @include large-body-medium;
+    }
+  }
+  &__status-qty {
+    display: flex;
+    flex-direction: column;
+    width: 4.601875rem;
+    @include medium {
+      flex-direction: row;
+      width: 50%;
+      justify-content: space-between;
+    }
+    @include large {
+      flex-direction: row;
+      width: 50%;
+      justify-content: space-between;
+    }
+  }
+  &__status-button {
+    position: absolute;
+    left: 46%;
+  }
+  &__status-title {
+    margin: 0;
+    font-style: normal;
+    font-weight: 600;
+    @include small-table-header;
+    color: colors.$secondary-dark;
+    margin-bottom: 0.25rem;
+    @include medium {
+      display: none;
+    }
+    @include large {
+      display: none;
+    }
+  }
+  &__status-container {
+    width: 3.8125rem;
+    height: 1.5rem;
+    background: rgba(21, 132, 99, 0.07);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.25rem;
+    padding: 0.25rem 0.5rem;
+  }
+  &__status-container-out {
+    width: 5.375;
+    height: 1.5rem;
+    background: rgba(201, 69, 21, 0.07);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.25rem;
+    padding: 0.25rem 0.5rem;
+  }
+  &__status-condition {
+    margin: 0;
+    font-style: normal;
+    font-weight: 600;
+    @include small-table-header;
+    color: colors.$supporting-light;
+    @include medium {
+      @include large-body-small;
+    }
+    @include large {
+      @include large-body-small;
+    }
+  }
+  &__status-condition-out {
+    color: colors.$supporting-semi-light;
+  }
+  &__qty-num {
+    margin-top: 1.25rem;
+    @include medium {
+      margin: 0;
+    }
+    @include large {
+      margin: 0;
+    }
+  }
+  &__qty-heading {
+    margin: 0;
+    font-style: normal;
+    font-weight: 600;
+    @include small-table-header;
+    color: colors.$secondary-dark;
+    margin-bottom: 0.25rem;
+    @include medium {
+      display: none;
+    }
+    @include large {
+      display: none;
+    }
+  }
+  &__qty-full-number {
+    margin: 0;
+    font-style: normal;
+    font-weight: 400;
+    color: colors.$primary-dark;
+    @include small-auxiliary;
+    @include medium {
+      @include large-body-medium;
+      position: absolute;
+      left: 65%;
+    }
+    @include large {
+      @include large-body-medium;
+      position: absolute;
+      left: 65%;
+    }
+  }
+  &__del-edit-icon {
+    padding-top: 1.1875rem;
+    padding-bottom: 0.6875rem;
+    display: flex;
+    justify-content: space-between;
+    @include medium {
+      width: 20%;
+      justify-content: flex-start;
+      padding: 0;
+      justify-content: space-between;
+    }
+    @include large {
+      width: 20%;
+      justify-content: flex-start;
+      padding: 0;
+      justify-content: space-between;
+    }
+  }
+  &__del-inventory-item {
+    margin-left: 2rem;
+  }
+}
