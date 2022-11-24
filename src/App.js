@@ -12,6 +12,7 @@ import InventoryDeleteModal from "./Components/Modals/InventoryDeleteModal";
 import InventoryItemDetails from "./pages/InventoryItemDetails/InventoryItemDetails";
 import PostWarehouse from "./Components/Post-warehouse/PostWarehouse";
 import WarehouseDetails from "./Components/WarehouseDetails/WarehouseDetails";
+import InventoryList from "./Components/InventoryList/InventoryList";
 /* ---------------- REACT IMPORTS ---------------- */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -25,7 +26,7 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/warehouses" element={<HomePage />}/>
+        <Route path="/warehouses" element={<HomePage />} />
         <Route path="/warehouses/:id" element={<WarehouseDetails />} />
         <Route path="/warehouses/edit/:id" element={<EditWarehouse />} />
         <Route path="/warehouses/add" element={<PostWarehouse />} />
@@ -33,7 +34,7 @@ const App = () => {
           path="/warehouses/delete/:id"
           element={<WarehousedeleteModal />}
         />
-        {/* Add routing for inventory list /inventories */}
+        <Route path="/inventories" element={<InventoryList />} />
         <Route
           path="/inventories/delete/:id"
           element={<InventoryDeleteModal />}
