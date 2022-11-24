@@ -2,9 +2,13 @@ import React from "react";
 // import { Link } from "react-router-dom";
 import "./Modals.scss";
 import close from "../../assets/icons/close-24px.svg";
+// import axios from "axios";
 
-const WarehouseDeleteModal = ({ open, onClose }) => {
+const WarehouseDeleteModal = ({ open, onClose, warehouseID }) => {
   if (!open) return null;
+  //warehouses/delete/:id
+  // const warehouseDelUrl = `http://localhost:8080/warehouses/${warehouseID}`;
+  // const deleteWarehouse = axios.delete(warehouseDelUrl);
   return (
     <>
       <div className="modal">
@@ -17,7 +21,14 @@ const WarehouseDeleteModal = ({ open, onClose }) => {
           <button className="modal__cancel" onClick={onClose}>
             Cancel
           </button>
-          <button className="modal__delete-button">Delete</button>
+          <button
+            className="modal__delete-button"
+            // onClick={() => {
+            //   deleteWarehouse();
+            // }}
+          >
+            Delete
+          </button>
           <a href="/">
             <img
               className="modal__icon"
