@@ -9,7 +9,6 @@
 .warehouse-list {
   display: flex;
   justify-content: center;
-  // margin-bottom: 1.5rem;
   &-wrap {
     display: flex;
     flex-direction: column;
@@ -30,36 +29,77 @@
   }
   &__search-form {
     width: 100%;
+    padding: 2rem 1.75rem 1rem;
+    @include bp.medium {
+      width: 100%;
+      display: flex;
+      padding: 2rem 2rem 1rem;
+      // flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    @include bp.large {
+      width: 100%;
+      display: flex;
+      padding: 2rem 3rem 1rem;
+      // flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
   &__search-label {
     @include tp.small-page-header;
     display: flex;
     text-align: left;
-    margin: 2rem 1.5rem 1rem;
+    color: $primary-dark;
+    margin-bottom: 1rem;
+    @include bp.medium {
+      margin: 0;
+    }
+    @include bp.large {
+      margin: 0;
+    }
   }
   &__search-input {
-    outline: none;
-    background: $primary-light;
+    &-button-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      @include bp.medium {
+        width: 60%;
+        flex-direction: row;
+        margin: 0;
+      }
+      @include bp.large {
+        display: flex;
+        flex-direction: row;
+        align-items: right;
+        justify-content: right;
+        width: 50%;
+      }
+    }
     width: 100%;
     height: 2.25rem;
+    @include mx.btn-secondary;
     @include bp.medium {
       height: 2.375rem;
     }
     @include bp.large {
       height: 2.375rem;
     }
-    border: 1px solid $secondary-light;
-    border-radius: 1.25rem;
-    padding: 0 3.5rem 0 1.5rem;
-    margin: 1rem;
+    // padding: 0 3.5rem 0 1.5rem;
     background-image: url("../../assets/icons/search-24px.svg");
     background-repeat: no-repeat;
     background-position: 95% 50%;
     width: 100%;
-    margin: 0 1.5rem;
+    // margin: 0 1.5rem;
     &:focus {
       color: $primary-dark;
-      border-color: $primary-semi-light;
+      border: 0.75 solid $primary-semi-light;
+    }
+    &:hover {
+      @include mx.btn-secondary-hover;
     }
     &::placeholder {
       color: $secondary-dark;
@@ -71,21 +111,72 @@
         @include tp.large-auxiliary;
       }
     }
-    &-button-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 0 1.5rem;
-    }
   }
   &__add-warehouse-btn {
-    // @include mx.btn-primary;
+    @include mx.btn-primary-mobile;
+    margin: 1rem 0;
+    width: 100%;
     &:hover {
       @include mx.btn-primary-hover;
     }
-    @include mx.btn-primary-mobile;
-    margin: 1rem 0 1.5rem;
+    @include bp.medium {
+      @include mx.btn-primary;
+      height: 2.375rem;
+      padding: 0;
+      margin: 0 0 0 1rem;
+      max-width: 10rem;
+    }
+    @include bp.large {
+      @include mx.btn-primary;
+      height: 2.375rem;
+      padding: 0;
+      margin: 0 0 0 1rem;
+      max-width: 10rem;
+    }
+  }
+  &-banner {
+    color: $secondary-dark;
+    background-color: $background-light;
+    @include tp.large-body-small;
     width: 100%;
+    padding: 0 2rem;
+    @include bp.large {
+      padding: 0 3rem;
+    }
+    display: flex;
+    align-items: center;
+    &__text-icon-wrap {
+      display: flex;
+      max-width: 20%;
+      flex: 1;
+      align-items: center;
+    }
+    &__title {
+      padding-right: 8px;
+    }
+    &__sort-icon {
+      padding: 0;
+      margin: 0;
+      height: 16px;
+    }
+    &__actions {
+      @include bp.medium {
+        max-width: 20%;
+        flex: 1;
+        text-align: center;
+      }
+      @include bp.large {
+        max-width: 20%;
+        flex: 1;
+        text-align: center;
+      }
+    }
+    @include bp.medium {
+      display: flex;
+    }
+    @include bp.small {
+      display: none;
+    }
   }
 }
 

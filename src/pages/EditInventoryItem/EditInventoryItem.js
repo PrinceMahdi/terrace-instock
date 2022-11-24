@@ -1,4 +1,3 @@
-import Footer from "../../Components/Footer/Footer";
 import "./EditInventoryItem.scss";
 
 const EditInventoryItem = () => {
@@ -78,7 +77,7 @@ const EditInventoryItem = () => {
                     name="availability"
                     value="inStock"
                   ></input>
-                  <label for="inStock">In Stock</label>
+                  <label htmlFor="inStock">In Stock</label>
                 </div>
                 <div className="edit__inventory-item__radio--right">
                   <input
@@ -87,7 +86,7 @@ const EditInventoryItem = () => {
                     name="availability"
                     value="outOfStock"
                   ></input>
-                  <label for="outOfStock">Out of Stock</label>
+                  <label htmlFor="outOfStock">Out of Stock</label>
                 </div>
               </div>
               <div className="edit__inventory-form__container">

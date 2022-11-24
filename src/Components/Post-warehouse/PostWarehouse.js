@@ -1,12 +1,13 @@
 /* ---------------- SCSS IMPORTS ---------------- */
-import "./EditWarehouse.scss";
+import "./PostWarehouse.scss";
 
 /* ---------------- REACT IMPORTS ---------------- */
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+/* ---------------- DEPENDENCY IMPORTS ---------------- */
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-const EditWarehouse = () => {
+const PostWarehouse = () => {
   // track state for form fields
   const [nameState, setNameState] = useState("");
   const [addressState, setAddressState] = useState("");
@@ -16,8 +17,6 @@ const EditWarehouse = () => {
   const [positionState, setPositionState] = useState("");
   const [phoneState, setPhoneState] = useState("");
   const [emailState, setEmailState] = useState("");
-
-  const params = useParams();
 
   //track and set form content via state
   const handleChangeName = (event) => {
@@ -85,7 +84,7 @@ const EditWarehouse = () => {
     event.preventDefault();
     if (isFormValid() && isPhoneValid() && isEmailValid()) {
       // take form field state, build newWarehouse object
-      const updateWarehouse = {
+      const newWarehouse = {
         warehouse_name: nameState,
         address: addressState,
         city: cityState,
@@ -97,9 +96,11 @@ const EditWarehouse = () => {
       };
 
       // send form to API
+   
       axios
-        .put(`http://localhost:8080/warehouses/${params.id}`, updateWarehouse)
+        .post(`http://localhost:8080/warehouses`, newWarehouse)
         .then((response) => {
+
           event.target.reset();
         });
       alert("success");
@@ -110,10 +111,10 @@ const EditWarehouse = () => {
   return (
     <div className="warehouse__wrapper">
       <div className="warehouse__header">
-        <Link to=".." relative="path">
+        <Link to='..' relative="path">
           <div className="warehouse__back"></div>
         </Link>
-        <h2 className="warehouse__edit">Edit Warehouse</h2>
+        <h2 className="warehouse__edit">Add New Warehouse</h2>
       </div>
       <form onSubmit={handleSubmit} className="warehouse__form">
         <div className="warehouse__form-container">
@@ -220,7 +221,7 @@ const EditWarehouse = () => {
             Cancel
           </button>
           <button className="warehouse__button warehouse__button--primary">
-            Save
+            +Add Warehouse
           </button>
         </div>
       </form>
@@ -228,4 +229,4 @@ const EditWarehouse = () => {
   );
 };
 
-export default EditWarehouse;
+export default PostWarehouse;
