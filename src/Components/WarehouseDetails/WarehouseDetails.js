@@ -33,24 +33,32 @@ const WarehouseDetails = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-  console.log("hi", warehouseinventorydetails);
-  console.log("hello", warehousecontactdetails.city);
+  let flag = warehouseinventorydetails.length > 0 ? true : false;
+  console.log(flag);
 
   return (
     <section className="warehousedet">
       <div className="warehousedet__contact">
         <div className="warehousedet__name-edit">
           <div className="warehousedet__icon-name">
-            <img className="warehousedet__icon" src={arrowBack} alt="" />
+            <Link to="/warehouses">
+              <img className="warehousedet__icon" src={arrowBack} alt="" />
+            </Link>
             <h1 className="warehousedet__name">
               {warehousecontactdetails.city}
             </h1>
           </div>
           <div className="warehousedet__edit">
-            <div className="warehousedet__icon-contain">
-              <img className="warehousedet__edit-icon" src={editIcon} alt="" />
-              <p className="warehousedet__icon-text">Edit</p>
-            </div>
+            <Link to="/warehouses/edit/:id">
+              <div className="warehousedet__icon-contain">
+                <img
+                  className="warehousedet__edit-icon"
+                  src={editIcon}
+                  alt=""
+                />
+                <p className="warehousedet__icon-text">Edit</p>
+              </div>
+            </Link>
           </div>
         </div>
         <div className="warehousedet__address-name">
@@ -112,7 +120,6 @@ const WarehouseDetails = () => {
           </div>
         </div>
       </div>
-
       {warehouseinventorydetails.map((inventory) => (
         <div className="warehousedet__list" key={inventory.id}>
           <div className="warehousedet__item-status-icons">
@@ -120,16 +127,18 @@ const WarehouseDetails = () => {
               <div className="warehousedet__item-cat">
                 <div className="warehousedet__item">
                   <h2 className="warehousedet__item-title">INVENTORY ITEM</h2>
-                  <div className="warehousedet__item-name-icon">
-                    <p className="warehousedet__item-names">
-                      {inventory.item_name}
-                    </p>
-                    <img
-                      className="warehousedet__icon-chevron"
-                      src={chevronIcon}
-                      alt=""
-                    />
-                  </div>
+                  <Link to="/inventories/item/:id">
+                    <div className="warehousedet__item-name-icon">
+                      <p className="warehousedet__item-names">
+                        {inventory.item_name}
+                      </p>
+                      <img
+                        className="warehousedet__icon-chevron"
+                        src={chevronIcon}
+                        alt=""
+                      />
+                    </div>
+                  </Link>
                 </div>
                 <div className="warehousedet__cat">
                   <h2 className="warehousedet__cat-title">CATEGORY</h2>
@@ -165,16 +174,20 @@ const WarehouseDetails = () => {
               </div>
             </div>
             <div className="warehousedet__del-edit-icon">
-              <img
-                className="warehousedet__del-inventory-item"
-                src={deleteIcon}
-                alt=""
-              />
-              <img
-                className="warehousedet__edit-inventory-item"
-                src={edit2}
-                alt=""
-              />
+              <Link to="/inventories/delete/:id">
+                <img
+                  className="warehousedet__del-inventory-item"
+                  src={deleteIcon}
+                  alt=""
+                />
+              </Link>
+              <Link to="/inventories/item/edit/:id">
+                <img
+                  className="warehousedet__edit-inventory-item"
+                  src={edit2}
+                  alt=""
+                />
+              </Link>
             </div>
           </div>
         </div>
