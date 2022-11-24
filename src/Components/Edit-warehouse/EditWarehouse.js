@@ -3,7 +3,7 @@ import "./EditWarehouse.scss";
 
 /* ---------------- REACT IMPORTS ---------------- */
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 const EditWarehouse = () => {
@@ -84,7 +84,7 @@ const EditWarehouse = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (isFormValid() && isPhoneValid() && isEmailValid()) {
-// take form field state, build newWarehouse object
+      // take form field state, build newWarehouse object
       const updateWarehouse = {
         warehouse_name: nameState,
         address: addressState,
@@ -97,9 +97,11 @@ const EditWarehouse = () => {
       };
 
       // send form to API
-      axios.put(`http://localhost:8080/warehouses/${params.id}`, updateWarehouse).then((response) => {
-        event.target.reset();
-      });
+      axios
+        .put(`http://localhost:8080/warehouses/${params.id}`, updateWarehouse)
+        .then((response) => {
+          event.target.reset();
+        });
       alert("success");
     } else {
       console.log("form error");
@@ -108,9 +110,9 @@ const EditWarehouse = () => {
   return (
     <div className="warehouse__wrapper">
       <div className="warehouse__header">
-        <a>
+        <Link to=".." relative="path">
           <div className="warehouse__back"></div>
-        </a>
+        </Link>
         <h2 className="warehouse__edit">Edit Warehouse</h2>
       </div>
       <form onSubmit={handleSubmit} className="warehouse__form">
