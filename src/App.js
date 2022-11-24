@@ -4,13 +4,13 @@ import "./App.scss";
 import AddInventoryItem from "./pages/AddInventoryItem/AddInventoryItem";
 import EditInventoryItem from "./pages/EditInventoryItem/EditInventoryItem";
 import EditWarehouse from "./Components/Edit-warehouse/EditWarehouse";
+import HomePage from "./pages/HomePage/HomePage";
+import WarehousedeleteModal from "./Components/Modals/WarehouseDeleteModal";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
-import HomePage from "./pages/HomePage/HomePage";
 import InventoryDeleteModal from "./Components/Modals/InventoryDeleteModal";
 import InventoryItemDetails from "./pages/InventoryItemDetails/InventoryItemDetails";
 import PostWarehouse from "./Components/Post-warehouse/PostWarehouse";
-import WarehousedeleteModal from "./Components/Modals/WarehouseDeleteModal";
 import WarehouseDetails from "./Components/WarehouseDetails/WarehouseDetails";
 import InventoryList from "./Components/InventoryList/InventoryList";
 /* ---------------- REACT IMPORTS ---------------- */
@@ -20,6 +20,10 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header />
+
+      {/* <WarehouseDetails /> */}
+      {/* <WarehousedeleteModal /> */}
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/warehouses" element={<HomePage />} />
