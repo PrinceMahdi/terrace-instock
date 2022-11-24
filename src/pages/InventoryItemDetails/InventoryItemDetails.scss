@@ -43,7 +43,27 @@
 
       &__label {
         @include mx.inStock;
-        @include tp.large-auxiliary;
+        @include bp.small {
+          @include tp.small-auxiliary;
+        }
+        @include bp.medium {
+          @include tp.large-auxiliary;
+        }
+        @include bp.large {
+          @include tp.large-auxiliary;
+        }
+        &--modified {
+          @include mx.outOfStock;
+          @include bp.small {
+            @include tp.small-auxiliary;
+          }
+          @include bp.medium {
+            @include tp.large-auxiliary;
+          }
+          @include bp.large {
+            @include tp.large-auxiliary;
+          }
+        }
       }
     }
     &-details {

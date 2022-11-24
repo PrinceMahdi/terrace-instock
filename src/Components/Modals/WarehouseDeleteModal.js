@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./Modals.scss";
 import close from "../../assets/icons/close-24px.svg";
 
-const WarehouseDeleteModal = () => {
+const WarehouseDeleteModal = ({ open, onClose }) => {
+  if (!open) return null;
   return (
     <>
       <div className="modal">
@@ -13,10 +14,17 @@ const WarehouseDeleteModal = () => {
             Please confirm that you'd like to delete this from the list of
             warehouses. You won't be able to undo this action.
           </p>
-          <button className="modal__cancel">Cancel</button>
+          <button className="modal__cancel" onClick={onClose}>
+            Cancel
+          </button>
           <button className="modal__delete-button">Delete</button>
           <a href="/">
-            <img className="modal__icon" src={close} alt="x button" />
+            <img
+              className="modal__icon"
+              src={close}
+              alt="x button"
+              onClick={onClose}
+            />
           </a>
         </div>
       </div>
