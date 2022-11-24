@@ -1,7 +1,7 @@
 /* ---------------- SCSS IMPORTS ---------------- */
 import "./Header.scss";
 /* ---------------- REACT IMPORTS ---------------- */
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 /* ---------------- ASSET IMPORTS ---------------- */
 import Logo from "../../assets/logo/InStock-Logo.svg";
 
@@ -13,12 +13,27 @@ const Header = () => {
           <img src={Logo} alt="instock-logo" />
         </Link>
         <ul className="nav-menu">
-          <Link to={"/"} className="nav-item nav-item--active">
-            <li>Warehouses</li>
-          </Link>
-          <Link to={"/"} className="nav-item">
-            <li>Inventory</li>
-          </Link>
+          <li>
+            <NavLink
+              to={"/warehouses"}
+              className={(navData) =>
+                navData.isActive ? "nav-item--active" : "nav-item"
+              }
+            >
+              Warehouses
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to={"/inventories"}
+              className={(navData) =>
+                navData.isActive ? "nav-item--active" : "nav-item"
+              }
+            >
+              Inventory
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>

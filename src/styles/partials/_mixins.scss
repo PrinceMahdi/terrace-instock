@@ -22,7 +22,6 @@
   background-color: $primary-semi-light;
   border: 1px solid $primary-semi-light;
   border-radius: 1.25rem;
-  transition: 0.3s ease;
   padding: 0.75rem 1.5rem;
   cursor: pointer;
 }
@@ -112,7 +111,7 @@
 }
 /* ------------- MIXIN FOR FORM FIELDS ------------- */
 // small form field
-@mixin formMobile{
+@mixin formMobile {
   height: 2rem;
   border-radius: 1.25rem;
   color: $secondary-dark;
@@ -123,6 +122,6 @@
   padding: 0 1rem;
 }
 // tablet/desktop form
-@mixin form{
+@mixin form {
   height: 2.375rem;
 }
