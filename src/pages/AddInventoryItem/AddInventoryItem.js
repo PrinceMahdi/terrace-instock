@@ -4,6 +4,7 @@ import "./AddInventoryItem.scss";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { queryByDisplayValue } from "@testing-library/react";
 
 const AddInventoryItem = () => {
   const [itemNameState, setItemNameState] = useState("");
