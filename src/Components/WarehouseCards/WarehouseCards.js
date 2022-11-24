@@ -2,16 +2,21 @@ import "./WarehouseCards.scss";
 import delIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit2-24px.svg";
 import chevronIcon from "../../assets/icons/chevron_right-24px.svg";
-import { Link, useParams } from "react-router-dom";
-// import { Params } from "react-router-dom";
+import { Link } from "react-router-dom";
+import WarehouseDeleteModal from "../Modals/WarehouseDeleteModal";
+import { useState } from "react";
 
 const WarehouseCards = ({ warehouses }) => {
-  // const params = useParams;
+  //"/warehouses/delete/:id"
+  ///warehouses/edit/:id
+
+  const [openModal, setOpenModal] = useState(false);
+
   return warehouses.map((warehouse) => (
     <section className="warehouse-cards-wrap" key={warehouse.id}>
       <div className="warehouse-cards__warehouse-name-wrap">
         <div className="warehouse-cards__warehouse-name-title">WAREHOUSE</div>
-        <Link to={`/:id`}>
+        <Link to={`/warehouses/${warehouse.id}`}>
           <p className="warehouse-cards__warehouse-name">
             {warehouse.warehouse_name}{" "}
             <img
@@ -50,13 +55,24 @@ const WarehouseCards = ({ warehouses }) => {
           src={delIcon}
           alt="delete-icon"
           className="warehouse-cards__icons-del"
+          onClick={() => {
+            setOpenModal(true);
+          }}
         />
-        <img
-          src={editIcon}
-          alt="edit-icon"
-          className="warehouse-cards__icons-edit"
-        />
+        <Link to={`/warehouses/edit/${warehouse.id}`}>
+          <img
+            src={editIcon}
+            alt="edit-icon"
+            className="warehouse-cards__icons-edit"
+          />
+        </Link>
       </div>
+      <WarehouseDeleteModal
+        open={openModal}
+        onClose={() => {
+          setOpenModal(false);
+        }}
+      />
     </section>
   ));
 };
