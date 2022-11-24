@@ -1,7 +1,7 @@
 /* ---------------- SCSS IMPORTS ---------------- */
 import "./InventoryList.scss";
 /* ---------------- REACT IMPORTS ---------------- */
-import InventoryCards from "../WarehouseCards/WarehouseCards";
+import InventoryCards from "../InventoryCards/InventoryCards";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -48,7 +48,7 @@ const InventoryList = () => {
               className="inventory-list__search-input"
             />
             <button
-              className="inventory-list__add-warehouse-btn"
+              className="inventory-list__add-inventory-btn"
               onClick={toAddInventoryComponent}
             >
               + Add New Item
@@ -69,7 +69,7 @@ const InventoryList = () => {
             />
           </div>
           <div className="inventory-list-banner__text-icon-wrap">
-            <p className="inventory-list-banner__title">STATUS</p>
+            <p className="inventory-list-banner__title">CATEGORY</p>
             <img
               src={sortIcon}
               className="inventory-list-banner__sort-icon"
@@ -81,7 +81,7 @@ const InventoryList = () => {
             />
           </div>
           <div className="inventory-list-banner__text-icon-wrap">
-            <p className="inventory-list-banner__title">CATEGORY</p>
+            <p className="inventory-list-banner__title">STATUS</p>
             <img
               src={sortIcon}
               className="inventory-list-banner__sort-icon"
