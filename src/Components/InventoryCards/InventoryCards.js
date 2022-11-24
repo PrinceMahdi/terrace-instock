@@ -8,10 +8,9 @@ import { useEffect, useState } from "react";
 import WarehouseList from "../WarehouseList/WarehouseList";
 
 const InventoryCards = ({ inventories }) => {
-  const [openModal, setOpenModal] = useState(false);
-  useEffect(()=>{
-    console.log(inventories);
-    return inventories.map((inventory) => (
+  const [openInventoryModal, setOpenInventoryModal] = useState(false);
+
+  return inventories.map((inventory) => (
     <section className="inventory-cards-wrap" key={inventory.id}>
       <div className="inventory-cards__inventory-item-wrap">
         <div className="inventory-cards__inventory-item-title">
@@ -52,7 +51,7 @@ const InventoryCards = ({ inventories }) => {
           alt="delete-icon"
           className="warehouse-cards__icons-del"
           onClick={() => {
-            setOpenModal(true);
+            setOpenInventoryModal(true);
           }}
         />
         <Link to={`/warehouses/edit/${inventory.id}`}>
@@ -64,13 +63,13 @@ const InventoryCards = ({ inventories }) => {
         </Link>
       </div>
       <InventoryDeleteModal
-        open={openModal}
+        open={openInventoryModal}
         onClose={() => {
-          setOpenModal(false);
+          setOpenInventoryModal(false);
         }}
       />
     </section>
-  ));},[])
+  ));
 };
 
 export default InventoryCards;
