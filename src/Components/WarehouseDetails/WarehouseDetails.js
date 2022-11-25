@@ -9,9 +9,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./WarehouseDetails.scss";
+import InventoryDeleteModal from "../Modals/InventoryDeleteModal";
 
 const warehouseData = "http://localhost:8080/warehouses";
-//const warehouseId = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9";
 
 const WarehouseDetails = () => {
   const params = useParams();
@@ -19,6 +19,9 @@ const WarehouseDetails = () => {
     []
   );
   const [warehousecontactdetails, setWarehousecontactdetails] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
+  const [inventoryID, setInventoryID] = useState("");
+  const [inventoryName, setInventoryName] = useState("");
 
   useEffect(() => {
     axios
@@ -27,7 +30,7 @@ const WarehouseDetails = () => {
         setWarehousecontactdetails(response.data);
       })
       .catch((err) => console.log(err));
-  }, [params]);
+  }, []);
   useEffect(() => {
     axios
       .get(`${warehouseData}/${params.id}/inventories`)
@@ -35,7 +38,7 @@ const WarehouseDetails = () => {
         setWarehouseinventorydetails(response.data);
       })
       .catch((err) => console.log(err));
-  }, [params]);
+  }, []);
 
   return (
     <section className="warehousedet">
@@ -179,13 +182,20 @@ const WarehouseDetails = () => {
                   </div>
                 </div>
                 <div className="warehousedet__del-edit-icon">
-                  <Link to={"/inventories/delete/" + inventory.id}>
+                  {/* <Link to={"/inventories/delete/" + inventory.id}> */}
+                  <div>
                     <img
                       className="warehousedet__del-inventory-item"
                       src={deleteIcon}
                       alt=""
+                      onClick={() => {
+                        setOpenModal(true);
+                        setInventoryID(inventory.id);
+                        setInventoryName(inventory.item_name);
+                      }}
                     />
-                  </Link>
+                  </div>
+                  {/* </Link> */}
                   <Link to={"/inventories/item/edit/" + inventory.id}>
                     <img
                       className="warehousedet__edit-inventory-item"
@@ -195,6 +205,14 @@ const WarehouseDetails = () => {
                   </Link>
                 </div>
               </div>
+              <InventoryDeleteModal
+                open={openModal}
+                onClose={() => {
+                  setOpenModal(false);
+                }}
+                inventoryID={inventoryID}
+                inventoryName={inventoryName}
+              />
             </div>
           ))}
         </div>

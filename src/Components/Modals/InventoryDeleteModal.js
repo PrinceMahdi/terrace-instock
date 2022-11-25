@@ -4,6 +4,7 @@ import close from "../../assets/icons/close-24px.svg";
 import axios from "axios";
 // import { useParams } from "react-router-dom";
 // import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const InventoryDeleteModal = ({
   open,
@@ -13,24 +14,11 @@ const InventoryDeleteModal = ({
 }) => {
   if (!open) return null;
 
-  const inventoryDelUrl = `http://localhost:8080/warehouses/${inventoryID}`;
-  const deleteInventory = () => {
-    axios.delete(inventoryDelUrl);
-    onClose();
-  };
-
-  // const params = useParams();
-  // const [warehouseinventorydetails, setWarehouseinventorydetails] = useState(
-  //   []
-  // );
-  // useEffect(() => {
-  //   axios
-  //     .get(`${warehouseData}/${params.id}`)
-  //     .then((response) => {
-  //       setWarehouseinventorydetails(response.data);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
+  // const inventoryDelUrl = `http://localhost:8080/warehouses/${inventoryID}`;
+  // const deleteInventory = () => {
+  //   axios.delete(inventoryDelUrl);
+  //   onClose();
+  // };
 
   return (
     <>
@@ -48,20 +36,18 @@ const InventoryDeleteModal = ({
           </button>
           <button
             className="modal__delete-button"
-            onClick={() => {
-              deleteInventory();
-            }}
+            // onClick={() => {
+            //   deleteInventory();
+            // }}
           >
             Delete
           </button>
-          <a href="/">
-            <img
-              className="modal__icon"
-              src={close}
-              alt="x button"
-              onClick={onClose}
-            />
-          </a>
+          <img
+            className="modal__icon"
+            src={close}
+            alt="x button"
+            onClick={onClose}
+          />
         </div>
       </div>
     </>
