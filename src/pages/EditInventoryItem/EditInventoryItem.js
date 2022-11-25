@@ -42,6 +42,14 @@ const EditInventoryItem = () => {
         setItemCategoryState(category);
         setStockState(status);
         setQuantityState(quantity);
+        console.log(status)
+        if(status === 'In Stock'){
+          setCheckInState(true)
+          setCheckOutState(false)
+        }else if (status === 'Out of Stock'){
+           setCheckInState(false);
+           setCheckOutState(true);
+        }
 
         axios.get(`http://localhost:8080/warehouses/`).then((response) => {
           const warehouseData = response.data;
@@ -79,13 +87,9 @@ const EditInventoryItem = () => {
     if (stockState === "outOfStock") {
       setQuantityState("0");
       setDisabledState(true);
-      setCheckInState(false);
-      setCheckOutState(true);
     } else {
       setQuantityState("");
       setDisabledState(false);
-      setCheckOutState(false);
-      setCheckInState(true);
     }
   }, [stockState]);
 
@@ -264,6 +268,7 @@ const EditInventoryItem = () => {
                   Warehouse
                 </label>
                 <select
+               
                   className="edit__inventory-item__input select"
                   name="location"
                   id="location"
@@ -276,6 +281,7 @@ const EditInventoryItem = () => {
                     warehouseListState.map((warehouse) => (
                       <option key={warehouse.id} value={warehouse.id}>
                         {warehouse.warehouse_name}
+                        {/* match name in list to incoming list, add selected attribute */}
                       </option>
                     ))
                   ) : (
