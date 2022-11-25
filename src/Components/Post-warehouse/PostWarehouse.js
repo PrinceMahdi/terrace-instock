@@ -111,7 +111,7 @@ const PostWarehouse = () => {
   return (
     <div className="warehouse__wrapper">
       <div className="warehouse__header">
-        <Link to='..' relative="path">
+        <Link to='/warehouses'>
           <div className="warehouse__back"></div>
         </Link>
         <h2 className="warehouse__edit">Add New Warehouse</h2>

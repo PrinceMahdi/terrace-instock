@@ -45,9 +45,10 @@ const EditInventoryItem = () => {
         console.log(status)
         if(status === 'In Stock'){
           setCheckInState(true)
-          setCheckOutState(false)
+          // setCheckOutState(false)
+          // setStockState()
         }else if (status === 'Out of Stock'){
-           setCheckInState(false);
+          //  setCheckInState(false);
            setCheckOutState(true);
         }
 
