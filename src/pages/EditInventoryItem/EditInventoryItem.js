@@ -12,6 +12,8 @@ const EditInventoryItem = () => {
   const [warehouseState, setWarehouseState] = useState("");
   const [warehouseListState, setWarehouseListState] = useState([]);
   const [disableState, setDisabledState] = useState(null);
+  const [checkInState, setCheckInState] = useState(false);
+  const [checkOutState, setCheckOutState] = useState(false);
 
   const params = useParams();
 
@@ -32,7 +34,7 @@ const EditInventoryItem = () => {
           category,
           status,
           quantity,
-          warehouse_id
+          warehouse_id,
         } = response.data;
 
         setItemNameState(item_name);
@@ -40,13 +42,18 @@ const EditInventoryItem = () => {
         setItemCategoryState(category);
         setStockState(status);
         setQuantityState(quantity);
-      
-        axios.get(`http://localhost:8080/warehouses/`).then((response)=>{
-          setWarehouseListState(response.data)
-        })
+
+        axios.get(`http://localhost:8080/warehouses/`).then((response) => {
+          const warehouseData = response.data;
+          const found = warehouseData.find(
+            (warehouse) => warehouse.id === warehouse_id
+          );
+          console.log(found.warehouse_name)
+          setWarehouseListState(response.data);
+          setWarehouseState(response.data[found].warehouse_name);
+        });
       });
   }, []);
-  
 
   const handleChangeName = (event) => {
     setItemNameState(event.target.value);
@@ -72,12 +79,15 @@ const EditInventoryItem = () => {
     if (stockState === "outOfStock") {
       setQuantityState("0");
       setDisabledState(true);
+      setCheckInState(false);
+      setCheckOutState(true);
     } else {
       setQuantityState("");
       setDisabledState(false);
+      setCheckOutState(false);
+      setCheckInState(true);
     }
   }, [stockState]);
-
 
   // check form field for content
   // TODO: validate if type of quantity state is number **by regex?**
@@ -111,7 +121,6 @@ const EditInventoryItem = () => {
         status: stockState,
         quantity: quantityState,
       };
-      console.log(typeof parseInt(quantityState));
       axios
         .put(`http://localhost:8080/inventories/${params.id}`, newItem)
         .then((response) => {
@@ -208,6 +217,7 @@ const EditInventoryItem = () => {
               <div className="edit__inventory-radio__container">
                 <div className="edit__inventory-item__radio--left">
                   <input
+                    checked={checkInState}
                     type="radio"
                     id="inStock"
                     name="availability"
@@ -218,6 +228,7 @@ const EditInventoryItem = () => {
                 </div>
                 <div className="edit__inventory-item__radio--right">
                   <input
+                    checked={checkOutState}
                     type="radio"
                     id="outOfStock"
                     name="availability"
