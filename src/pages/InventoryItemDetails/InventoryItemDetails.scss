@@ -73,11 +73,11 @@
       border-radius: 0.25rem;
       /* --------------- STYLING FOR MOBILE DEVICES --------------- */
       @include bp.medium {
-        margin: -6.85rem 3rem 0 3rem;
+        margin: -5.85rem 3rem 0 3rem;
       }
       /* --------------- STYLING FOR LARGE DEVICES --------------- */
       @include bp.large {
-        margin: -6.85rem 5rem 0 5rem;
+        margin: -5.85rem 5rem 0 5rem;
       }
 
       &__back {

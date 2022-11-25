@@ -585,13 +585,15 @@
       width: 20%;
       justify-content: flex-start;
       padding: 0;
-      justify-content: space-between;
+      justify-content: flex-end;
+      gap: 1rem;
     }
     @include large {
       width: 20%;
       justify-content: flex-start;
       padding: 0;
-      justify-content: space-between;
+      justify-content: flex-end;
+      gap: 1rem;
     }
   }
   &__del-inventory-item {

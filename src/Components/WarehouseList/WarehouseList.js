@@ -104,7 +104,7 @@ const WarehouseList = () => {
               }}
             />
           </div>
-          <p className="warehouse-list-banner__actions">ACCTIONS</p>
+          <p className="warehouse-list-banner__actions">ACTIONS</p>
         </div>
         <WarehouseCards warehouses={warehouses} />
       </div>

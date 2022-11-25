@@ -66,7 +66,7 @@ const InventoryList = () => {
               alt="sort icon"
               id="sortItem"
               onClick={() => {
-                alert("it's working");
+                alert("sort it yourself");
               }}
             />
           </div>
@@ -78,7 +78,7 @@ const InventoryList = () => {
               alt="sort icon"
               id="sortStatus"
               onClick={() => {
-                alert("it's working");
+                alert("sort it yourself");
               }}
             />
           </div>
@@ -90,7 +90,7 @@ const InventoryList = () => {
               alt="sort icon"
               id="sortCategory"
               onClick={() => {
-                alert("it's working");
+                alert("sort it yourself");
               }}
             />
           </div>
@@ -102,7 +102,7 @@ const InventoryList = () => {
               alt="sort icon"
               id="sortQty"
               onClick={() => {
-                alert("it's working");
+                alert("sort it yourself");
               }}
             />
           </div>
@@ -114,11 +114,11 @@ const InventoryList = () => {
               alt="sort icon"
               id="sortWarehouse"
               onClick={() => {
-                alert("it's working");
+                alert("sort it yourself");
               }}
             />
           </div>
-          <p className="inventory-list-banner__actions">ACCTIONS</p>
+          <p className="inventory-list-banner__actions">ACTIONS</p>
         </div>
         <InventoryCards inventories={inventories} />
       </div>

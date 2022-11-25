@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <header className="header">
       <nav className="nav">
-        <Link to={"/"} className="header-logo">
+        <Link to={"/warehouses"} className="header-logo">
           <img src={Logo} alt="instock-logo" />
         </Link>
         <ul className="nav-menu">

@@ -8,22 +8,22 @@
 
 .inventory-cards {
   &__inventory-item-cat-wrap {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
+    // display: flex;
+    // flex-direction: column;
+    // width: 50%;
   }
 
   &__status-qyt-ware-wrap {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
+    // display: flex;
+    // flex-direction: column;
+    // width: 50%;
   }
   &-wrap {
     border-top: 0.75px solid $secondary-light;
     border-bottom: 0.75px solid $secondary-light;
     @include tp.small-body-small;
     display: flex;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     width: 100%;
     color: $secondary-dark;
     // justify-content: space-between;
