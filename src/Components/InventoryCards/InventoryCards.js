@@ -16,7 +16,7 @@ const InventoryCards = ({ inventories }) => {
         <div className="inventory-cards__inventory-item-title">
           INVENTORY ITEM
         </div>
-        <Link to={`/inventories/${inventory.id}`}>
+        <Link to={`/inventories/item/${inventory.id}`}>
           <p className="inventory-cards__inventory-item">
             {inventory.item_name}{" "}
             <img
@@ -54,7 +54,7 @@ const InventoryCards = ({ inventories }) => {
             setOpenInventoryModal(true);
           }}
         />
-        <Link to={`/warehouses/edit/${inventory.id}`}>
+        <Link to={`/inventories/item/edit/${inventory.id}`}>
           <img
             src={editIcon}
             alt="edit-icon"

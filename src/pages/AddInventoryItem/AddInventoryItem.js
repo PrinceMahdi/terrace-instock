@@ -4,7 +4,7 @@ import "./AddInventoryItem.scss";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { queryByDisplayValue } from "@testing-library/react";
+
 
 const AddInventoryItem = () => {
   const [itemNameState, setItemNameState] = useState("");
@@ -26,6 +26,7 @@ const AddInventoryItem = () => {
   };
   const handleChangeStock = (event) => {
     setStockState(event.target.value);
+    
   };
   const handleChangeQuantity = (event) => {
     setQuantityState(event.target.value);
@@ -34,9 +35,7 @@ const AddInventoryItem = () => {
     setWarehouseState(event.target.value);
   };
 
-  // axios get to warehouses
-  // get list of ids
-  // for each id return warehouses.map((warehouse))
+// axios request for warehouse list, set warehouses to state to populate warehouse buttons
   useEffect(() => {
     axios.get(`http://localhost:8080/warehouses`).then((response) => {
       setWarehouseListState(response.data);
@@ -45,7 +44,12 @@ const AddInventoryItem = () => {
 
   // TODO: check form validity
 
-  // function to handle form submission
+/**
+ handle form submission: 
+ create an object populated with data from form state
+ post to server, server stores in database
+ * 
+ */
   const handleSubmit = (event) => {
     event.preventDefault();
     // if form valid
@@ -187,7 +191,6 @@ const AddInventoryItem = () => {
                 className="edit__inventory-item__input select"
                 name="location"
                 id="location"
-                // value={warehouseState}
                 onChange={handleChangeWarehouse}
               >
                 <option defaultValue="" hidden>
@@ -207,9 +210,11 @@ const AddInventoryItem = () => {
           </div>
         </div>
         <div className="edit__inventory-item__button-container">
+           <Link to={'/inventories'}>
           <button className="edit__inventory-item__cancel-button">
             Cancel
           </button>
+            </Link>
           <button className="edit__inventory-item__save-button">
             + Add Item
           </button>
