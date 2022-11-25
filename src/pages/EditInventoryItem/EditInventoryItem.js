@@ -15,7 +15,43 @@ const EditInventoryItem = () => {
 
   const params = useParams();
 
+  /**
+   call server for item data based on id in url
+   set data from response to form
+
+   call warehouses endpoing to populate warehouse list
+   find warehouse matching item & set to state
+   *  */
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/inventories/${params.id}`)
+      .then((response) => {
+        const {
+          item_name,
+          description,
+          category,
+          status,
+          quantity,
+          warehouse_id
+        } = response.data;
+
+        setItemNameState(item_name);
+        setItemDescriptionState(description);
+        setItemCategoryState(category);
+        setStockState(status);
+        setQuantityState(quantity);
+        axios.get(`http://localhost:8080/warehouses/`).then((response)=>{
+          setWarehouseListState(response.data)
+        })
+      });
+  }, []);
   
+  // axios request for warehouse list, set warehouses to state to populate warehouse buttons
+  // useEffect(() => {
+  //   axios.get(`http://localhost:8080/warehouses`).then((response) => {
+  //     setWarehouseListState(response.data);
+  //   });
+  // }, []);
 
   const handleChangeName = (event) => {
     setItemNameState(event.target.value);
@@ -47,15 +83,9 @@ const EditInventoryItem = () => {
     }
   }, [stockState]);
 
-  // axios request for warehouse list, set warehouses to state to populate warehouse buttons
-  useEffect(() => {
-    axios.get(`http://localhost:8080/warehouses`).then((response) => {
-      setWarehouseListState(response.data);
-    });
-  }, []);
 
   // check form field for content
-  // TODO: validate if type of quantity state is number
+  // TODO: validate if type of quantity state is number **by regex?**
   const isFormValid = () => {
     if (
       itemNameState.length < 1 ||
