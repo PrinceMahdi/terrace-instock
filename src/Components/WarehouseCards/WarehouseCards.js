@@ -15,7 +15,7 @@ const WarehouseCards = ({ warehouses }) => {
   const [warehouseName, setWarehouseName] = useState("");
 
 
-  return warehouses.map((warehouse) => (
+  if (warehouses)return warehouses.map((warehouse) => (
     <section className="warehouse-cards-wrap" key={warehouse.id}>
       <div className="warehouse-cards__warehouse-name-wrap">
         <div className="warehouse-cards__warehouse-name-title">WAREHOUSE</div>
