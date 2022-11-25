@@ -419,6 +419,19 @@
       @include large-body-medium;
     }
   }
+  &__icon-chevron {
+    &:hover {
+      animation: horizontalmove 1s ease-in-out infinite alternate;
+    }
+  }
+  @keyframes horizontalmove {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(4px);
+    }
+  }
   &__cat {
     margin-top: 1.25rem;
     @include medium {
@@ -596,5 +609,16 @@
   }
   &__del-inventory-item {
     margin-left: 2rem;
+  }
+
+  &__error-msg {
+    font-style: normal;
+    height: 5rem;
+    font-weight: 600;
+    color: colors.$secondary-dark;
+    @include small-body-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

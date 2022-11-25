@@ -199,7 +199,9 @@ const WarehouseDetails = () => {
           ))}
         </div>
       ) : (
-        <div>There are no inventories in this warehouse</div>
+        <div className="warehousedet__error-msg">
+          There are no inventories in this warehouse
+        </div>
       )}
     </section>
   );
