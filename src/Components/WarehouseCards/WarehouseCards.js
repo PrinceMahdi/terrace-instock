@@ -7,10 +7,11 @@ import WarehouseDeleteModal from "../Modals/WarehouseDeleteModal";
 import { useState } from "react";
 
 const WarehouseCards = ({ warehouses }) => {
-  //"/warehouses/delete/:id"
-  ///warehouses/edit/:id
 
   const [openModal, setOpenModal] = useState(false);
+  const [warehouseID, setWarehouseID] = useState("");
+  const [warehouseName, setWarehouseName] = useState("");
+
 
   if (warehouses)return warehouses.map((warehouse) => (
     <section className="warehouse-cards-wrap" key={warehouse.id}>
@@ -56,6 +57,8 @@ const WarehouseCards = ({ warehouses }) => {
           alt="delete-icon"
           className="warehouse-cards__icons-del"
           onClick={() => {
+            setWarehouseID(warehouse.id);
+            setWarehouseName(warehouse.warehouse_name);
             setOpenModal(true);
           }}
         />
@@ -72,7 +75,8 @@ const WarehouseCards = ({ warehouses }) => {
         onClose={() => {
           setOpenModal(false);
         }}
-        warehouseID={warehouse.id}
+        warehouseID={warehouseID}
+        warehouseName={warehouseName}
       />
     </section>
   ));

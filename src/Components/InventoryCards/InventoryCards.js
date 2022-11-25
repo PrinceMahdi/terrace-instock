@@ -9,14 +9,17 @@ import WarehouseList from "../WarehouseList/WarehouseList";
 
 const InventoryCards = ({ inventories }) => {
   const [openInventoryModal, setOpenInventoryModal] = useState(false);
+  const [inventoryID, setInventoryID] = useState("");
+  const [inventoryName, setInventoryName] = useState("");
 
   return inventories.map((inventory) => (
     <section className="inventory-cards-wrap" key={inventory.id}>
+      {/* <div className="inventory-cards__inventory-item-cat-wrap"> */}
       <div className="inventory-cards__inventory-item-wrap">
         <div className="inventory-cards__inventory-item-title">
           INVENTORY ITEM
         </div>
-        <Link to={`/inventories/item/${inventory.id}`}>
+        <Link to={`/inventories/${inventory.id}`}>
           <p className="inventory-cards__inventory-item">
             {inventory.item_name}{" "}
             <img
@@ -27,14 +30,17 @@ const InventoryCards = ({ inventories }) => {
           </p>
         </Link>
       </div>
-      <div className="inventory-cards__status-wrap">
-        <div className="inventory-cards__status-title">STATUS</div>
-        <div className="inventory-cards__status">{inventory.status}</div>
-      </div>
       <div className="inventory-cards__category-wrap">
         <div className="inventory-cards__category-title">CATEGORY</div>
         <div className="inventory-cards__category">{inventory.category}</div>
       </div>
+      {/* </div> */}
+      {/* <div className="inventory-cards__status-qty-ware-wrap"> */}
+      <div className="inventory-cards__status-wrap">
+        <div className="inventory-cards__status-title">STATUS</div>
+        <div className="inventory-cards__status">{inventory.status}</div>
+      </div>
+
       <div className="inventory-cards__qty-wrap">
         <div className="inventory-cards__qty-title">QTY </div>
         <div className="inventory-cards__qty">{inventory.quantity}</div>
@@ -45,12 +51,15 @@ const InventoryCards = ({ inventories }) => {
           {inventory.warehouse_id}
         </div>
       </div>
+      {/* </div> */}
       <div className="warehouse-cards__icons-wrap">
         <img
           src={delIcon}
           alt="delete-icon"
           className="warehouse-cards__icons-del"
           onClick={() => {
+            setInventoryID(inventory.id);
+            setInventoryName(inventory.item_name);
             setOpenInventoryModal(true);
           }}
         />
@@ -64,6 +73,8 @@ const InventoryCards = ({ inventories }) => {
       </div>
       <InventoryDeleteModal
         open={openInventoryModal}
+        inventoryID={inventoryID}
+        inventoryName={inventoryName}
         onClose={() => {
           setOpenInventoryModal(false);
         }}

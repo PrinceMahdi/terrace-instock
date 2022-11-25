@@ -147,7 +147,7 @@
     align-items: center;
     &__text-icon-wrap {
       display: flex;
-      max-width: 20%;
+      max-width: 16.67%;
       flex: 1;
       align-items: center;
     }
@@ -162,12 +162,12 @@
     }
     &__actions {
       @include bp.medium {
-        max-width: 20%;
+        max-width: 16.67%;
         flex: 1;
         text-align: center;
       }
       @include bp.large {
-        max-width: 20%;
+        max-width: 16.67%;
         flex: 1;
         text-align: center;
       }
