@@ -15,6 +15,8 @@ const EditInventoryItem = () => {
 
   const params = useParams();
 
+  
+
   const handleChangeName = (event) => {
     setItemNameState(event.target.value);
   };

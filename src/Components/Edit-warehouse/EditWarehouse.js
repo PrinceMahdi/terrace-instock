@@ -2,7 +2,7 @@
 import "./EditWarehouse.scss";
 
 /* ---------------- REACT IMPORTS ---------------- */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -18,6 +18,36 @@ const EditWarehouse = () => {
   const [emailState, setEmailState] = useState("");
 
   const params = useParams();
+
+  /**
+   call server for warehouse data based on id in url
+   set data from response to form
+   *  */
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/warehouses/${params.id}`)
+      .then((response) => {
+        const {
+          warehouse_name,
+          address,
+          city,
+          country,
+          contact_name,
+          contact_position,
+          contact_phone,
+          contact_email,
+        } = response.data;
+
+        setNameState(warehouse_name);
+        setAddressState(address);
+        setCityState(city);
+        setCountryState(country);
+        setContactState(contact_name);
+        setPositionState(contact_position);
+        setPhoneState(contact_phone);
+        setEmailState(contact_email);
+      });
+  }, []);
 
   //track and set form content via state
   const handleChangeName = (event) => {
@@ -216,10 +246,8 @@ const EditWarehouse = () => {
           </div>
         </div>
         <div className="warehouse__buttons">
-            <button className="warehouse__button warehouse__button--secondary">
-          <Link to='/'>
-            Cancel
-            </Link>
+          <button className="warehouse__button warehouse__button--secondary">
+            <Link to="/">Cancel</Link>
           </button>
           <button className="warehouse__button warehouse__button--primary">
             Save
