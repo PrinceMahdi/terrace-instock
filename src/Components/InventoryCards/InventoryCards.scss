@@ -7,15 +7,27 @@
 @use "../../styles/partials/mixins" as mx;
 
 .inventory-cards {
+  &__inventory-item-cat-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  &__status-qyt-ware-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
   &-wrap {
     border-top: 0.75px solid $secondary-light;
     border-bottom: 0.75px solid $secondary-light;
     @include tp.small-body-small;
     display: flex;
-    // flex-direction: column;
     flex-wrap: wrap;
     width: 100%;
     color: $secondary-dark;
+    // justify-content: space-between;
+    padding: 0 2rem;
     @include bp.medium {
       flex-wrap: nowrap;
       align-items: center;
@@ -34,7 +46,6 @@
   &__inventory-item {
     display: flex;
     align-items: center;
-    // padding-top: 4px;
     margin: 0;
     color: $primary-semi-light;
     font-weight: bold;
@@ -54,25 +65,51 @@
     &-wrap {
       display: flex;
       flex-direction: column;
-      padding: 1rem 1.5rem 0;
-      width: 50%;
+      padding-top: 1rem;
       @include bp.medium {
         padding: 0;
-        max-width: 20%;
+        max-width: 16.67%;
         order: 1;
         flex: 1;
       }
       @include bp.large {
         padding: 0;
-        max-width: 20%;
+        max-width: 16.67%;
         order: 1;
         flex: 1;
       }
     }
-    // &-contact-wrap {
-    //   display: flex;
-    //   justify-content: space-between;
-    // }
+  }
+  &__category {
+    padding-top: 4px;
+    &-title {
+      @include bp.medium {
+        display: none;
+      }
+      @include bp.large {
+        display: none;
+      }
+    }
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1rem;
+
+      @include bp.medium {
+        width: 100%;
+        padding: 0 1rem 0 0;
+        order: 2;
+        max-width: 16.67%;
+        flex: 1;
+      }
+      @include bp.large {
+        width: 100%;
+        padding: 0 1rem 0 0;
+        order: 2;
+        max-width: 16.67%;
+        flex: 1;
+      }
+    }
   }
   &__status {
     padding-top: 4px;
@@ -92,49 +129,18 @@
       @include bp.medium {
         padding: 0;
         order: 3;
-        max-width: 20%;
+        max-width: 16.67%;
         flex: 1;
       }
       @include bp.large {
         padding: 0;
         order: 3;
-        max-width: 20%;
+        max-width: 16.67%;
         flex: 1;
       }
     }
   }
-  &__category {
-    padding-top: 4px;
-    &-title {
-      @include bp.medium {
-        display: none;
-      }
-      @include bp.large {
-        display: none;
-      }
-    }
-    &-wrap {
-      display: flex;
-      flex-direction: column;
-      padding: 4px;
-      width: 50%;
-      padding: 1rem 1.5rem 0;
-      @include bp.medium {
-        width: 100%;
-        padding: 0 1rem 0 0;
-        order: 2;
-        max-width: 20%;
-        flex: 1;
-      }
-      @include bp.large {
-        width: 100%;
-        padding: 0 1rem 0 0;
-        order: 2;
-        max-width: 20%;
-        flex: 1;
-      }
-    }
-  }
+
   &__qty {
     &-title {
       @include bp.medium {
@@ -151,13 +157,13 @@
       @include bp.medium {
         padding: 0;
         order: 4;
-        max-width: 20%;
+        max-width: 16.67%;
         flex: 1;
       }
       @include bp.large {
         padding: 0;
         order: 4;
-        max-width: 20%;
+        max-width: 16.67%;
         flex: 1;
       }
     }
@@ -175,21 +181,20 @@
     &-wrap {
       display: flex;
       flex-direction: column;
-      padding: 4px;
-      width: 50%;
-      padding: 1rem 1.5rem 0;
+      padding-top: 1rem;
+
       @include bp.medium {
         width: 100%;
         padding: 0 1rem 0 0;
-        order: 2;
-        max-width: 20%;
+        order: 5;
+        max-width: 16.67%;
         flex: 1;
       }
       @include bp.large {
         width: 100%;
         padding: 0 1rem 0 0;
-        order: 2;
-        max-width: 20%;
+        order: 5;
+        max-width: 16.67%;
         flex: 1;
       }
     }
@@ -215,27 +220,19 @@
       @include bp.medium {
         padding: 0;
         margin: 0;
-        order: 5;
-        max-width: 20%;
+        order: 6;
+        max-width: 16.67%;
         justify-content: space-evenly;
         flex: 1;
       }
       @include bp.large {
         padding: 0;
         margin: 0;
-        order: 5;
-        max-width: 20%;
+        order: 6;
+        max-width: 16.67%;
         justify-content: space-evenly;
         flex: 1;
       }
     }
   }
 }
-/* BREAK POINTS */
-
-// @include bp.small {
-// }
-// @include bp.medium {
-// }
-// @include bp.large {
-// }
