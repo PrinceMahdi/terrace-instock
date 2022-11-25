@@ -4,7 +4,8 @@ import editIcon from "../../assets/icons/edit2-24px.svg";
 import chevronIcon from "../../assets/icons/chevron_right-24px.svg";
 import { Link } from "react-router-dom";
 import InventoryDeleteModal from "../Modals/InventoryDeleteModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import WarehouseList from "../WarehouseList/WarehouseList";
 
 const InventoryCards = ({ inventories }) => {
   const [openInventoryModal, setOpenInventoryModal] = useState(false);
@@ -15,7 +16,7 @@ const InventoryCards = ({ inventories }) => {
         <div className="inventory-cards__inventory-item-title">
           INVENTORY ITEM
         </div>
-        <Link to={`/inventories/${inventory.id}`}>
+        <Link to={`/inventories/item/${inventory.id}`}>
           <p className="inventory-cards__inventory-item">
             {inventory.item_name}{" "}
             <img
@@ -53,7 +54,7 @@ const InventoryCards = ({ inventories }) => {
             setOpenInventoryModal(true);
           }}
         />
-        <Link to={`/warehouses/edit/${inventory.id}`}>
+        <Link to={`/inventories/item/edit/${inventory.id}`}>
           <img
             src={editIcon}
             alt="edit-icon"

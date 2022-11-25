@@ -1,17 +1,117 @@
 /* --------------- SCSS IMPORTS --------------- */
 import "./AddInventoryItem.scss";
+/* ---------------- DEPENDENCY IMPORTS ---------------- */
+import axios from "axios";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const AddInventoryItem = () => {
+  const [itemNameState, setItemNameState] = useState("");
+  const [itemDescriptionState, setItemDescriptionState] = useState("");
+  const [itemCategoryState, setItemCategoryState] = useState("");
+  const [stockState, setStockState] = useState("");
+  const [quantityState, setQuantityState] = useState("");
+  const [warehouseState, setWarehouseState] = useState("");
+  const [warehouseListState, setWarehouseListState] = useState([]);
+  const [disableState, setDisabledState] = useState(null);
+
+  const handleChangeName = (event) => {
+    setItemNameState(event.target.value);
+  };
+  const handleChangeDescription = (event) => {
+    setItemDescriptionState(event.target.value);
+  };
+  const handleChangeCategory = (event) => {
+    setItemCategoryState(event.target.value);
+  };
+  const handleChangeStock = (event) => {
+    setStockState(event.target.value);
+  };
+  const handleChangeQuantity = (event) => {
+    setQuantityState(event.target.value);
+  };
+  const handleChangeWarehouse = (event) => {
+    setWarehouseState(event.target.value);
+  };
+  // when stock state is updated to outOfStock set quantity field to 0 and disable field
+  useEffect(() => {
+    if (stockState === "outOfStock") {
+      setQuantityState("0");
+      setDisabledState(true);
+    } else {
+      setQuantityState("");
+      setDisabledState(false);
+    }
+  }, [stockState]);
+
+  // axios request for warehouse list, set warehouses to state to populate warehouse buttons
+  useEffect(() => {
+    axios.get(`http://localhost:8080/warehouses`).then((response) => {
+      setWarehouseListState(response.data);
+    });
+  }, []);
+
+  
+// check form field for content
+// TODO: validate if type of quantity state is number
+  const isFormValid = () => {
+    if (
+      itemNameState.length < 1 ||
+      itemDescriptionState.length < 1 ||
+      itemCategoryState === "" ||
+      stockState === "" ||
+      quantityState === "" ||
+      warehouseState === ""
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+  /**
+ handle form submission: 
+ create an object populated with data from form state
+ post to server, server stores in database
+ * 
+ */
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // if form valid
+    if (!isFormValid()) {
+      console.log("please provide correct form fields");
+    } else {
+      const newItem = {
+        warehouse_id: warehouseState,
+        item_name: itemNameState,
+        description: itemDescriptionState,
+        category: itemCategoryState,
+        status: stockState,
+        quantity: quantityState,
+      };
+      axios
+        .post(`http://localhost:8080/inventories`, newItem)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+             alert("Item Created!");
+    }
+  };
   return (
     <section className="edit__inventory-item__section">
       <div className="edit__inventory-item--top">
-        <div className="edit__inventory-item-arrow"></div>
+        <Link to=".." relative="path">
+          <div className="edit__inventory-item-arrow"></div>
+        </Link>
         <div className="edit__inventory-item__title">
           Add New Inventory Item
         </div>
       </div>
 
-      <form action="" className="edit__inventory-form">
+      <form onSubmit={handleSubmit} className="edit__inventory-form">
         <div className="edit__inventory-form-wrapper">
           <div className="edit__inventory-form--left">
             <h1 className="edit__inventory-item__header">Item Details</h1>
@@ -25,6 +125,8 @@ const AddInventoryItem = () => {
                 placeholder="Item Name"
                 name="itemName"
                 id="itemName"
+                onChange={handleChangeName}
+                value={itemNameState}
               />
             </div>
             <div className="edit__inventory-form__container">
@@ -41,6 +143,8 @@ const AddInventoryItem = () => {
                 rows="5"
                 className="edit__inventory-item__input"
                 placeholder="Description"
+                onChange={handleChangeDescription}
+                value={itemDescriptionState}
               ></textarea>
             </div>
             <div className="edit__inventory-form__container edit__inventory-form__container--bottom">
@@ -51,10 +155,17 @@ const AddInventoryItem = () => {
                 className="edit__inventory-item__input select"
                 name="category"
                 id="category"
+                onChange={handleChangeCategory}
+                value={itemCategoryState}
               >
+                <option defaultValue="" hidden>
+                  Category
+                </option>
+                <option value="Accessories">Accessories</option>
+                <option value="Apparel">Apparel</option>
                 <option value="Electronics">Electronics</option>
-                <option value="Electronics">Electronics</option>
-                <option value="Electronics">Electronics</option>
+                <option value="Gear">Gear</option>
+                <option value="Health">Health</option>
               </select>
             </div>
           </div>
@@ -70,6 +181,7 @@ const AddInventoryItem = () => {
                   id="inStock"
                   name="availability"
                   value="inStock"
+                  onChange={handleChangeStock}
                 ></input>
                 <label htmlFor="inStock">In Stock</label>
               </div>
@@ -79,6 +191,7 @@ const AddInventoryItem = () => {
                   id="outOfStock"
                   name="availability"
                   value="outOfStock"
+                  onChange={handleChangeStock}
                 ></input>
                 <label htmlFor="outOfStock">Out of Stock</label>
               </div>
@@ -93,6 +206,9 @@ const AddInventoryItem = () => {
                 placeholder="Quantity"
                 name="quantity"
                 id="quantity"
+                value={quantityState}
+                onChange={handleChangeQuantity}
+                disabled={disableState}
               />
             </div>
             <div className="edit__inventory-form__container">
@@ -106,18 +222,30 @@ const AddInventoryItem = () => {
                 className="edit__inventory-item__input select"
                 name="location"
                 id="location"
+                onChange={handleChangeWarehouse}
               >
-                <option value="Manhattan">Manhattan</option>
-                <option value="Manhattan">Manhattan</option>
-                <option value="Manhattan">Manhattan</option>
+                <option defaultValue="" hidden>
+                  Warehouse
+                </option>
+                {Object.keys(warehouseListState).length > 0 ? (
+                  warehouseListState.map((warehouse) => (
+                    <option key={warehouse.id} value={warehouse.id}>
+                      {warehouse.warehouse_name}
+                    </option>
+                  ))
+                ) : (
+                  <option>loading</option>
+                )}
               </select>
             </div>
           </div>
         </div>
         <div className="edit__inventory-item__button-container">
-          <button className="edit__inventory-item__cancel-button">
-            Cancel
-          </button>
+          <Link to={"/inventories"}>
+            <button className="edit__inventory-item__cancel-button">
+              Cancel
+            </button>
+          </Link>
           <button className="edit__inventory-item__save-button">
             + Add Item
           </button>
