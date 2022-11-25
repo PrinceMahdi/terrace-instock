@@ -184,9 +184,11 @@
     }
   }
   &__warehouse {
-    padding-top: 4px;
-    margin-left: auto;
-    width: 50%;
+    @include bp.small {
+      padding-top: 4px;
+      margin-left: auto;
+      width: 50%;
+    }
     &-title {
       margin-left: auto;
       width: 50%;
