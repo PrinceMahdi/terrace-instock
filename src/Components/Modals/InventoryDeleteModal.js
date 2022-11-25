@@ -4,7 +4,6 @@ import "./Modals.scss";
 import close from "../../assets/icons/close-24px.svg";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-
 import axios from "axios";
 const warehouseData = "http://localhost:8080/inventories";
 const InventoryDeleteModal = () => {
@@ -32,10 +31,17 @@ const InventoryDeleteModal = () => {
             Please confirm that you'd like to delete this from the inventory
             list. You won't be able to undo this action.
           </p>
-          <button className="modal__cancel">Cancel</button>
+          <button className="modal__cancel" onClick={onClose}>
+            Cancel
+          </button>
           <button className="modal__delete-button">Delete</button>
           <a href="/">
-            <img className="modal__icon" src={close} alt="x button" />
+            <img
+              className="modal__icon"
+              src={close}
+              alt="x button"
+              onClick={onClose}
+            />
           </a>
         </div>
       </div>

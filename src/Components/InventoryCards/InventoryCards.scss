@@ -6,7 +6,7 @@
 @use "../../styles/partials/typography" as tp;
 @use "../../styles/partials/mixins" as mx;
 
-.warehouse-cards {
+.inventory-cards {
   &-wrap {
     border-top: 0.75px solid $secondary-light;
     border-bottom: 0.75px solid $secondary-light;
@@ -31,7 +31,7 @@
       @include tp.large-body-small;
     }
   }
-  &__warehouse-name {
+  &__inventory-item {
     display: flex;
     align-items: center;
     // padding-top: 4px;
@@ -74,7 +74,7 @@
     //   justify-content: space-between;
     // }
   }
-  &__contact-name {
+  &__status {
     padding-top: 4px;
     &-title {
       @include bp.medium {
@@ -103,7 +103,7 @@
       }
     }
   }
-  &__address {
+  &__category {
     padding-top: 4px;
     &-title {
       @include bp.medium {
@@ -135,7 +135,7 @@
       }
     }
   }
-  &__contact-info {
+  &__qty {
     &-title {
       @include bp.medium {
         display: none;
@@ -161,16 +161,38 @@
         flex: 1;
       }
     }
-    &-phone {
-      padding-top: 4px;
+  }
+  &__warehouse {
+    padding-top: 4px;
+    &-title {
+      @include bp.medium {
+        display: none;
+      }
+      @include bp.large {
+        display: none;
+      }
     }
-    // &-email {
-    //   padding-top: 4px;
-    // }
-    //     &-address-wrap {
-    //   display: flex;
-    //   justify-content: space-between;
-    // }
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      padding: 4px;
+      width: 50%;
+      padding: 1rem 1.5rem 0;
+      @include bp.medium {
+        width: 100%;
+        padding: 0 1rem 0 0;
+        order: 2;
+        max-width: 20%;
+        flex: 1;
+      }
+      @include bp.large {
+        width: 100%;
+        padding: 0 1rem 0 0;
+        order: 2;
+        max-width: 20%;
+        flex: 1;
+      }
+    }
   }
   &__icons {
     &-del {
