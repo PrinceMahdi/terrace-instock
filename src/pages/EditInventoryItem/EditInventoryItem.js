@@ -42,6 +42,7 @@ const EditInventoryItem = () => {
         setItemCategoryState(category);
         setStockState(status);
         setQuantityState(quantity);
+        // change selected radio based on status state
    if (status === 'Out of Stock'){
            setCheckInState(false);
            setCheckOutState(true);
@@ -53,6 +54,8 @@ const EditInventoryItem = () => {
           const found = warehouseData.find(
             (warehouse) => warehouse.id === warehouse_id
           );
+// TODO: match warehouse_id to populated drop down, add selected attribute to that dropdown element
+
           // console.log(found.warehouse_name)
           setWarehouseListState(response.data);
           // setWarehouseState(response.data[found].warehouse_name);
