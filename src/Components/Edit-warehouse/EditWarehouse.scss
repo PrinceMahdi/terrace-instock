@@ -39,7 +39,7 @@
     background-position: center;
     padding: 1rem;
   }
-  &__edit {
+  &__edit {font-weight: 600;
     @include tp.small-page-header;
     @include bp.medium {
       @include tp.large-page-header;
@@ -63,7 +63,7 @@
       padding: 0 2rem;
     }
   }
-  &__form-subhead {
+  &__form-subhead {font-weight: 600;
     @include tp.small-sub-header;
     margin: 0;
     padding-top: 1rem;

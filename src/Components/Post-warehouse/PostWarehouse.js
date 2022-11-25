@@ -217,11 +217,11 @@ const PostWarehouse = () => {
           </div>
         </div>
         <div className="warehouse__buttons">
-          <button className="warehouse__button warehouse__button--secondary">
           <Link to={'/'}>
+          <button className="warehouse__button warehouse__button--secondary">
             Cancel
-          </Link>
           </button>
+          </Link>
           <button className="warehouse__button warehouse__button--primary">
             +Add Warehouse
           </button>

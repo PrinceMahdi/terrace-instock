@@ -125,3 +125,11 @@
 @mixin form {
   height: 2.375rem;
 }
+/* ------------- MIXIN FOR SVG COLOR CHANGES ------------- */
+@mixin dropDownIcon {
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10L12 15L17 10H7Z' fill='%235C667E'/%3E%3C/svg%3E%0A");
+}
+
+@mixin dropDownIconOnHover {
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10L12 15L17 10H7Z' fill='%232E66E5'/%3E%3C/svg%3E%0A");
+}
