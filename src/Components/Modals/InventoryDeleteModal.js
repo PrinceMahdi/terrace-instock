@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 const warehouseData = "http://localhost:8080/inventories";
-const InventoryDeleteModal = () => {
+const InventoryDeleteModal = ({ onClose }) => {
   const params = useParams();
   const [warehouseinventorydetails, setWarehouseinventorydetails] = useState(
     []
