@@ -139,11 +139,12 @@
   }
   &__button {
     &--primary {
-      @include mx.btn-primary-mobile;
-      height: 2.25rem;
-      width: 50%;
-      padding: .5rem .75rem;
-
+      @include bp.small {
+        @include mx.btn-primary-mobile;
+        height: 2.25rem;
+        width: 50%;
+        padding: 0.5rem 0.75rem;
+      }
 
       &:hover {
         @include mx.btn-primary-hover;
@@ -151,27 +152,36 @@
       margin-left: 0.5rem;
       @include bp.medium {
         margin: 0 1rem;
-           height: 2.375rem;
         @include mx.btn-primary;
+        height: 2.375rem;
+        padding: 0 1.5rem;
       }
       @include bp.large {
         margin: 0 1rem;
-        height: 2.375rem;
         @include mx.btn-primary;
+        padding: 0 1.5rem;
+        height: 2.375rem;
       }
     }
     &--secondary {
-            height: 2.25rem;
-      width: 50%;
-      @include mx.btn-secondary-mobile;
+      @include bp.small {
+        height: 2.25rem;
+        width: 50%;
+        @include mx.btn-secondary-mobile;
+      }
+
       &:hover {
         @include mx.btn-secondary-hover;
       }
       @include bp.medium {
         @include mx.btn-secondary;
+        height: 2.375rem;
+          padding: 0 1.5rem;
       }
       @include bp.large {
         @include mx.btn-secondary;
+        height: 2.375rem;
+          padding: 0 1.5rem;
       }
     }
   }

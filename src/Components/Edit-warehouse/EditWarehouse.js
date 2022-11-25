@@ -246,9 +246,11 @@ const EditWarehouse = () => {
           </div>
         </div>
         <div className="warehouse__buttons">
+            <Link to="/">
           <button className="warehouse__button warehouse__button--secondary">
-            <Link to="/">Cancel</Link>
+              Cancel
           </button>
+              </Link>
           <button className="warehouse__button warehouse__button--primary">
             Save
           </button>
