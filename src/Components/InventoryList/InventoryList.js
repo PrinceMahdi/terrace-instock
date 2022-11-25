@@ -23,7 +23,6 @@ const InventoryList = () => {
       }
     };
     getInventoryData();
-    console.log(inventories)
   }, []);
 
   let navigate = useNavigate();
