@@ -40,18 +40,13 @@ const EditInventoryItem = () => {
         setItemCategoryState(category);
         setStockState(status);
         setQuantityState(quantity);
+      
         axios.get(`http://localhost:8080/warehouses/`).then((response)=>{
           setWarehouseListState(response.data)
         })
       });
   }, []);
   
-  // axios request for warehouse list, set warehouses to state to populate warehouse buttons
-  // useEffect(() => {
-  //   axios.get(`http://localhost:8080/warehouses`).then((response) => {
-  //     setWarehouseListState(response.data);
-  //   });
-  // }, []);
 
   const handleChangeName = (event) => {
     setItemNameState(event.target.value);
