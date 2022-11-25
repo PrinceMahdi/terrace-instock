@@ -54,7 +54,7 @@ const EditInventoryItem = () => {
             (warehouse) => warehouse.id === warehouse_id
           );
           // console.log(found.warehouse_name)
-          // setWarehouseListState(response.data);
+          setWarehouseListState(response.data);
           // setWarehouseState(response.data[found].warehouse_name);
         });
       });
