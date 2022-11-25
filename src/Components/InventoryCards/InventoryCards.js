@@ -4,10 +4,7 @@ import editIcon from "../../assets/icons/edit2-24px.svg";
 import chevronIcon from "../../assets/icons/chevron_right-24px.svg";
 import { Link } from "react-router-dom";
 import InventoryDeleteModal from "../Modals/InventoryDeleteModal";
-import { useEffect, useState } from "react";
-import axios from "axios";
-
-const warehouseData = "http://localhost:8080/warehouses";
+import { useState } from "react";
 
 const InventoryCards = ({ inventories }) => {
   const [openInventoryModal, setOpenInventoryModal] = useState(false);
@@ -77,11 +74,11 @@ const InventoryCards = ({ inventories }) => {
       </div>
       <InventoryDeleteModal
         open={openInventoryModal}
-        inventoryID={inventoryID}
-        inventoryName={inventoryName}
         onClose={() => {
           setOpenInventoryModal(false);
         }}
+        inventoryID={inventoryID}
+        inventoryName={inventoryName}
       />
     </section>
   ));
