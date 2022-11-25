@@ -7,8 +7,6 @@ import WarehouseDeleteModal from "../Modals/WarehouseDeleteModal";
 import { useState } from "react";
 
 const WarehouseCards = ({ warehouses }) => {
-  //"/warehouses/delete/:id"
-  ///warehouses/edit/:id
 
   const [openModal, setOpenModal] = useState(false);
   const [warehouseID, setWarehouseID] = useState("");

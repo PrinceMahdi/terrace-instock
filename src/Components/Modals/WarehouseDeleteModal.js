@@ -16,6 +16,8 @@ const WarehouseDeleteModal = ({
     onClose();
   };
 
+  // somehow use useEffect to refresh the page after warehouse is deleted
+
   return (
     <>
       <div className="modal">
