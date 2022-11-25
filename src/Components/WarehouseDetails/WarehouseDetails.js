@@ -100,23 +100,23 @@ const WarehouseDetails = () => {
       </div>
       <div className="warehousedet__label-container">
         <div className="warehousedet__label-lists">
-          <div className="warehousedet__label-list">
+          <div className="warehousedet__label-list warehousedet__l1">
             <p className="warehousedet__label-item">INVENTORY ITEM</p>
             <img className="warehousedet__label-icon" src={sortIcon} alt="" />
           </div>
-          <div className="warehousedet__label-list">
+          <div className="warehousedet__label-list warehousedet__l2">
             <p className="warehousedet__label-item">CATEGORY</p>
             <img className="warehousedet__label-icon" src={sortIcon} alt="" />
           </div>
-          <div className="warehousedet__label-list">
+          <div className="warehousedet__label-list warehousedet__l3">
             <p className="warehousedet__label-item">STATUS</p>
             <img className="warehousedet__label-icon" src={sortIcon} alt="" />
           </div>
-          <div className="warehousedet__label-list">
+          <div className="warehousedet__label-list warehousedet__l4">
             <p className="warehousedet__label-item">QUANTITY</p>
             <img className="warehousedet__label-icon" src={sortIcon} alt="" />
           </div>
-          <div className="warehousedet__label-list">
+          <div className="warehousedet__label-list warehousedet__l5">
             <p className="warehousedet__label-item">ACTIONS</p>
           </div>
         </div>
