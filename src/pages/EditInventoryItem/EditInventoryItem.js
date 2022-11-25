@@ -52,26 +52,49 @@ const EditInventoryItem = () => {
     });
   }, []);
 
+  // check form field for content
+  // TODO: validate if type of quantity state is number
+  const isFormValid = () => {
+    if (
+      itemNameState.length < 1 ||
+      itemDescriptionState.length < 1 ||
+      itemCategoryState === "" ||
+      stockState === "" ||
+      quantityState === "" ||
+      warehouseState === ""
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
   // function to handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
     // if form valid
-    const newItem = {
-      warehouse_id: warehouseState,
-      item_name: itemNameState,
-      description: itemDescriptionState,
-      category: itemCategoryState,
-      status: stockState,
-      quantity: quantityState,
-    };
-    axios
-      .put(`http://localhost:8080/inventories/${params.id}`, newItem)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (!isFormValid()) {
+      console.log("please provide correct form fields");
+    } else {
+      const newItem = {
+        warehouse_id: warehouseState,
+        item_name: itemNameState,
+        description: itemDescriptionState,
+        category: itemCategoryState,
+        status: stockState,
+        quantity: quantityState,
+      };
+      console.log(typeof parseInt(quantityState));
+      axios
+        .put(`http://localhost:8080/inventories/${params.id}`, newItem)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      alert("Item updated!");
+    }
   };
 
   return (

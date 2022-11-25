@@ -26,7 +26,6 @@ const AddInventoryItem = () => {
   };
   const handleChangeStock = (event) => {
     setStockState(event.target.value);
-
   };
   const handleChangeQuantity = (event) => {
     setQuantityState(event.target.value);
@@ -35,16 +34,15 @@ const AddInventoryItem = () => {
     setWarehouseState(event.target.value);
   };
   // when stock state is updated to outOfStock set quantity field to 0 and disable field
-useEffect(()=>{
+  useEffect(() => {
     if (stockState === "outOfStock") {
       setQuantityState("0");
       setDisabledState(true);
-    }else
-    {
-      setQuantityState('')
-      setDisabledState(false)
+    } else {
+      setQuantityState("");
+      setDisabledState(false);
     }
-},[stockState])
+  }, [stockState]);
 
   // axios request for warehouse list, set warehouses to state to populate warehouse buttons
   useEffect(() => {
@@ -53,7 +51,23 @@ useEffect(()=>{
     });
   }, []);
 
-  // TODO: check form validity
+  
+// check form field for content
+// TODO: validate if type of quantity state is number
+  const isFormValid = () => {
+    if (
+      itemNameState.length < 1 ||
+      itemDescriptionState.length < 1 ||
+      itemCategoryState === "" ||
+      stockState === "" ||
+      quantityState === "" ||
+      warehouseState === ""
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  };
 
   /**
  handle form submission: 
@@ -64,22 +78,27 @@ useEffect(()=>{
   const handleSubmit = (event) => {
     event.preventDefault();
     // if form valid
-    const newItem = {
-      warehouse_id: warehouseState,
-      item_name: itemNameState,
-      description: itemDescriptionState,
-      category: itemCategoryState,
-      status: stockState,
-      quantity: quantityState,
-    };
-    axios
-      .post(`http://localhost:8080/inventories`, newItem)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (!isFormValid()) {
+      console.log("please provide correct form fields");
+    } else {
+      const newItem = {
+        warehouse_id: warehouseState,
+        item_name: itemNameState,
+        description: itemDescriptionState,
+        category: itemCategoryState,
+        status: stockState,
+        quantity: quantityState,
+      };
+      axios
+        .post(`http://localhost:8080/inventories`, newItem)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+             alert("Item Created!");
+    }
   };
   return (
     <section className="edit__inventory-item__section">
