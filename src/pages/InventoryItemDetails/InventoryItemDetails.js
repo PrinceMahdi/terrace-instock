@@ -1,10 +1,11 @@
 /* ---------------- SCSS IMPORTS ---------------- */
 import "./InventoryItemDetails.scss";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 const InventoryItemDetails = () => {
+  const navigate = useNavigate();
   const [itemDetails, setItemDetails] = useState([]);
   const params = useParams();
   const inventoriesUrl = `http://localhost:8080/inventories/${params.id}`;
@@ -32,14 +33,26 @@ const InventoryItemDetails = () => {
     getWarehouseDetails();
   }, [warehouse_id]);
 
+  const editItemComponent = () => {
+    let path = `/inventories/item/edit/${params.id}`;
+    navigate(path);
+  };
+
   return (
     <section className="inventory__item-details">
       <div className="inventory__item-details__container">
         <div className="inventory__item-details__container--top">
-          <div className="inventory__item-details__back__arrow"></div>
+          <div
+            className="inventory__item-details__back__arrow"
+            onClick={() => navigate(-1)}
+          ></div>
           <h1 className="inventory__item-details__title">{item_name}</h1>
         </div>
-        <button className="inventory__item-details__button">
+        {/* /inventories/item/edit/:id */}
+        <button
+          className="inventory__item-details__button"
+          onClick={editItemComponent}
+        >
           <div className="inventory__item-details__button-icon"></div>
           <div className="inventory__item-details__button-text">Edit</div>
         </button>
