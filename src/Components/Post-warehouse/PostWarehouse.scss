@@ -41,6 +41,7 @@
   }
   &__edit {
     @include tp.small-page-header;
+    font-weight: 600;
     @include bp.medium {
       @include tp.large-page-header;
     }
@@ -64,6 +65,7 @@
     }
   }
   &__form-subhead {
+    font-weight: 600;
     @include tp.small-sub-header;
     margin: 0;
     padding-top: 1rem;
