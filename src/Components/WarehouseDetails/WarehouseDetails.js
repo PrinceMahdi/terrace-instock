@@ -7,50 +7,59 @@ import sortIcon from "../../assets/icons/sort-24px.svg";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import "./WarehouseDetails.scss";
 
 const warehouseData = "http://localhost:8080/warehouses";
-const id = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9";
+//const warehouseId = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9";
 
 const WarehouseDetails = () => {
+  const params = useParams();
   const [warehouseinventorydetails, setWarehouseinventorydetails] = useState(
     []
   );
   const [warehousecontactdetails, setWarehousecontactdetails] = useState([]);
+
   useEffect(() => {
     axios
-      .get(`${warehouseData}/${id}/inventories`)
-      .then((response) => {
-        setWarehouseinventorydetails(response.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-  useEffect(() => {
-    axios
-      .get(`${warehouseData}/${id}`)
+      .get(`${warehouseData}/${params.id}`)
       .then((response) => {
         setWarehousecontactdetails(response.data);
       })
       .catch((err) => console.log(err));
-  }, []);
-  console.log("hi", warehouseinventorydetails);
-  console.log("hello", warehousecontactdetails.city);
+  }, [params]);
+  useEffect(() => {
+    axios
+      .get(`${warehouseData}/${params.id}/inventories`)
+      .then((response) => {
+        setWarehouseinventorydetails(response.data);
+      })
+      .catch((err) => console.log(err));
+  }, [params]);
 
   return (
     <section className="warehousedet">
       <div className="warehousedet__contact">
         <div className="warehousedet__name-edit">
           <div className="warehousedet__icon-name">
-            <img className="warehousedet__icon" src={arrowBack} alt="" />
+            <Link to="/warehouses">
+              <img className="warehousedet__icon" src={arrowBack} alt="" />
+            </Link>
             <h1 className="warehousedet__name">
               {warehousecontactdetails.city}
             </h1>
           </div>
           <div className="warehousedet__edit">
-            <div className="warehousedet__icon-contain">
-              <img className="warehousedet__edit-icon" src={editIcon} alt="" />
-              <p className="warehousedet__icon-text">Edit</p>
-            </div>
+            <Link to={"/warehouses/edit/" + warehousecontactdetails.id}>
+              <div className="warehousedet__icon-contain">
+                <img
+                  className="warehousedet__edit-icon"
+                  src={editIcon}
+                  alt=""
+                />
+                <p className="warehousedet__icon-text">Edit</p>
+              </div>
+            </Link>
           </div>
         </div>
         <div className="warehousedet__address-name">
@@ -112,73 +121,86 @@ const WarehouseDetails = () => {
           </div>
         </div>
       </div>
+      {warehouseinventorydetails.length > 0 ? (
+        <div>
+          {warehouseinventorydetails.map((inventory) => (
+            <div className="warehousedet__list" key={inventory.id}>
+              <div className="warehousedet__item-status-icons">
+                <div className="warehousedet__item-status">
+                  <div className="warehousedet__item-cat">
+                    <div className="warehousedet__item">
+                      <h2 className="warehousedet__item-title">
+                        INVENTORY ITEM
+                      </h2>
+                      <Link to={"/inventories/item/" + inventory.id}>
+                        <div className="warehousedet__item-name-icon">
+                          <p className="warehousedet__item-names">
+                            {inventory.item_name}
+                          </p>
+                          <img
+                            className="warehousedet__icon-chevron"
+                            src={chevronIcon}
+                            alt=""
+                          />
+                        </div>
+                      </Link>
+                    </div>
+                    <div className="warehousedet__cat">
+                      <h2 className="warehousedet__cat-title">CATEGORY</h2>
+                      <p className="warehousedet__cat-actual">
+                        {inventory.category}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="warehousedet__status-qty">
+                    <div className="warehousedet__status-button">
+                      <h2 className="warehousedet__status-title">STATUS</h2>
 
-      {warehouseinventorydetails.map((inventory) => (
-        <div className="warehousedet__list" key={inventory.id}>
-          <div className="warehousedet__item-status-icons">
-            <div className="warehousedet__item-status">
-              <div className="warehousedet__item-cat">
-                <div className="warehousedet__item">
-                  <h2 className="warehousedet__item-title">INVENTORY ITEM</h2>
-                  <div className="warehousedet__item-name-icon">
-                    <p className="warehousedet__item-names">
-                      {inventory.item_name}
-                    </p>
-                    <img
-                      className="warehousedet__icon-chevron"
-                      src={chevronIcon}
-                      alt=""
-                    />
+                      {inventory.status === "In Stock" ? (
+                        <div className="warehousedet__status-container">
+                          <p className="warehousedet__status-condition">
+                            {inventory.status}
+                          </p>
+                        </div>
+                      ) : (
+                        <div className="warehousedet__status-container-out">
+                          <p className="warehousedet__status-condition warehousedet__status-condition-out">
+                            {inventory.status}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                    <div className="warehousedet__qty-num">
+                      <h2 className="warehousedet__qty-heading">QTY</h2>
+                      <p className="warehousedet__qty-full-number">
+                        {inventory.quantity}
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div className="warehousedet__cat">
-                  <h2 className="warehousedet__cat-title">CATEGORY</h2>
-                  <p className="warehousedet__cat-actual">
-                    {inventory.category}
-                  </p>
-                </div>
-              </div>
-              <div className="warehousedet__status-qty">
-                <div className="warehousedet__status-button">
-                  <h2 className="warehousedet__status-title">STATUS</h2>
-
-                  {inventory.status === "In Stock" ? (
-                    <div className="warehousedet__status-container">
-                      <p className="warehousedet__status-condition">
-                        {inventory.status}
-                      </p>
-                    </div>
-                  ) : (
-                    <div className="warehousedet__status-container-out">
-                      <p className="warehousedet__status-condition warehousedet__status-condition-out">
-                        {inventory.status}
-                      </p>
-                    </div>
-                  )}
-                </div>
-                <div className="warehousedet__qty-num">
-                  <h2 className="warehousedet__qty-heading">QTY</h2>
-                  <p className="warehousedet__qty-full-number">
-                    {inventory.quantity}
-                  </p>
+                <div className="warehousedet__del-edit-icon">
+                  <Link to={"/inventories/delete/" + inventory.id}>
+                    <img
+                      className="warehousedet__del-inventory-item"
+                      src={deleteIcon}
+                      alt=""
+                    />
+                  </Link>
+                  <Link to={"/inventories/item/edit/" + inventory.id}>
+                    <img
+                      className="warehousedet__edit-inventory-item"
+                      src={edit2}
+                      alt=""
+                    />
+                  </Link>
                 </div>
               </div>
             </div>
-            <div className="warehousedet__del-edit-icon">
-              <img
-                className="warehousedet__del-inventory-item"
-                src={deleteIcon}
-                alt=""
-              />
-              <img
-                className="warehousedet__edit-inventory-item"
-                src={edit2}
-                alt=""
-              />
-            </div>
-          </div>
+          ))}
         </div>
-      ))}
+      ) : (
+        <div>There are no inventories in this warehouse</div>
+      )}
     </section>
   );
 };

@@ -46,6 +46,7 @@
   }
   &__icon {
     margin-right: 0.75rem;
+    margin-top: 0.5rem;
   }
   &__name {
     @include small-page-header;
@@ -476,8 +477,14 @@
     }
   }
   &__status-button {
-    position: absolute;
-    left: 46%;
+    @include medium {
+      position: absolute;
+      left: 46%;
+    }
+    @include large {
+      position: absolute;
+      left: 47%;
+    }
   }
   &__status-title {
     margin: 0;
