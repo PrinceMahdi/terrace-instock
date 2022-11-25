@@ -7,27 +7,16 @@
 @use "../../styles/partials/mixins" as mx;
 
 .inventory-cards {
-  &__inventory-item-cat-wrap {
-    // display: flex;
-    // flex-direction: column;
-    // width: 50%;
-  }
-
-  &__status-qyt-ware-wrap {
-    // display: flex;
-    // flex-direction: column;
-    // width: 50%;
-  }
   &-wrap {
     border-top: 0.75px solid $secondary-light;
     border-bottom: 0.75px solid $secondary-light;
     @include tp.small-body-small;
     display: flex;
-    // flex-wrap: wrap;
     width: 100%;
     color: $secondary-dark;
-    // justify-content: space-between;
     padding: 0 2rem;
+    flex-wrap: wrap;
+
     @include bp.medium {
       flex-wrap: nowrap;
       align-items: center;
@@ -57,25 +46,25 @@
         display: none;
       }
     }
-    &-icon {
-      height: 0.625rem;
-      width: 6.17px;
-      padding-left: 10px;
-    }
+    // &-icon {
+    // height: 16px;
+    // width: 6.17px;
+    // padding-left: 10px;
+    // }
     &-wrap {
       display: flex;
       flex-direction: column;
       padding-top: 1rem;
+      width: 50%;
+      order: 1;
       @include bp.medium {
         padding: 0;
         max-width: 16.67%;
-        order: 1;
         flex: 1;
       }
       @include bp.large {
         padding: 0;
         max-width: 16.67%;
-        order: 1;
         flex: 1;
       }
     }
@@ -94,25 +83,48 @@
       display: flex;
       flex-direction: column;
       padding-top: 1rem;
+      width: 50%;
+      order: 3;
 
       @include bp.medium {
         width: 100%;
         padding: 0 1rem 0 0;
-        order: 2;
         max-width: 16.67%;
         flex: 1;
       }
       @include bp.large {
         width: 100%;
         padding: 0 1rem 0 0;
-        order: 2;
         max-width: 16.67%;
         flex: 1;
       }
     }
   }
   &__status {
-    padding-top: 4px;
+    // padding-top: 4px;
+    width: 4rem;
+    height: 1.5rem;
+    background: rgba(21, 132, 99, 0.07);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.25rem;
+    padding: 0.25rem 0.5rem;
+    color: $supporting-light;
+    font-weight: 600;
+    text-transform: uppercase;
+    @include tp.small-table-header;
+    &--outofstock {
+      color: $supporting-semi-light;
+      width: 5.6rem;
+      height: 1.5rem;
+      background: rgba(201, 69, 21, 0.07);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1.25rem;
+      padding: 0.25rem 0.5rem;
+    }
     &-title {
       @include bp.medium {
         display: none;
@@ -126,17 +138,20 @@
       flex-direction: column;
       padding-top: 1rem;
       width: 50%;
+      order: 2;
       @include bp.medium {
         padding: 0;
-        order: 3;
+
         max-width: 16.67%;
         flex: 1;
+        @include tp.large-table-header;
       }
       @include bp.large {
         padding: 0;
-        order: 3;
+
         max-width: 16.67%;
         flex: 1;
+        @include tp.large-table-header;
       }
     }
   }
@@ -154,15 +169,15 @@
       display: flex;
       flex-direction: column;
       padding-top: 1rem;
+      width: 50%;
+      order: 5;
       @include bp.medium {
         padding: 0;
-        order: 4;
         max-width: 16.67%;
         flex: 1;
       }
       @include bp.large {
         padding: 0;
-        order: 4;
         max-width: 16.67%;
         flex: 1;
       }
@@ -170,7 +185,11 @@
   }
   &__warehouse {
     padding-top: 4px;
+    margin-left: auto;
+    width: 50%;
     &-title {
+      margin-left: auto;
+      width: 50%;
       @include bp.medium {
         display: none;
       }
@@ -182,18 +201,17 @@
       display: flex;
       flex-direction: column;
       padding-top: 1rem;
-
+      width: 100%;
+      order: 6;
       @include bp.medium {
         width: 100%;
         padding: 0 1rem 0 0;
-        order: 5;
         max-width: 16.67%;
         flex: 1;
       }
       @include bp.large {
         width: 100%;
         padding: 0 1rem 0 0;
-        order: 5;
         max-width: 16.67%;
         flex: 1;
       }
@@ -217,10 +235,10 @@
       display: flex;
       justify-content: space-between;
       padding: 1.1875rem 1.75rem 1.6875rem;
+      order: 6;
       @include bp.medium {
         padding: 0;
         margin: 0;
-        order: 6;
         max-width: 16.67%;
         justify-content: space-evenly;
         flex: 1;
@@ -228,7 +246,6 @@
       @include bp.large {
         padding: 0;
         margin: 0;
-        order: 6;
         max-width: 16.67%;
         justify-content: space-evenly;
         flex: 1;

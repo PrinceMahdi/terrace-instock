@@ -12,7 +12,6 @@
     border-bottom: 0.75px solid $secondary-light;
     @include tp.small-body-small;
     display: flex;
-    // flex-direction: column;
     flex-wrap: wrap;
     width: 100%;
     color: $secondary-dark;
@@ -69,10 +68,6 @@
         flex: 1;
       }
     }
-    // &-contact-wrap {
-    //   display: flex;
-    //   justify-content: space-between;
-    // }
   }
   &__contact-name {
     padding-top: 4px;

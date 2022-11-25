@@ -16,14 +16,13 @@ const InventoryList = () => {
     const getInventoryData = async () => {
       try {
         const { data } = await axios.get(inventoriesData);
- 
+
         setinventories(data);
       } catch (error) {
         console.log(error);
       }
     };
     getInventoryData();
-    console.log(inventories)
   }, []);
 
   let navigate = useNavigate();

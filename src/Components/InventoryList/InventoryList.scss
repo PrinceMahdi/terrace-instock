@@ -137,7 +137,7 @@
   &-banner {
     color: $secondary-dark;
     background-color: $background-light;
-    @include tp.large-body-small;
+    @include tp.large-table-header;
     width: 100%;
     padding: 0 2rem;
     @include bp.large {
