@@ -42,14 +42,10 @@ const EditInventoryItem = () => {
         setItemCategoryState(category);
         setStockState(status);
         setQuantityState(quantity);
-        console.log(status)
-        if(status === 'In Stock'){
-          setCheckInState(true)
-          // setCheckOutState(false)
-          // setStockState()
-        }else if (status === 'Out of Stock'){
-          //  setCheckInState(false);
+   if (status === 'Out of Stock'){
+           setCheckInState(false);
            setCheckOutState(true);
+           setQuantityState('0')
         }
 
         axios.get(`http://localhost:8080/warehouses/`).then((response) => {
@@ -57,9 +53,9 @@ const EditInventoryItem = () => {
           const found = warehouseData.find(
             (warehouse) => warehouse.id === warehouse_id
           );
-          console.log(found.warehouse_name)
-          setWarehouseListState(response.data);
-          setWarehouseState(response.data[found].warehouse_name);
+          // console.log(found.warehouse_name)
+          // setWarehouseListState(response.data);
+          // setWarehouseState(response.data[found].warehouse_name);
         });
       });
   }, []);
@@ -88,9 +84,13 @@ const EditInventoryItem = () => {
     if (stockState === "outOfStock") {
       setQuantityState("0");
       setDisabledState(true);
+           setCheckOutState(true);
+      
     } else {
       setQuantityState("");
       setDisabledState(false);
+      setCheckInState(true);
+   
     }
   }, [stockState]);
 
