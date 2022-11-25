@@ -11,6 +11,7 @@ const EditInventoryItem = () => {
   const [quantityState, setQuantityState] = useState("");
   const [warehouseState, setWarehouseState] = useState("");
   const [warehouseListState, setWarehouseListState] = useState([]);
+  const [disableState, setDisabledState] = useState(null);
 
   const params = useParams();
 
@@ -32,6 +33,17 @@ const EditInventoryItem = () => {
   const handleChangeWarehouse = (event) => {
     setWarehouseState(event.target.value);
   };
+
+  // when stock state is updated to outOfStock set quantity field to 0 and disable field
+  useEffect(() => {
+    if (stockState === "outOfStock") {
+      setQuantityState("0");
+      setDisabledState(true);
+    } else {
+      setQuantityState("");
+      setDisabledState(false);
+    }
+  }, [stockState]);
 
   // axios request for warehouse list, set warehouses to state to populate warehouse buttons
   useEffect(() => {
@@ -180,6 +192,7 @@ const EditInventoryItem = () => {
                   id="quantity"
                   value={quantityState}
                   onChange={handleChangeQuantity}
+                  disabled={disableState}
                 />
               </div>
               <div className="edit__inventory-form__container">

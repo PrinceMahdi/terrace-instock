@@ -5,7 +5,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-
 const AddInventoryItem = () => {
   const [itemNameState, setItemNameState] = useState("");
   const [itemDescriptionState, setItemDescriptionState] = useState("");
@@ -14,6 +13,7 @@ const AddInventoryItem = () => {
   const [quantityState, setQuantityState] = useState("");
   const [warehouseState, setWarehouseState] = useState("");
   const [warehouseListState, setWarehouseListState] = useState([]);
+  const [disableState, setDisabledState] = useState(null);
 
   const handleChangeName = (event) => {
     setItemNameState(event.target.value);
@@ -26,7 +26,7 @@ const AddInventoryItem = () => {
   };
   const handleChangeStock = (event) => {
     setStockState(event.target.value);
-    
+
   };
   const handleChangeQuantity = (event) => {
     setQuantityState(event.target.value);
@@ -34,8 +34,19 @@ const AddInventoryItem = () => {
   const handleChangeWarehouse = (event) => {
     setWarehouseState(event.target.value);
   };
+  // when stock state is updated to outOfStock set quantity field to 0 and disable field
+useEffect(()=>{
+    if (stockState === "outOfStock") {
+      setQuantityState("0");
+      setDisabledState(true);
+    }else
+    {
+      setQuantityState('')
+      setDisabledState(false)
+    }
+},[stockState])
 
-// axios request for warehouse list, set warehouses to state to populate warehouse buttons
+  // axios request for warehouse list, set warehouses to state to populate warehouse buttons
   useEffect(() => {
     axios.get(`http://localhost:8080/warehouses`).then((response) => {
       setWarehouseListState(response.data);
@@ -44,7 +55,7 @@ const AddInventoryItem = () => {
 
   // TODO: check form validity
 
-/**
+  /**
  handle form submission: 
  create an object populated with data from form state
  post to server, server stores in database
@@ -178,6 +189,7 @@ const AddInventoryItem = () => {
                 id="quantity"
                 value={quantityState}
                 onChange={handleChangeQuantity}
+                disabled={disableState}
               />
             </div>
             <div className="edit__inventory-form__container">
@@ -210,11 +222,11 @@ const AddInventoryItem = () => {
           </div>
         </div>
         <div className="edit__inventory-item__button-container">
-           <Link to={'/inventories'}>
-          <button className="edit__inventory-item__cancel-button">
-            Cancel
-          </button>
-            </Link>
+          <Link to={"/inventories"}>
+            <button className="edit__inventory-item__cancel-button">
+              Cancel
+            </button>
+          </Link>
           <button className="edit__inventory-item__save-button">
             + Add Item
           </button>
