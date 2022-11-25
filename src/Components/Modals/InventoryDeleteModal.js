@@ -13,58 +13,41 @@ const InventoryDeleteModal = ({
 }) => {
   if (!open) return null;
 
-  const inventoryDelUrl = `http://localhost:8080/warehouses/${inventoryID}`;
+  const inventoryDelUrl = `http://localhost:8080/inventories/${inventoryID}`;
   const deleteInventory = () => {
     axios.delete(inventoryDelUrl);
     onClose();
   };
 
-  // const params = useParams();
-  // const [warehouseinventorydetails, setWarehouseinventorydetails] = useState(
-  //   []
-  // );
-  // useEffect(() => {
-  //   axios
-  //     .get(`${warehouseData}/${params.id}`)
-  //     .then((response) => {
-  //       setWarehouseinventorydetails(response.data);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
-
   return (
-    <>
-      <div className="modal">
-        <div className="modal__delete">
-          <h1 className="modal__title">
-            Delete {inventoryName} inventory item?
-          </h1>
-          <p className="modal__para">
-            Please confirm that you'd like to delete {inventoryName} from the
-            inventory list. You won't be able to undo this action.
-          </p>
-          <button className="modal__cancel" onClick={onClose}>
-            Cancel
-          </button>
-          <button
-            className="modal__delete-button"
-            onClick={() => {
-              deleteInventory();
-            }}
-          >
-            Delete
-          </button>
-          <a href="/">
-            <img
-              className="modal__icon"
-              src={close}
-              alt="x button"
-              onClick={onClose}
-            />
-          </a>
-        </div>
+    <div className="modal">
+      <div className="modal__delete">
+        <h1 className="modal__title">Delete {inventoryName} inventory item?</h1>
+        <p className="modal__para">
+          Please confirm that you'd like to delete {inventoryName} from the
+          inventory list. You won't be able to undo this action.
+        </p>
+        <button className="modal__cancel" onClick={onClose}>
+          Cancel
+        </button>
+        <button
+          className="modal__delete-button"
+          onClick={() => {
+            deleteInventory();
+          }}
+        >
+          Delete
+        </button>
+        <a href="/">
+          <img
+            className="modal__icon"
+            src={close}
+            alt="x button"
+            onClick={onClose}
+          />
+        </a>
       </div>
-    </>
+    </div>
   );
 };
 
