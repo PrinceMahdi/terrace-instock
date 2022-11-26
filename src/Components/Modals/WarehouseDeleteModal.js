@@ -41,7 +41,7 @@ const WarehouseDeleteModal = ({
           >
             Delete
           </button>
-          <a href="/">
+          <a href="/warehouses">
             <img
               className="modal__icon"
               src={close}
