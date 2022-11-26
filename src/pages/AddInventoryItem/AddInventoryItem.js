@@ -35,7 +35,7 @@ const AddInventoryItem = () => {
   };
   // when stock state is updated to outOfStock set quantity field to 0 and disable field
   useEffect(() => {
-    if (stockState === "outOfStock") {
+    if (stockState === "Out Of Stock") {
       setQuantityState("0");
       setDisabledState(true);
     } else {
@@ -51,9 +51,8 @@ const AddInventoryItem = () => {
     });
   }, []);
 
-  
-// check form field for content
-// TODO: validate if type of quantity state is number
+  // check form field for content
+  // TODO: validate if type of quantity state is number
   const isFormValid = () => {
     if (
       itemNameState.length < 1 ||
@@ -97,7 +96,7 @@ const AddInventoryItem = () => {
         .catch((err) => {
           console.log(err);
         });
-             alert("Item Created!");
+      alert("Item Created!");
     }
   };
   return (
@@ -180,7 +179,7 @@ const AddInventoryItem = () => {
                   type="radio"
                   id="inStock"
                   name="availability"
-                  value="inStock"
+                  value="In Stock"
                   onChange={handleChangeStock}
                 ></input>
                 <label htmlFor="inStock">In Stock</label>
@@ -190,7 +189,7 @@ const AddInventoryItem = () => {
                   type="radio"
                   id="outOfStock"
                   name="availability"
-                  value="outOfStock"
+                  value="Out Of Stock"
                   onChange={handleChangeStock}
                 ></input>
                 <label htmlFor="outOfStock">Out of Stock</label>

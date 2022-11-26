@@ -53,6 +53,7 @@ const PostWarehouse = () => {
   // check if phone valid
   const isPhoneValid = () => {
     if (!phoneState.match(phoneRegex)) {
+      alert("please provide a valid phone number eg: 555-555-5555");
       return false;
     } else {
       return true;
@@ -63,6 +64,7 @@ const PostWarehouse = () => {
     if (emailState.match(emailRegex)) {
       return true;
     } else {
+      alert("please provide a valid email eg: email@email.com");
       return false;
     }
   };
@@ -97,11 +99,10 @@ const PostWarehouse = () => {
       };
 
       // send form to API
-   
+
       axios
         .post(`http://localhost:8080/warehouses`, newWarehouse)
         .then((response) => {
-
           event.target.reset();
         });
       alert("success");
@@ -112,7 +113,7 @@ const PostWarehouse = () => {
   return (
     <div className="warehouse__wrapper">
       <div className="warehouse__header">
-        <Link to='..' relative="path">
+        <Link to="/warehouses">
           <div className="warehouse__back"></div>
         </Link>
         <h2 className="warehouse__edit">Add New Warehouse</h2>
@@ -218,10 +219,10 @@ const PostWarehouse = () => {
           </div>
         </div>
         <div className="warehouse__buttons">
-          <Link to={'/'}>
-          <button className="warehouse__button warehouse__button--secondary">
-            Cancel
-          </button>
+          <Link to={"/"}>
+            <button className="warehouse__button warehouse__button--secondary">
+              Cancel
+            </button>
           </Link>
           <button className="warehouse__button warehouse__button--primary">
             +Add Warehouse
