@@ -12,6 +12,7 @@ const inventoriesData = "http://localhost:8080/inventories";
 
 const InventoryList = () => {
   const [inventories, setinventories] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   useEffect(() => {
     const getInventoryData = async () => {
       try {
@@ -48,6 +49,9 @@ const InventoryList = () => {
               id="inventoryList"
               placeholder="Search..."
               className="inventory-list__search-input"
+              onChange={(event) => {
+                setSearchTerm(event.target.value);
+              }}
             />
             <button
               className="inventory-list__add-inventory-btn"
@@ -120,7 +124,10 @@ const InventoryList = () => {
           </div>
           <p className="inventory-list-banner__actions">ACTIONS</p>
         </div>
-        <InventoryCards inventories={inventories} />
+        <InventoryCards
+          inventories={inventories}
+          searchTerm={searchTerm}
+        />
       </div>
     </section>
   );
