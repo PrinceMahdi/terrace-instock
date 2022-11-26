@@ -12,11 +12,13 @@
   border-radius: 0.1875rem;
   box-shadow: 0px 2px 5px colors.$primary-dark;
 
+  /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
   @include medium {
     margin-left: 3rem;
     margin-right: 3rem;
     top: -5.9rem;
   }
+  /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
   @include large {
     margin-left: 5rem;
     margin-right: 5rem;
@@ -33,9 +35,11 @@
     justify-content: space-between;
     padding: 2rem 1.5rem 1.5rem 1.5rem;
     border-bottom: 1px solid colors.$secondary-light;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       padding: 2rem 2rem 1.4375rem 2rem;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       padding: 2rem 2.5rem 1.4375rem 2.5rem;
     }
@@ -54,11 +58,13 @@
     font-weight: 600;
     color: colors.$primary-dark;
     margin: 0;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       font-style: normal;
       font-weight: 600;
       @include large-page-header;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       font-style: normal;
       font-weight: 600;
@@ -81,7 +87,7 @@
       background-color: colors.$background-dark;
       border: 1px solid colors.$background-dark;
     }
-
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       width: 5.0625rem;
       height: 2.375rem;
@@ -89,6 +95,7 @@
       border-radius: 1.25rem;
       padding: 0.5rem 1rem;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       width: 5.0625rem;
       height: 2.375rem;
@@ -99,6 +106,7 @@
   }
   &__icon-text {
     display: none;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       display: block;
       font-style: normal;
@@ -107,6 +115,7 @@
       color: colors.$primary-light;
       margin-left: 0.25rem;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       display: block;
       font-style: normal;
@@ -121,12 +130,13 @@
     flex-direction: column;
     padding: 1rem 1.5rem;
     border-bottom: 1px solid colors.$secondary-light;
-
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       flex-direction: row;
       border-bottom: none;
       padding: 1.5rem 5.5625rem 1.5rem 2rem;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       flex-direction: row;
       border-bottom: none;
@@ -134,10 +144,12 @@
     }
   }
   &__add {
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       width: 40%;
       border-right: 1px solid colors.$secondary-light;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       width: 40%;
       border-right: 1px solid colors.$secondary-light;
@@ -150,9 +162,11 @@
     font-weight: 600;
     @include small-table-header;
     color: colors.$secondary-dark;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       @include large-table-header;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       @include large-table-header;
     }
@@ -161,15 +175,18 @@
     @include small-auxiliary;
     color: colors.$primary-dark;
     margin: 0;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       display: none;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       display: none;
     }
   }
   &__title-tab {
     display: none;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       display: block;
       font-style: normal;
@@ -178,6 +195,7 @@
       color: colors.$primary-dark;
       margin: 0;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       display: block;
       font-style: normal;
@@ -194,12 +212,13 @@
     width: 87%;
     // padding-right: 2.5rem;
     justify-content: space-between;
-
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       padding-top: 0;
       width: 60%;
       justify-content: space-around;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       padding-top: 0;
       width: 60%;
@@ -215,10 +234,11 @@
     @include small-table-header;
     color: colors.$secondary-dark;
     margin-bottom: 0.25rem;
-
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       @include large-table-header;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       @include large-table-header;
     }
@@ -229,9 +249,11 @@
     font-style: normal;
     @include small-body-medium;
     color: colors.$primary-dark;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       @include large-auxiliary;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       @include large-auxiliary;
     }
@@ -242,9 +264,11 @@
     font-style: normal;
     @include small-body-medium;
     color: colors.$primary-dark;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       @include large-auxiliary;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       @include large-auxiliary;
     }
@@ -258,9 +282,11 @@
     @include small-table-header;
     color: colors.$secondary-dark;
     margin-bottom: 0.25rem;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       @include large-table-header;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       @include large-table-header;
     }
@@ -271,9 +297,11 @@
     font-style: normal;
     @include small-body-medium;
     color: colors.$primary-dark;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       @include large-auxiliary;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       @include large-auxiliary;
     }
@@ -284,20 +312,24 @@
     font-style: normal;
     @include small-body-medium;
     color: colors.$primary-dark;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       @include large-auxiliary;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       @include large-auxiliary;
     }
   }
   &__label-container {
     display: none;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       display: block;
       background: rgba(247, 248, 249, 0.7);
       padding: 0 2rem;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       display: block;
       background: rgba(247, 248, 249, 0.7);
@@ -307,10 +339,12 @@
 
   &__label-lists {
     display: none;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       display: flex;
       flex-direction: row;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       display: flex;
       flex-direction: row;
@@ -338,10 +372,12 @@
   &__list {
     padding: 1rem 1.5rem;
     border-bottom: 1px solid colors.$secondary-light;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       padding: 1.125rem 2rem;
       position: relative;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       padding: 1.125rem 2.5rem;
       position: relative;
@@ -353,9 +389,11 @@
   &__item-status-icons {
     display: flex;
     flex-direction: column;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       flex-direction: row;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       flex-direction: row;
     }
@@ -369,11 +407,13 @@
   &__item-cat {
     display: flex;
     flex-direction: column;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       flex-direction: row;
       width: 50%;
       justify-content: space-between;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       flex-direction: row;
       width: 50%;
@@ -381,9 +421,11 @@
     }
   }
   &__item {
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       width: 50%;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       width: 50%;
     }
@@ -395,9 +437,11 @@
     color: colors.$secondary-dark;
     margin: 0;
     margin-bottom: 0.25rem;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       display: none;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       display: none;
     }
@@ -412,19 +456,23 @@
     color: colors.$primary-semi-light;
     margin: 0;
     padding-top: 0.1rem;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       @include large-body-medium;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       @include large-body-medium;
     }
   }
   &__cat {
     margin-top: 1.25rem;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       margin: 0;
       width: 50%;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       margin: 0;
       width: 50%;
@@ -437,9 +485,11 @@
     @include small-table-header;
     color: colors.$secondary-dark;
     margin-bottom: 0.25rem;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       display: none;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       display: none;
     }
@@ -450,11 +500,13 @@
     font-weight: 400;
     @include small-auxiliary;
     color: colors.$primary-dark;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       position: absolute;
       left: 27%;
       @include large-body-medium;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       position: absolute;
       left: 27%;
@@ -465,11 +517,13 @@
     display: flex;
     flex-direction: column;
     width: 4.601875rem;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       flex-direction: row;
       width: 50%;
       justify-content: space-between;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       flex-direction: row;
       width: 50%;
@@ -477,10 +531,12 @@
     }
   }
   &__status-button {
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       position: absolute;
       left: 46%;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       position: absolute;
       left: 47%;
@@ -493,9 +549,11 @@
     @include small-table-header;
     color: colors.$secondary-dark;
     margin-bottom: 0.25rem;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       display: none;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       display: none;
     }
@@ -526,9 +584,11 @@
     font-weight: 600;
     @include small-table-header;
     color: colors.$supporting-light;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       @include large-body-small;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       @include large-body-small;
     }
@@ -538,9 +598,11 @@
   }
   &__qty-num {
     margin-top: 1.25rem;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       margin: 0;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       margin: 0;
     }
@@ -552,9 +614,11 @@
     @include small-table-header;
     color: colors.$secondary-dark;
     margin-bottom: 0.25rem;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       display: none;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       display: none;
     }
@@ -565,11 +629,13 @@
     font-weight: 400;
     color: colors.$primary-dark;
     @include small-auxiliary;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       @include large-body-medium;
       position: absolute;
       left: 65%;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       @include large-body-medium;
       position: absolute;
@@ -581,6 +647,7 @@
     padding-bottom: 0.6875rem;
     display: flex;
     justify-content: space-between;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       width: 20%;
       justify-content: flex-start;
@@ -588,6 +655,7 @@
       justify-content: flex-end;
       gap: 1rem;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
       width: 20%;
       justify-content: flex-start;

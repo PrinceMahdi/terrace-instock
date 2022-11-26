@@ -16,7 +16,7 @@
     color: $secondary-dark;
     padding: 0 2rem;
     flex-wrap: wrap;
-
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include bp.medium {
       flex-wrap: nowrap;
       align-items: center;
@@ -24,6 +24,7 @@
       padding: 1rem 2rem;
       @include tp.large-body-small;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include bp.large {
       flex-wrap: nowrap;
       align-items: center;
@@ -39,9 +40,11 @@
     color: $primary-semi-light;
     font-weight: bold;
     &-title {
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         display: none;
       }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
       @include bp.large {
         display: none;
       }
@@ -57,11 +60,13 @@
       padding-top: 1rem;
       width: 50%;
       order: 1;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         padding: 0;
         max-width: 16.67%;
         flex: 1;
       }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
       @include bp.large {
         padding: 0;
         max-width: 16.67%;
@@ -72,9 +77,11 @@
   &__category {
     padding-top: 4px;
     &-title {
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         display: none;
       }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
       @include bp.large {
         display: none;
       }
@@ -85,13 +92,14 @@
       padding-top: 1rem;
       width: 50%;
       order: 3;
-
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         width: 100%;
         padding: 0 1rem 0 0;
         max-width: 16.67%;
         flex: 1;
       }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
       @include bp.large {
         width: 100%;
         padding: 0 1rem 0 0;
@@ -125,10 +133,12 @@
       border-radius: 1.25rem;
       padding: 0.25rem 0.5rem;
     }
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     &-title {
       @include bp.medium {
         display: none;
       }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
       @include bp.large {
         display: none;
       }
@@ -139,6 +149,7 @@
       padding-top: 1rem;
       width: 50%;
       order: 2;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         padding: 0;
 
@@ -146,6 +157,7 @@
         flex: 1;
         @include tp.large-table-header;
       }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
       @include bp.large {
         padding: 0;
 
@@ -158,9 +170,11 @@
 
   &__qty {
     &-title {
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         display: none;
       }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
       @include bp.large {
         display: none;
       }
@@ -171,11 +185,13 @@
       padding-top: 1rem;
       width: 50%;
       order: 5;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         padding: 0;
         max-width: 16.67%;
         flex: 1;
       }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
       @include bp.large {
         padding: 0;
         max-width: 16.67%;
@@ -184,6 +200,7 @@
     }
   }
   &__warehouse {
+    /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
     @include bp.small {
       padding-top: 4px;
       margin-left: auto;
@@ -192,9 +209,11 @@
     &-title {
       margin-left: auto;
       width: 50%;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         display: none;
       }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
       @include bp.large {
         display: none;
       }
@@ -205,12 +224,14 @@
       padding-top: 1rem;
       width: 100%;
       order: 6;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         width: 100%;
         padding: 0 1rem 0 0;
         max-width: 16.67%;
         flex: 1;
       }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
       @include bp.large {
         width: 100%;
         padding: 0 1rem 0 0;
@@ -238,6 +259,7 @@
       justify-content: space-between;
       padding: 1.1875rem 1.75rem 1.6875rem;
       order: 6;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         padding: 0;
         margin: 0;
@@ -245,6 +267,7 @@
         justify-content: space-evenly;
         flex: 1;
       }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
       @include bp.large {
         padding: 0;
         margin: 0;

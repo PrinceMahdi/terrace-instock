@@ -26,6 +26,7 @@ const InventoryList = () => {
   }, []);
 
   let navigate = useNavigate();
+  // function to change the path of the add button
   const toAddInventoryComponent = () => {
     let path = "/inventories/add";
     navigate(path);

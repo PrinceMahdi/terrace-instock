@@ -1,7 +1,10 @@
-import React from "react";
+/* ----------------- SCSS IMPORTS ----------------- */
 import "./Modals-inventory.scss";
-import close from "../../assets/icons/close-24px.svg";
+/* ----------------- REACT IMPORTS ----------------- */
+import React from "react";
 import axios from "axios";
+/* ----------------- ASSET IMPORTS ----------------- */
+import close from "../../assets/icons/close-24px.svg";
 
 const InventoryDeleteModal = ({
   open,

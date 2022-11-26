@@ -1,7 +1,9 @@
+/* ----------------- SCSS IMPORTS ----------------- */
 import "./EditInventoryItem.scss";
+/* ----------------- REACT IMPORTS ----------------- */
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 const EditInventoryItem = () => {
   const [itemNameState, setItemNameState] = useState("");
@@ -42,13 +44,13 @@ const EditInventoryItem = () => {
         setItemCategoryState(category);
         setStockState(status);
         setQuantityState(quantity);
-        console.log(status)
-        if(status === 'In Stock'){
-          setCheckInState(true)
-          setCheckOutState(false)
-        }else if (status === 'Out of Stock'){
-           setCheckInState(false);
-           setCheckOutState(true);
+        console.log(status);
+        if (status === "In Stock") {
+          setCheckInState(true);
+          setCheckOutState(false);
+        } else if (status === "Out of Stock") {
+          setCheckInState(false);
+          setCheckOutState(true);
         }
 
         axios.get(`http://localhost:8080/warehouses/`).then((response) => {
@@ -56,7 +58,7 @@ const EditInventoryItem = () => {
           const found = warehouseData.find(
             (warehouse) => warehouse.id === warehouse_id
           );
-          console.log(found.warehouse_name)
+          console.log(found.warehouse_name);
           setWarehouseListState(response.data);
           setWarehouseState(response.data[found].warehouse_name);
         });
@@ -268,7 +270,6 @@ const EditInventoryItem = () => {
                   Warehouse
                 </label>
                 <select
-               
                   className="edit__inventory-item__input select"
                   name="location"
                   id="location"

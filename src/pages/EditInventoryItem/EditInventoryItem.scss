@@ -7,12 +7,15 @@
 @use "../../styles/partials/mixins" as mx;
 
 .header {
+  /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
   @include bp.small {
     padding-bottom: 4rem;
   }
+  /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
   @include bp.medium {
     padding-bottom: 6rem;
   }
+  /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
   @include bp.large {
     padding-bottom: 6rem;
   }
@@ -22,9 +25,11 @@
   &__inventory {
     &-form {
       &-wrapper {
+        /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
         @include bp.medium {
           display: flex;
         }
+        /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
         @include bp.large {
           display: flex;
         }
@@ -32,37 +37,44 @@
       &__container {
         display: flex;
         flex-direction: column;
-
+        /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
         @include bp.small {
           padding: 0 1rem;
         }
+        /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
         @include bp.medium {
           padding: 0 3rem;
         }
+        /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
         @include bp.large {
           padding: 0 5rem;
         }
         &--bottom {
           padding-bottom: 1rem;
+          /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
           @include bp.small {
             border-bottom: 1px solid $secondary-light;
           }
         }
       }
       &--left {
+        /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
         @include bp.medium {
           width: 50%;
           border-right: 1px solid $secondary-light;
         }
+        /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
         @include bp.large {
           width: 50%;
           border-right: 1px solid $secondary-light;
         }
       }
       &--right {
+        /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
         @include bp.medium {
           width: 50%;
         }
+        /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
         @include bp.large {
           width: 50%;
         }
@@ -84,12 +96,15 @@
         font-weight: 600;
 
         &--bottom {
+          /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
           @include bp.small {
             padding: 0 1rem;
           }
+          /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
           @include bp.medium {
             padding: 0 3rem;
           }
+          /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
           @include bp.large {
             padding: 0 5rem;
           }
@@ -101,12 +116,15 @@
       &__header {
         @include tp.small-sub-header;
         font-weight: 600;
+        /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
         @include bp.small {
           padding: 0 1rem;
         }
+        /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
         @include bp.medium {
           padding: 0 3rem;
         }
+        /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
         @include bp.large {
           padding: 0 5rem;
         }
@@ -137,7 +155,7 @@
         margin: -3.2rem 1rem 0 1rem;
         background-color: $primary-light;
         border-radius: 0.25rem;
-        /* --------------- STYLING FOR MOBILE DEVICES --------------- */
+        /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
         @include bp.medium {
           margin: -5.3rem 3rem 0 3rem;
         }
@@ -153,14 +171,16 @@
           align-items: center;
           background-color: $background-light;
           gap: 1rem;
-
+          /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
           @include bp.small {
             padding: 1rem 1rem;
           }
+          /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
           @include bp.medium {
             padding: 1rem 3rem;
             justify-content: end;
           }
+          /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
           @include bp.large {
             padding: 1rem 5rem;
             justify-content: end;
@@ -170,6 +190,7 @@
       &__cancel {
         &-button {
           @include mx.btn-secondary-mobile;
+          /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
           @include bp.small {
             width: 50%;
           }
@@ -182,6 +203,7 @@
       &__save {
         &-button {
           @include mx.btn-primary-mobile;
+          /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
           @include bp.small {
             width: 50%;
           }
@@ -197,12 +219,15 @@
         display: flex;
         gap: 4rem;
         margin-bottom: 1rem;
+        /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
         @include bp.small {
           padding: 0 1rem;
         }
+        /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
         @include bp.medium {
           padding: 0 3rem;
         }
+        /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
         @include bp.large {
           padding: 0 5rem;
         }

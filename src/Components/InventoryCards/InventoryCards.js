@@ -1,12 +1,17 @@
+/* ----------------- SCSS IMPORTS ----------------- */
 import "./InventoryCards.scss";
+/* ----------------- ASSET IMPORTS ----------------- */
 import delIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit2-24px.svg";
 import chevronIcon from "../../assets/icons/chevron_right-24px.svg";
-import { Link } from "react-router-dom";
+/* ----------------- COMPONENT IMPORTS ----------------- */
 import InventoryDeleteModal from "../Modals/InventoryDeleteModal";
+/* ----------------- REACT IMPORTS ----------------- */
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const InventoryCards = ({ inventories }) => {
+  // States
   const [openInventoryModal, setOpenInventoryModal] = useState(false);
   const [inventoryID, setInventoryID] = useState("");
   const [inventoryName, setInventoryName] = useState("");
