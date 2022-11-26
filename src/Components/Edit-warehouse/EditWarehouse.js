@@ -136,12 +136,12 @@ const EditWarehouse = () => {
       // send form to API
       axios
         .put(`http://localhost:8080/warehouses/${params.id}`, updateWarehouse)
-        .then((response) => {
+        .then((_response) => {
           event.target.reset();
         });
       alert("success");
     } else {
-      console.log("form error");
+      alert("please check form fields");
     }
   };
   return (
@@ -254,7 +254,9 @@ const EditWarehouse = () => {
         </div>
         <div className="warehouse__buttons">
           <Link to="/">
-            <button className="warehouse__button warehouse__button--secondary">
+            <button 
+            type="button"
+            className="warehouse__button warehouse__button--secondary">
               Cancel
             </button>
           </Link>

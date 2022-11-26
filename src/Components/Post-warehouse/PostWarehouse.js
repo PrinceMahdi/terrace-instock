@@ -106,12 +106,12 @@ const PostWarehouse = () => {
 
       axios
         .post(`http://localhost:8080/warehouses`, newWarehouse)
-        .then((response) => {
+        .then((_response) => {
           event.target.reset();
         });
       alert("success");
     } else {
-      console.log("form error");
+      alert("error, please check form fields");
     }
   };
   return (
@@ -224,11 +224,16 @@ const PostWarehouse = () => {
         </div>
         <div className="warehouse__buttons">
           <Link to={"/"}>
-            <button className="warehouse__button warehouse__button--secondary">
+            <button
+              type="button"
+              className="warehouse__button warehouse__button--secondary"
+            >
               Cancel
             </button>
           </Link>
-          <button className="warehouse__button warehouse__button--primary">
+          <button
+            className="warehouse__button warehouse__button--primary"
+          >
             +Add Warehouse
           </button>
         </div>

@@ -90,8 +90,8 @@ const AddInventoryItem = () => {
       };
       axios
         .post(`http://localhost:8080/inventories`, newItem)
-        .then((response) => {
-          console.log(response);
+        .then((_response) => {
+
         })
         .catch((err) => {
           console.log(err);
@@ -241,7 +241,9 @@ const AddInventoryItem = () => {
         </div>
         <div className="edit__inventory-item__button-container">
           <Link to={"/inventories"}>
-            <button className="edit__inventory-item__cancel-button">
+            <button 
+            type="button"
+            className="edit__inventory-item__cancel-button">
               Cancel
             </button>
           </Link>

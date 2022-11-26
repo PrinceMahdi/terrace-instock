@@ -70,7 +70,6 @@ const EditInventoryItem = () => {
           // TODO: match warehouse_id to populated drop down, add selected attribute to that dropdown element
 
           setDropdownTarget(found.id);
-          console.log(dropdownTarget);
           setWarehouseListState(response.data);
         });
       });
@@ -142,8 +141,8 @@ const EditInventoryItem = () => {
       };
       axios
         .put(`http://localhost:8080/inventories/${params.id}`, newItem)
-        .then((response) => {
-          console.log(response);
+        .then((_response) => {
+
         })
         .catch((err) => {
           console.log(err);
