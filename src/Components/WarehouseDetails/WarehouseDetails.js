@@ -107,19 +107,47 @@ const WarehouseDetails = () => {
         <div className="warehousedet__label-lists">
           <div className="warehousedet__label-list warehousedet__l1">
             <p className="warehousedet__label-item">INVENTORY ITEM</p>
-            <img className="warehousedet__label-icon" src={sortIcon} alt="" />
+            <img
+              className="warehousedet__label-icon"
+              src={sortIcon}
+              alt="sort icon"
+              onClick={() => {
+                alert("It works!");
+              }}
+            />
           </div>
           <div className="warehousedet__label-list warehousedet__l2">
             <p className="warehousedet__label-item">CATEGORY</p>
-            <img className="warehousedet__label-icon" src={sortIcon} alt="" />
+            <img
+              className="warehousedet__label-icon"
+              src={sortIcon}
+              alt="sort icon"
+              onClick={() => {
+                alert("It works!");
+              }}
+            />
           </div>
           <div className="warehousedet__label-list warehousedet__l3">
             <p className="warehousedet__label-item">STATUS</p>
-            <img className="warehousedet__label-icon" src={sortIcon} alt="" />
+            <img
+              className="warehousedet__label-icon"
+              src={sortIcon}
+              alt="sort icon"
+              onClick={() => {
+                alert("It works!");
+              }}
+            />
           </div>
           <div className="warehousedet__label-list warehousedet__l4">
             <p className="warehousedet__label-item">QUANTITY</p>
-            <img className="warehousedet__label-icon" src={sortIcon} alt="" />
+            <img
+              className="warehousedet__label-icon"
+              src={sortIcon}
+              alt="sort icon"
+              onClick={() => {
+                alert("It works!");
+              }}
+            />
           </div>
           <div className="warehousedet__label-list warehousedet__l5">
             <p className="warehousedet__label-item">ACTIONS</p>
@@ -184,12 +212,11 @@ const WarehouseDetails = () => {
                   </div>
                 </div>
                 <div className="warehousedet__del-edit-icon">
-                  {/* <Link to={"/inventories/delete/" + inventory.id}> */}
                   <div>
                     <img
                       className="warehousedet__del-inventory-item"
                       src={deleteIcon}
-                      alt=""
+                      alt="delete icon"
                       onClick={() => {
                         setOpenModal(true);
                         setInventoryID(inventory.id);
@@ -197,12 +224,11 @@ const WarehouseDetails = () => {
                       }}
                     />
                   </div>
-                  {/* </Link> */}
                   <Link to={"/inventories/item/edit/" + inventory.id}>
                     <img
                       className="warehousedet__edit-inventory-item"
                       src={edit2}
-                      alt=""
+                      alt="edit icon"
                     />
                   </Link>
                 </div>
@@ -219,9 +245,9 @@ const WarehouseDetails = () => {
           ))}
         </div>
       ) : (
-        <div className="warehousedet__error-msg">
+        <p className="warehousedet__error-msg">
           There are no inventories in this warehouse
-        </div>
+        </p>
       )}
     </section>
   );
