@@ -10,8 +10,11 @@
   background-color: colors.$background-light;
   padding: 2.5rem 0;
   margin-top: 2px;
+  @include medium {
+    padding-top: 4.375rem;
+  }
   @include large {
-    padding: 3rem 0;
+    padding-top: 5.9375rem;
   }
 
   &__text {
