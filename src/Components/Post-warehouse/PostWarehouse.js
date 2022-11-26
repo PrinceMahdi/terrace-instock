@@ -5,9 +5,10 @@ import "./PostWarehouse.scss";
 import { useState } from "react";
 /* ---------------- DEPENDENCY IMPORTS ---------------- */
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const PostWarehouse = () => {
+  const navigate = useNavigate();
   // track state for form fields
   const [nameState, setNameState] = useState("");
   const [addressState, setAddressState] = useState("");
@@ -52,11 +53,15 @@ const PostWarehouse = () => {
 
   // check if phone valid
   const isPhoneValid = () => {
-    if (!phoneState.match(phoneRegex)) {
-      alert("please provide a valid phone number eg: 555-555-5555");
-      return false;
-    } else {
+    if (
+      phoneState.search(
+        /^[\+]?([0-9][\s]?|[0-9]?)([(][0-9]{3}[)][\s]?|[0-9]{3}[-\s\.]?)[0-9]{3}[-\s\.]?[0-9]{4,6}$/g
+      ) > -1
+    ) {
       return true;
+    } else {
+      alert("please provide a valid phone number eg: +1 (555) 555-5555");
+      return false;
     }
   };
 
@@ -102,12 +107,13 @@ const PostWarehouse = () => {
 
       axios
         .post(`http://localhost:8080/warehouses`, newWarehouse)
-        .then((response) => {
+        .then((_response) => {
           event.target.reset();
         });
-      alert("success");
+      alert("success, returning to warehouse list");
+      navigate("/warehouses");
     } else {
-      console.log("form error");
+      alert("error, please check form fields");
     }
   };
   return (
@@ -220,7 +226,10 @@ const PostWarehouse = () => {
         </div>
         <div className="warehouse__buttons">
           <Link to={"/"}>
-            <button className="warehouse__button warehouse__button--secondary">
+            <button
+              type="button"
+              className="warehouse__button warehouse__button--secondary"
+            >
               Cancel
             </button>
           </Link>

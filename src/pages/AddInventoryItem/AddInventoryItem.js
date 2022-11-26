@@ -2,10 +2,12 @@
 import "./AddInventoryItem.scss";
 /* ---------------- DEPENDENCY IMPORTS ---------------- */
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const AddInventoryItem = () => {
+  const navigate = useNavigate();
+  // State to hold active details of form fields
   const [itemNameState, setItemNameState] = useState("");
   const [itemDescriptionState, setItemDescriptionState] = useState("");
   const [itemCategoryState, setItemCategoryState] = useState("");
@@ -15,6 +17,7 @@ const AddInventoryItem = () => {
   const [warehouseListState, setWarehouseListState] = useState([]);
   const [disableState, setDisabledState] = useState(null);
 
+  // Event handlers to update state as form fields are edited
   const handleChangeName = (event) => {
     setItemNameState(event.target.value);
   };
@@ -90,13 +93,12 @@ const AddInventoryItem = () => {
       };
       axios
         .post(`http://localhost:8080/inventories`, newItem)
-        .then((response) => {
-          console.log(response);
-        })
+        .then((_response) => {})
         .catch((err) => {
           console.log(err);
         });
-      alert("Item Created!");
+      alert("Item created, returning to inventories.");
+      navigate("/inventories");
     }
   };
   return (
@@ -241,7 +243,10 @@ const AddInventoryItem = () => {
         </div>
         <div className="edit__inventory-item__button-container">
           <Link to={"/inventories"}>
-            <button className="edit__inventory-item__cancel-button">
+            <button
+              type="button"
+              className="edit__inventory-item__cancel-button"
+            >
               Cancel
             </button>
           </Link>
