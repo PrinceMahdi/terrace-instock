@@ -5,9 +5,10 @@ import "./PostWarehouse.scss";
 import { useState } from "react";
 /* ---------------- DEPENDENCY IMPORTS ---------------- */
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const PostWarehouse = () => {
+  const navigate = useNavigate();
   // track state for form fields
   const [nameState, setNameState] = useState("");
   const [addressState, setAddressState] = useState("");
@@ -109,7 +110,8 @@ const PostWarehouse = () => {
         .then((_response) => {
           event.target.reset();
         });
-      alert("success");
+      alert("success, returning to warehouse list");
+      navigate("/warehouses");
     } else {
       alert("error, please check form fields");
     }
@@ -231,9 +233,7 @@ const PostWarehouse = () => {
               Cancel
             </button>
           </Link>
-          <button
-            className="warehouse__button warehouse__button--primary"
-          >
+          <button className="warehouse__button warehouse__button--primary">
             +Add Warehouse
           </button>
         </div>

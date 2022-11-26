@@ -2,10 +2,12 @@
 import "./EditInventoryItem.scss";
 /* ----------------- REACT IMPORTS ----------------- */
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const EditInventoryItem = () => {
+  const navigate = useNavigate();
+  // State to hold active details of form fields
   const [itemNameState, setItemNameState] = useState("");
   const [itemDescriptionState, setItemDescriptionState] = useState("");
   const [itemCategoryState, setItemCategoryState] = useState("");
@@ -22,12 +24,11 @@ const EditInventoryItem = () => {
   // set true on active radio button
   const [checkInState, setCheckInState] = useState(false);
   const [checkOutState, setCheckOutState] = useState(false);
-  
+
   // targe warehouse to have selected on page load
-  const [dropdownTarget, setDropdownTarget] = useState('')
+  const [dropdownTarget, setDropdownTarget] = useState("");
 
   const params = useParams();
-
 
   /**
    call server for item data based on id in url
@@ -54,20 +55,19 @@ const EditInventoryItem = () => {
         setItemCategoryState(category);
         setStockState(status);
         setQuantityState(quantity);
+        setWarehouseState(warehouse_id);
         // change selected radio based on status state
         if (status === "Out of Stock") {
           setCheckInState(false);
           setCheckOutState(true);
           setQuantityState("0");
         }
-        // else{setDisabledState(false); setCheckInState(true)}
 
         axios.get(`http://localhost:8080/warehouses/`).then((response) => {
           const warehouseData = response.data;
           const found = warehouseData.find(
             (warehouse) => warehouse.id === warehouse_id
           );
-          // TODO: match warehouse_id to populated drop down, add selected attribute to that dropdown element
 
           setDropdownTarget(found.id);
           setWarehouseListState(response.data);
@@ -75,6 +75,7 @@ const EditInventoryItem = () => {
       });
   }, []);
 
+  // Event handlers to update state as form fields are edited
   const handleChangeName = (event) => {
     setItemNameState(event.target.value);
   };
@@ -129,6 +130,14 @@ const EditInventoryItem = () => {
     event.preventDefault();
     // if form valid
     if (!isFormValid()) {
+      console.log(
+        warehouseState,
+        itemNameState,
+        itemDescriptionState,
+        itemCategoryState,
+        stockState,
+        quantityState
+      );
       alert("please provide correct form fields");
     } else {
       const newItem = {
@@ -141,13 +150,12 @@ const EditInventoryItem = () => {
       };
       axios
         .put(`http://localhost:8080/inventories/${params.id}`, newItem)
-        .then((_response) => {
-
-        })
+        .then((_response) => {})
         .catch((err) => {
           console.log(err);
         });
-      alert("Item updated!");
+      alert("Item updated, returning to inventories.");
+      navigate("/inventories");
     }
   };
 
@@ -286,7 +294,6 @@ const EditInventoryItem = () => {
                   name="location"
                   id="location"
                   onChange={handleChangeWarehouse}
-                  
                 >
                   <option defaultValue="" hidden>
                     Warehouse
@@ -295,7 +302,9 @@ const EditInventoryItem = () => {
                     warehouseListState.map((warehouse) => (
                       <option
                         // to display warehouse will need a conditional to add selected attribute to correct option
-                        selected={warehouse.id === dropdownTarget? true : false}
+                        selected={
+                          warehouse.id === dropdownTarget ? true : false
+                        }
                         key={warehouse.id}
                         value={warehouse.id}
                       >

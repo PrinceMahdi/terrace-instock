@@ -3,10 +3,11 @@ import "./EditWarehouse.scss";
 
 /* ---------------- REACT IMPORTS ---------------- */
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const EditWarehouse = () => {
+  const navigate = useNavigate();
   // track state for form fields
   const [nameState, setNameState] = useState("");
   const [addressState, setAddressState] = useState("");
@@ -75,7 +76,6 @@ const EditWarehouse = () => {
     setEmailState(event.target.value);
   };
 
-  
   const emailRegex = new RegExp(
     "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
   );
@@ -85,10 +85,9 @@ const EditWarehouse = () => {
     if (
       phoneState.search(
         /^[\+]?([0-9][\s]?|[0-9]?)([(][0-9]{3}[)][\s]?|[0-9]{3}[-\s\.]?)[0-9]{3}[-\s\.]?[0-9]{4,6}$/g
-      ) >-1
-      ) {
+      ) > -1
+    ) {
       return true;
-    
     } else {
       alert("please provide a valid phone number eg: +1 (555) 555-5555");
       return false;
@@ -139,7 +138,8 @@ const EditWarehouse = () => {
         .then((_response) => {
           event.target.reset();
         });
-      alert("success");
+      alert("success, returning to warehouse list");
+      navigate("/warehouses");
     } else {
       alert("please check form fields");
     }
@@ -254,9 +254,10 @@ const EditWarehouse = () => {
         </div>
         <div className="warehouse__buttons">
           <Link to="/">
-            <button 
-            type="button"
-            className="warehouse__button warehouse__button--secondary">
+            <button
+              type="button"
+              className="warehouse__button warehouse__button--secondary"
+            >
               Cancel
             </button>
           </Link>
