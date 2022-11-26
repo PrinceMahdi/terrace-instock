@@ -130,14 +130,7 @@ const EditInventoryItem = () => {
     event.preventDefault();
     // if form valid
     if (!isFormValid()) {
-      console.log(
-        warehouseState,
-        itemNameState,
-        itemDescriptionState,
-        itemCategoryState,
-        stockState,
-        quantityState
-      );
+  
       alert("please provide correct form fields");
     } else {
       const newItem = {
@@ -146,8 +139,9 @@ const EditInventoryItem = () => {
         description: itemDescriptionState,
         category: itemCategoryState,
         status: stockState,
-        quantity: quantityState,
+        quantity: quantityState.toString(),
       };
+      console.log(newItem)
       axios
         .put(`http://localhost:8080/inventories/${params.id}`, newItem)
         .then((_response) => {})
