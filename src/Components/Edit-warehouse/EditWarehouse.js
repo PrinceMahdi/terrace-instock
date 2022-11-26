@@ -140,7 +140,7 @@ const EditWarehouse = () => {
   return (
     <div className="warehouse__wrapper">
       <div className="warehouse__header">
-        <Link to="/">
+        <Link to="/warehouses">
           <div className="warehouse__back"></div>
         </Link>
         <h2 className="warehouse__edit">Edit Warehouse</h2>
