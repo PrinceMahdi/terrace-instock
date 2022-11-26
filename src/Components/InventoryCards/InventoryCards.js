@@ -5,7 +5,7 @@ import delIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit2-24px.svg";
 import chevronIcon from "../../assets/icons/chevron_right-24px.svg";
 /* ----------------- COMPONENT IMPORTS ----------------- */
-import InventoryDeleteModal from "../Modals/InventoryDeleteModal";
+import InventoryDeleteModal from "../Modals-inventory/InventoryDeleteModal";
 /* ----------------- REACT IMPORTS ----------------- */
 import { Link } from "react-router-dom";
 import { useState } from "react";
