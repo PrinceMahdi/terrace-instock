@@ -12,6 +12,7 @@ const warehouseData = "http://localhost:8080/warehouses";
 
 const WarehouseList = () => {
   const [warehouses, setWarehouses] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   useEffect(() => {
     const getWarehouseData = async () => {
       try {
@@ -29,7 +30,6 @@ const WarehouseList = () => {
     let path = "/warehouses/add";
     navigate(path);
   };
-
   return (
     <section className="warehouse-list">
       <div className="warehouse-list-wrap">
@@ -46,6 +46,9 @@ const WarehouseList = () => {
               id="warehouseList"
               placeholder="Search..."
               className="warehouse-list__search-input"
+              onChange={(event) => {
+                setSearchTerm(event.target.value);
+              }}
             />
             <button
               className="warehouse-list__add-warehouse-btn"
@@ -106,7 +109,10 @@ const WarehouseList = () => {
           </div>
           <p className="warehouse-list-banner__actions">ACTIONS</p>
         </div>
-        <WarehouseCards warehouses={warehouses} />
+        <WarehouseCards
+          warehouses={warehouses}
+          searchTerm={searchTerm}
+        />
       </div>
     </section>
   );

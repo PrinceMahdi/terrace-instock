@@ -1,5 +1,5 @@
 /* ----------------- SCSS IMPORTS ----------------- */
-import "./Modals.scss";
+import "./Modals-warehouse.scss";
 /* ----------------- REACT IMPORTS ----------------- */
 import React from "react";
 import axios from "axios";
@@ -16,10 +16,8 @@ const WarehouseDeleteModal = ({
   const warehouseDelUrl = `http://localhost:8080/warehouses/${warehouseID}`;
   const deleteWarehouse = () => {
     axios.delete(warehouseDelUrl);
-    onClose();
+    // onClose();
   };
-
-  // somehow use useEffect to refresh the page after warehouse is deleted
 
   return (
     <>
@@ -33,22 +31,22 @@ const WarehouseDeleteModal = ({
           <button className="modal__cancel" onClick={onClose}>
             Cancel
           </button>
-          <button
-            className="modal__delete-button"
-            onClick={() => {
-              deleteWarehouse();
-            }}
-          >
-            Delete
-          </button>
           <a href="/warehouses">
-            <img
-              className="modal__icon"
-              src={close}
-              alt="x button"
-              onClick={onClose}
-            />
+            <button
+              className="modal__delete-button"
+              onClick={() => {
+                deleteWarehouse();
+              }}
+            >
+              Delete
+            </button>
           </a>
+          <img
+            className="modal__icon"
+            src={close}
+            alt="x button"
+            onClick={onClose}
+          />
         </div>
       </div>
     </>

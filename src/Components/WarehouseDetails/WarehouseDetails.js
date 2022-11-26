@@ -11,7 +11,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 /* ----------------- SCSS IMPORTS ----------------- */
 import "./WarehouseDetails.scss";
-import InventoryDeleteModal from "../Modals/InventoryDeleteModal";
+import InventoryDeleteModal from "../Modals-inventory/InventoryDeleteModal";
 
 const warehouseData = "http://localhost:8080/warehouses";
 
