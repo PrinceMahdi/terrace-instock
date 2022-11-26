@@ -52,11 +52,15 @@ const PostWarehouse = () => {
 
   // check if phone valid
   const isPhoneValid = () => {
-    if (!phoneState.match(phoneRegex)) {
-      alert("please provide a valid phone number eg: 555-555-5555");
-      return false;
-    } else {
+    if (
+      phoneState.search(
+        /^[\+]?([0-9][\s]?|[0-9]?)([(][0-9]{3}[)][\s]?|[0-9]{3}[-\s\.]?)[0-9]{3}[-\s\.]?[0-9]{4,6}$/g
+      ) > -1
+    ) {
       return true;
+    } else {
+      alert("please provide a valid phone number eg: +1 (555) 555-5555");
+      return false;
     }
   };
 

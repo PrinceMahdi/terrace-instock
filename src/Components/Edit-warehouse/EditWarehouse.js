@@ -90,7 +90,7 @@ const EditWarehouse = () => {
       return true;
     
     } else {
-      alert("please provide a valid phone number eg: 555-555-5555");
+      alert("please provide a valid phone number eg: +1 (555) 555-5555");
       return false;
     }
   };
