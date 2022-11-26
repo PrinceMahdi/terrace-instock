@@ -12,12 +12,22 @@ const EditInventoryItem = () => {
   const [stockState, setStockState] = useState("");
   const [quantityState, setQuantityState] = useState("");
   const [warehouseState, setWarehouseState] = useState("");
+
+  // array to map through; populate dropdown warehouse options
   const [warehouseListState, setWarehouseListState] = useState([]);
+
+  // disable quantity field
   const [disableState, setDisabledState] = useState(null);
+
+  // set true on active radio button
   const [checkInState, setCheckInState] = useState(false);
   const [checkOutState, setCheckOutState] = useState(false);
+  
+  // targe warehouse to have selected on page load
+  const [dropdownTarget, setDropdownTarget] = useState('')
 
   const params = useParams();
+
 
   /**
    call server for item data based on id in url
@@ -44,23 +54,24 @@ const EditInventoryItem = () => {
         setItemCategoryState(category);
         setStockState(status);
         setQuantityState(quantity);
-        console.log(status);
-        if (status === "In Stock") {
-          setCheckInState(true);
-          setCheckOutState(false);
-        } else if (status === "Out of Stock") {
+        // change selected radio based on status state
+        if (status === "Out of Stock") {
           setCheckInState(false);
           setCheckOutState(true);
+          setQuantityState("0");
         }
+        // else{setDisabledState(false); setCheckInState(true)}
 
         axios.get(`http://localhost:8080/warehouses/`).then((response) => {
           const warehouseData = response.data;
           const found = warehouseData.find(
             (warehouse) => warehouse.id === warehouse_id
           );
-          console.log(found.warehouse_name);
+          // TODO: match warehouse_id to populated drop down, add selected attribute to that dropdown element
+
+          setDropdownTarget(found.id);
+          console.log(dropdownTarget);
           setWarehouseListState(response.data);
-          setWarehouseState(response.data[found].warehouse_name);
         });
       });
   }, []);
@@ -89,9 +100,11 @@ const EditInventoryItem = () => {
     if (stockState === "outOfStock") {
       setQuantityState("0");
       setDisabledState(true);
+      setCheckOutState(true);
     } else {
       setQuantityState("");
       setDisabledState(false);
+      setCheckInState(true);
     }
   }, [stockState]);
 
@@ -117,7 +130,7 @@ const EditInventoryItem = () => {
     event.preventDefault();
     // if form valid
     if (!isFormValid()) {
-      console.log("please provide correct form fields");
+      alert("please provide correct form fields");
     } else {
       const newItem = {
         warehouse_id: warehouseState,
@@ -274,13 +287,19 @@ const EditInventoryItem = () => {
                   name="location"
                   id="location"
                   onChange={handleChangeWarehouse}
+                  
                 >
                   <option defaultValue="" hidden>
                     Warehouse
                   </option>
                   {Object.keys(warehouseListState).length > 0 ? (
                     warehouseListState.map((warehouse) => (
-                      <option key={warehouse.id} value={warehouse.id}>
+                      <option
+                        // to display warehouse will need a conditional to add selected attribute to correct option
+                        selected={warehouse.id === dropdownTarget? true : false}
+                        key={warehouse.id}
+                        value={warehouse.id}
+                      >
                         {warehouse.warehouse_name}
                         {/* match name in list to incoming list, add selected attribute */}
                       </option>

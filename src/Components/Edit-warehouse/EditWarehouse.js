@@ -75,17 +75,23 @@ const EditWarehouse = () => {
     setEmailState(event.target.value);
   };
 
-  const phoneRegex = new RegExp(
-    `^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$`
+  
+  const emailRegex = new RegExp(
+    "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
   );
-  const emailRegex = new RegExp(".+@.+..+");
 
   // check if phone valid
   const isPhoneValid = () => {
-    if (!phoneState.match(phoneRegex)) {
-      return false;
-    } else {
+    if (
+      phoneState.search(
+        /^[\+]?([0-9][\s]?|[0-9]?)([(][0-9]{3}[)][\s]?|[0-9]{3}[-\s\.]?)[0-9]{3}[-\s\.]?[0-9]{4,6}$/g
+      ) >-1
+      ) {
       return true;
+    
+    } else {
+      alert("please provide a valid phone number eg: 555-555-5555");
+      return false;
     }
   };
 
@@ -93,6 +99,7 @@ const EditWarehouse = () => {
     if (emailState.match(emailRegex)) {
       return true;
     } else {
+      alert("please provide a valid email eg: email@email.com");
       return false;
     }
   };
@@ -246,11 +253,11 @@ const EditWarehouse = () => {
           </div>
         </div>
         <div className="warehouse__buttons">
-            <Link to="/">
-          <button className="warehouse__button warehouse__button--secondary">
+          <Link to="/">
+            <button className="warehouse__button warehouse__button--secondary">
               Cancel
-          </button>
-              </Link>
+            </button>
+          </Link>
           <button className="warehouse__button warehouse__button--primary">
             Save
           </button>
