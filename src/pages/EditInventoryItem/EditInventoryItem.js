@@ -77,6 +77,7 @@ const EditInventoryItem = () => {
     if (event.target.value === "Out of Stock") {
       setQuantityState("0");
     }
+    else{setQuantityState('')}
   };
   const handleChangeQuantity = (event) => {
     setQuantityState(event.target.value);
@@ -246,7 +247,7 @@ const EditInventoryItem = () => {
                   placeholder="Quantity"
                   name="quantity"
                   id="quantity"
-                  value={quantityState}
+                  value={stockState === 'Out of Stock'? '0': quantityState}
                   onChange={handleChangeQuantity}
                   disabled={stockState === "Out of Stock" ? true : false}
                 />
