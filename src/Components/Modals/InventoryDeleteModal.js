@@ -14,11 +14,11 @@ const InventoryDeleteModal = ({
 }) => {
   if (!open) return null;
 
-  // const inventoryDelUrl = `http://localhost:8080/warehouses/${inventoryID}`;
-  // const deleteInventory = () => {
-  //   axios.delete(inventoryDelUrl);
-  //   onClose();
-  // };
+  const inventoryDelUrl = `http://localhost:8080/warehouses/${inventoryID}`;
+  const deleteInventory = () => {
+    axios.delete(inventoryDelUrl);
+    onClose();
+  };
 
   return (
     <>
@@ -36,9 +36,9 @@ const InventoryDeleteModal = ({
           </button>
           <button
             className="modal__delete-button"
-            // onClick={() => {
-            //   deleteInventory();
-            // }}
+            onClick={() => {
+              deleteInventory();
+            }}
           >
             Delete
           </button>

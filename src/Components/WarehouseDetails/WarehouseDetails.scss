@@ -453,7 +453,7 @@
   }
   &__icon-chevron {
     &:hover {
-      animation: horizontalmove 1s ease-in-out infinite alternate;
+      animation: horizontalmove 0.5s ease-in-out infinite alternate;
     }
   }
   @keyframes horizontalmove {
