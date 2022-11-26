@@ -18,13 +18,6 @@ const EditInventoryItem = () => {
   // array to map through; populate dropdown warehouse options
   const [warehouseListState, setWarehouseListState] = useState([]);
 
-  // disable quantity field
-  const [disableState, setDisabledState] = useState(null);
-
-  // set true on active radio button
-  const [checkInState, setCheckInState] = useState(false);
-  const [checkOutState, setCheckOutState] = useState(false);
-
   // targe warehouse to have selected on page load
   const [dropdownTarget, setDropdownTarget] = useState("");
 
@@ -56,12 +49,6 @@ const EditInventoryItem = () => {
         setStockState(status);
         setQuantityState(quantity);
         setWarehouseState(warehouse_id);
-        // change selected radio based on status state
-        if (status === "Out of Stock") {
-          setCheckInState(false);
-          setCheckOutState(true);
-          setQuantityState("0");
-        }
 
         axios.get(`http://localhost:8080/warehouses/`).then((response) => {
           const warehouseData = response.data;
@@ -87,6 +74,9 @@ const EditInventoryItem = () => {
   };
   const handleChangeStock = (event) => {
     setStockState(event.target.value);
+    if (event.target.value === "Out of Stock") {
+      setQuantityState("0");
+    }
   };
   const handleChangeQuantity = (event) => {
     setQuantityState(event.target.value);
@@ -94,19 +84,6 @@ const EditInventoryItem = () => {
   const handleChangeWarehouse = (event) => {
     setWarehouseState(event.target.value);
   };
-
-  // when stock state is updated to outOfStock set quantity field to 0 and disable field
-  useEffect(() => {
-    if (stockState === "outOfStock") {
-      setQuantityState("0");
-      setDisabledState(true);
-      setCheckOutState(true);
-    } else {
-      setQuantityState("");
-      setDisabledState(false);
-      setCheckInState(true);
-    }
-  }, [stockState]);
 
   // check form field for content
   // TODO: validate if type of quantity state is number **by regex?**
@@ -130,7 +107,6 @@ const EditInventoryItem = () => {
     event.preventDefault();
     // if form valid
     if (!isFormValid()) {
-  
       alert("please provide correct form fields");
     } else {
       const newItem = {
@@ -141,7 +117,6 @@ const EditInventoryItem = () => {
         status: stockState,
         quantity: quantityState.toString(),
       };
-      console.log(newItem)
       axios
         .put(`http://localhost:8080/inventories/${params.id}`, newItem)
         .then((_response) => {})
@@ -237,22 +212,22 @@ const EditInventoryItem = () => {
               <div className="edit__inventory-radio__container">
                 <div className="edit__inventory-item__radio--left">
                   <input
-                    checked={checkInState}
+                    checked={stockState === "In Stock" ? true : false}
                     type="radio"
                     id="inStock"
                     name="availability"
-                    value="inStock"
+                    value="In Stock"
                     onChange={handleChangeStock}
                   ></input>
                   <label htmlFor="inStock">In Stock</label>
                 </div>
                 <div className="edit__inventory-item__radio--right">
                   <input
-                    checked={checkOutState}
+                    checked={stockState === "Out of Stock" ? true : false}
                     type="radio"
                     id="outOfStock"
                     name="availability"
-                    value="outOfStock"
+                    value="Out of Stock"
                     onChange={handleChangeStock}
                   ></input>
                   <label htmlFor="outOfStock">Out of Stock</label>
@@ -273,7 +248,7 @@ const EditInventoryItem = () => {
                   id="quantity"
                   value={quantityState}
                   onChange={handleChangeQuantity}
-                  disabled={disableState}
+                  disabled={stockState === "Out of Stock" ? true : false}
                 />
               </div>
               <div className="edit__inventory-form__container">
