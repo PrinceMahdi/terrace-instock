@@ -43,10 +43,10 @@ const EditInventoryItem = () => {
         setStockState(status);
         setQuantityState(quantity);
         // change selected radio based on status state
-   if (status === 'Out of Stock'){
-           setCheckInState(false);
-           setCheckOutState(true);
-           setQuantityState('0')
+        if (status === "Out of Stock") {
+          setCheckInState(false);
+          setCheckOutState(true);
+          setQuantityState("0");
         }
 
         axios.get(`http://localhost:8080/warehouses/`).then((response) => {
@@ -54,7 +54,7 @@ const EditInventoryItem = () => {
           const found = warehouseData.find(
             (warehouse) => warehouse.id === warehouse_id
           );
-// TODO: match warehouse_id to populated drop down, add selected attribute to that dropdown element
+          // TODO: match warehouse_id to populated drop down, add selected attribute to that dropdown element
 
           // console.log(found.warehouse_name)
           setWarehouseListState(response.data);
@@ -87,13 +87,11 @@ const EditInventoryItem = () => {
     if (stockState === "outOfStock") {
       setQuantityState("0");
       setDisabledState(true);
-           setCheckOutState(true);
-      
+      setCheckOutState(true);
     } else {
       setQuantityState("");
       setDisabledState(false);
       setCheckInState(true);
-   
     }
   }, [stockState]);
 
@@ -272,7 +270,6 @@ const EditInventoryItem = () => {
                   Warehouse
                 </label>
                 <select
-               
                   className="edit__inventory-item__input select"
                   name="location"
                   id="location"
@@ -283,7 +280,12 @@ const EditInventoryItem = () => {
                   </option>
                   {Object.keys(warehouseListState).length > 0 ? (
                     warehouseListState.map((warehouse) => (
-                      <option key={warehouse.id} value={warehouse.id}>
+                      <option
+                        // to display warehouse will need a conditional to add selected attribute to correct option
+                        // {isSelected ? 'selected': ''}
+                        key={warehouse.id}
+                        value={warehouse.id}
+                      >
                         {warehouse.warehouse_name}
                         {/* match name in list to incoming list, add selected attribute */}
                       </option>
