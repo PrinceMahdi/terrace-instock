@@ -159,7 +159,7 @@ const AddInventoryItem = () => {
                 value={itemCategoryState}
               >
                 <option defaultValue="" hidden>
-                  Category
+                  Please Select
                 </option>
                 <option value="Accessories">Accessories</option>
                 <option value="Apparel">Apparel</option>
@@ -225,7 +225,7 @@ const AddInventoryItem = () => {
                 onChange={handleChangeWarehouse}
               >
                 <option defaultValue="" hidden>
-                  Warehouse
+                  Please Select
                 </option>
                 {Object.keys(warehouseListState).length > 0 ? (
                   warehouseListState.map((warehouse) => (

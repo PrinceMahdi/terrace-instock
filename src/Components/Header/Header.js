@@ -14,6 +14,7 @@ const Header = () => {
         </Link>
         <ul className="nav-menu">
           <li>
+            {/* Switching the active class between nav items */}
             <NavLink
               to={"/warehouses"}
               className={(navData) =>

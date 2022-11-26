@@ -1,7 +1,9 @@
+/* ----------------- SCSS IMPORTS ----------------- */
 import "./EditInventoryItem.scss";
+/* ----------------- REACT IMPORTS ----------------- */
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 const EditInventoryItem = () => {
   const [itemNameState, setItemNameState] = useState("");
@@ -12,8 +14,56 @@ const EditInventoryItem = () => {
   const [warehouseState, setWarehouseState] = useState("");
   const [warehouseListState, setWarehouseListState] = useState([]);
   const [disableState, setDisabledState] = useState(null);
+  const [checkInState, setCheckInState] = useState(false);
+  const [checkOutState, setCheckOutState] = useState(false);
 
   const params = useParams();
+
+  /**
+   call server for item data based on id in url
+   set data from response to form
+
+   call warehouses endpoing to populate warehouse list
+   find warehouse matching item & set to state
+   *  */
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/inventories/${params.id}`)
+      .then((response) => {
+        const {
+          item_name,
+          description,
+          category,
+          status,
+          quantity,
+          warehouse_id,
+        } = response.data;
+
+        setItemNameState(item_name);
+        setItemDescriptionState(description);
+        setItemCategoryState(category);
+        setStockState(status);
+        setQuantityState(quantity);
+        console.log(status);
+        if (status === "In Stock") {
+          setCheckInState(true);
+          setCheckOutState(false);
+        } else if (status === "Out of Stock") {
+          setCheckInState(false);
+          setCheckOutState(true);
+        }
+
+        axios.get(`http://localhost:8080/warehouses/`).then((response) => {
+          const warehouseData = response.data;
+          const found = warehouseData.find(
+            (warehouse) => warehouse.id === warehouse_id
+          );
+          console.log(found.warehouse_name);
+          setWarehouseListState(response.data);
+          setWarehouseState(response.data[found].warehouse_name);
+        });
+      });
+  }, []);
 
   const handleChangeName = (event) => {
     setItemNameState(event.target.value);
@@ -45,15 +95,8 @@ const EditInventoryItem = () => {
     }
   }, [stockState]);
 
-  // axios request for warehouse list, set warehouses to state to populate warehouse buttons
-  useEffect(() => {
-    axios.get(`http://localhost:8080/warehouses`).then((response) => {
-      setWarehouseListState(response.data);
-    });
-  }, []);
-
   // check form field for content
-  // TODO: validate if type of quantity state is number
+  // TODO: validate if type of quantity state is number **by regex?**
   const isFormValid = () => {
     if (
       itemNameState.length < 1 ||
@@ -84,7 +127,6 @@ const EditInventoryItem = () => {
         status: stockState,
         quantity: quantityState,
       };
-      console.log(typeof parseInt(quantityState));
       axios
         .put(`http://localhost:8080/inventories/${params.id}`, newItem)
         .then((response) => {
@@ -181,6 +223,7 @@ const EditInventoryItem = () => {
               <div className="edit__inventory-radio__container">
                 <div className="edit__inventory-item__radio--left">
                   <input
+                    checked={checkInState}
                     type="radio"
                     id="inStock"
                     name="availability"
@@ -191,6 +234,7 @@ const EditInventoryItem = () => {
                 </div>
                 <div className="edit__inventory-item__radio--right">
                   <input
+                    checked={checkOutState}
                     type="radio"
                     id="outOfStock"
                     name="availability"
@@ -238,6 +282,7 @@ const EditInventoryItem = () => {
                     warehouseListState.map((warehouse) => (
                       <option key={warehouse.id} value={warehouse.id}>
                         {warehouse.warehouse_name}
+                        {/* match name in list to incoming list, add selected attribute */}
                       </option>
                     ))
                   ) : (

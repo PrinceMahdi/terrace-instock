@@ -1,13 +1,15 @@
+/* ----------------- ASSET IMPORTS ----------------- */
 import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 import edit2 from "../../assets/icons/edit2-24px.svg";
 import chevronIcon from "../../assets/icons/chevron_right-24px.svg";
 import sortIcon from "../../assets/icons/sort-24px.svg";
+/* ----------------- REACT IMPORTS ----------------- */
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+/* ----------------- SCSS IMPORTS ----------------- */
 import "./WarehouseDetails.scss";
 import InventoryDeleteModal from "../Modals/InventoryDeleteModal";
 

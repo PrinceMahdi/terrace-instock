@@ -1,10 +1,11 @@
-import React from "react";
+/* ----------------- SCSS IMPORTS ----------------- */
 import "./Modals-inventory.scss";
-import close from "../../assets/icons/close-24px.svg";
+/* ----------------- REACT IMPORTS ----------------- */
+import React from "react";
 import axios from "axios";
-// import { useParams } from "react-router-dom";
-// import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+/* ----------------- ASSET IMPORTS ----------------- */
+import close from "../../assets/icons/close-24px.svg";
 
 const InventoryDeleteModal = ({
   open,
@@ -14,7 +15,7 @@ const InventoryDeleteModal = ({
 }) => {
   if (!open) return null;
 
-  const inventoryDelUrl = `http://localhost:8080/warehouses/${inventoryID}`;
+  const inventoryDelUrl = `http://localhost:8080/inventories/${inventoryID}`;
   const deleteInventory = () => {
     axios.delete(inventoryDelUrl);
     onClose();
@@ -49,8 +50,9 @@ const InventoryDeleteModal = ({
             onClick={onClose}
           />
         </div>
+        </a>
       </div>
-    </>
+    </div>
   );
 };
 

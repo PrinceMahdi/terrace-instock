@@ -18,18 +18,19 @@
     margin: -6.2rem 1rem 0 1rem;
     background-color: $primary-light;
     border-radius: 0.25rem;
-
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include bp.medium {
-      margin: -6.85rem 3rem 0 3rem;
+      margin: -5.85rem 3rem 0 3rem;
     }
-
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include bp.large {
-      margin: -6.85rem 5rem 0 5rem;
+      margin: -5.85rem 5rem 0 5rem;
     }
   }
   &__search-form {
     width: 100%;
     padding: 2rem 1.75rem 1rem;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include bp.medium {
       width: 100%;
       display: flex;
@@ -38,6 +39,7 @@
       justify-content: space-between;
       align-items: center;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include bp.large {
       width: 100%;
       display: flex;
@@ -53,24 +55,29 @@
     text-align: left;
     color: $primary-dark;
     margin-bottom: 1rem;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include bp.medium {
       margin: 0;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include bp.large {
       margin: 0;
     }
   }
   &__search-input {
+    outline: none;
     &-button-wrap {
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 100%;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         width: 60%;
         flex-direction: row;
         margin: 0;
       }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
       @include bp.large {
         display: flex;
         flex-direction: row;
@@ -82,9 +89,11 @@
     width: 100%;
     height: 2.25rem;
     @include mx.btn-secondary;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include bp.medium {
       height: 2.375rem;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include bp.large {
       height: 2.375rem;
     }
@@ -104,9 +113,11 @@
     &::placeholder {
       color: $secondary-dark;
       @include tp.small-auxiliary;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         @include tp.large-auxiliary;
       }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
       @include bp.large {
         @include tp.large-auxiliary;
       }
@@ -119,6 +130,7 @@
     &:hover {
       @include mx.btn-primary-hover;
     }
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include bp.medium {
       @include mx.btn-primary;
       height: 2.375rem;
@@ -126,6 +138,7 @@
       margin: 0 0 0 1rem;
       max-width: 10rem;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include bp.large {
       @include mx.btn-primary;
       height: 2.375rem;
@@ -140,6 +153,7 @@
     @include tp.large-table-header;
     width: 100%;
     padding: 0 2rem;
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include bp.large {
       padding: 0 3rem;
     }
@@ -161,31 +175,26 @@
       cursor: pointer;
     }
     &__actions {
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         max-width: 16.67%;
         flex: 1;
         text-align: center;
       }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
       @include bp.large {
         max-width: 16.67%;
         flex: 1;
         text-align: center;
       }
     }
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include bp.medium {
       display: flex;
     }
+    /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
     @include bp.small {
       display: none;
     }
   }
 }
-
-/* BREAK POINTS */
-
-// @include bp.small {
-// }
-// @include bp.medium {
-// }
-// @include bp.large {
-// }

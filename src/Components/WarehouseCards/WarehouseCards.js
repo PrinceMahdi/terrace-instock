@@ -1,9 +1,13 @@
+/* ----------------- SCSS IMPORTS ----------------- */
 import "./WarehouseCards.scss";
+/* ----------------- ASSET IMPORTS ----------------- */
 import delIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit2-24px.svg";
 import chevronIcon from "../../assets/icons/chevron_right-24px.svg";
-import { Link } from "react-router-dom";
+/* ----------------- COMPONENT IMPORTS----------------- */
 import WarehouseDeleteModal from "../Modals/WarehouseDeleteModal";
+/* ----------------- REACT IMPORTS ----------------- */
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const WarehouseCards = ({ warehouses }) => {

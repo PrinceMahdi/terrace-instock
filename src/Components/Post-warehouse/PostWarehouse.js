@@ -44,6 +44,7 @@ const PostWarehouse = () => {
     setEmailState(event.target.value);
   };
 
+  // regex for validation
   const phoneRegex = new RegExp(
     `^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$`
   );
@@ -217,11 +218,11 @@ const PostWarehouse = () => {
           </div>
         </div>
         <div className="warehouse__buttons">
-          <button className="warehouse__button warehouse__button--secondary">
           <Link to={'/'}>
+          <button className="warehouse__button warehouse__button--secondary">
             Cancel
-          </Link>
           </button>
+          </Link>
           <button className="warehouse__button warehouse__button--primary">
             +Add Warehouse
           </button>

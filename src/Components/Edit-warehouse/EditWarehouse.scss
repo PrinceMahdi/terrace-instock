@@ -12,12 +12,13 @@
     background-color: $primary-light;
     border-radius: 0.25rem;
 
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include bp.medium {
-      margin: -6.85rem 3rem 0 3rem;
+      margin: -5.85rem 3rem 0 3rem;
     }
-
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include bp.large {
-      margin: -6.85rem 5rem 0 5rem;
+      margin: -5.85rem 5rem 0 5rem;
     }
   }
   &__header {
@@ -25,9 +26,11 @@
     align-items: center;
     border-bottom: 1px solid $secondary-light;
     padding: 1rem 1rem 0 1rem;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include bp.medium {
       padding: 1rem 2rem 0 2rem;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include bp.large {
       padding: 1rem 2rem 0 2rem;
     }
@@ -40,10 +43,13 @@
     padding: 1rem;
   }
   &__edit {
+    font-weight: 600;
     @include tp.small-page-header;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include bp.medium {
       @include tp.large-page-header;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include bp.large {
       @include tp.large-page-header;
     }
@@ -52,11 +58,13 @@
     display: flex;
     flex-direction: column;
     @include mx.small-padding;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include bp.medium {
       margin-top: 1rem;
       width: 50%;
       padding: 0 2rem;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include bp.large {
       margin-top: 1rem;
       width: 50%;
@@ -64,13 +72,16 @@
     }
   }
   &__form-subhead {
+    font-weight: 600;
     @include tp.small-sub-header;
     margin: 0;
     padding-top: 1rem;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include bp.medium {
       padding-top: 0;
       @include tp.large-sub-header;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include bp.large {
       padding-top: 0;
       @include tp.large-sub-header;
@@ -80,9 +91,11 @@
     @include tp.small-auxiliary;
     font-weight: 600;
     padding-top: 1rem;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include bp.medium {
       @include tp.large-auxiliary;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include bp.large {
       @include tp.large-auxiliary;
     }
@@ -95,6 +108,7 @@
     @include mx.formMobile;
     font-family: "Titillium";
     color: $primary-dark;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include bp.medium {
       @include tp.large-body-medium;
       &:focus {
@@ -102,6 +116,7 @@
         border-color: $primary-semi-light;
       }
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include bp.large {
       @include tp.large-body-medium;
       &:focus {
@@ -116,12 +131,14 @@
     border-top: 1px solid $secondary-light;
     @include mx.small-padding;
     margin-top: 1rem;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include bp.medium {
       width: 50%;
       border: none;
       border-left: 1px solid $secondary-light;
       padding: 0 2rem;
     }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include bp.large {
       width: 50%;
       border: none;
@@ -144,10 +161,12 @@
         @include mx.btn-primary-hover;
       }
       margin-left: 0.5rem;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         margin: 0 1rem;
         @include mx.btn-primary;
       }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
       @include bp.large {
         margin: 0 1rem;
         @include mx.btn-primary;
@@ -158,9 +177,11 @@
       &:hover {
         @include mx.btn-secondary-hover;
       }
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         @include mx.btn-secondary;
       }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
       @include bp.large {
         @include mx.btn-secondary;
       }
@@ -168,10 +189,12 @@
   }
 
   &__form-container {
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include bp.medium {
       display: flex;
       justify-content: center;
     }
+    /* ----------------- STYLING FOR lARGE DEVICES ----------------- */
     @include bp.large {
       display: flex;
       justify-content: center;
