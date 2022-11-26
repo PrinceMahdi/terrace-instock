@@ -1,7 +1,9 @@
+/* ----------------- SCSS IMPORTS ----------------- */
 import "./EditInventoryItem.scss";
+/* ----------------- REACT IMPORTS ----------------- */
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 const EditInventoryItem = () => {
   const [itemNameState, setItemNameState] = useState("");

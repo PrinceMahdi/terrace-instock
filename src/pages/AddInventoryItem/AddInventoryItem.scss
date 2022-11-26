@@ -10,6 +10,7 @@
   &__inventory {
     &-form {
       &__quantity {
+        /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
         @include bp.large {
           width: 35%;
         }

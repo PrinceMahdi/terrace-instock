@@ -1,3 +1,4 @@
+/* ----------------- SCSS IMPORTS ----------------- */
 import "./Footer.scss";
 
 function Footer() {
