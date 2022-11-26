@@ -37,13 +37,11 @@ const WarehouseCards = ({ warehouses, searchTerm }) => {
             <Link to={`/warehouses/${warehouse.id}`}>
               <p className="warehouse-cards__warehouse-name">
                 {warehouse.warehouse_name}{" "}
-                <div className="warehouse-cards__hover">
-                  <img
-                    src={chevronIcon}
-                    alt="chevron icon right"
-                    className="warehouse-cards_warehouse-name-icon"
-                  />
-                </div>
+                <img
+                  src={chevronIcon}
+                  alt="chevron icon right"
+                  className="warehouse-cards_warehouse-name-icon warehouse-cards__hover"
+                />
               </p>
             </Link>
           </div>

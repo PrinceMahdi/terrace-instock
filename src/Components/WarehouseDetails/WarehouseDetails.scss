@@ -17,6 +17,7 @@
       height: 1rem;
       margin-top: 1rem;
       margin-left: 0.5rem;
+      cursor: pointer;
     }
   }
 
@@ -699,7 +700,7 @@
       justify-content: flex-start;
       padding: 0;
       justify-content: flex-end;
-      gap: 1rem;
+      gap: 2rem;
     }
     /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
@@ -707,11 +708,11 @@
       justify-content: flex-start;
       padding: 0;
       justify-content: flex-end;
-      gap: 1rem;
+      gap: 2rem;
     }
   }
   &__del-inventory-item {
-    margin-left: -4rem;
+    cursor: pointer;
   }
 
   &__error-msg {

@@ -10,7 +10,6 @@
   &-wrap {
     border-top: 0.75px solid $secondary-light;
     border-bottom: 0.75px solid $secondary-light;
-    @include tp.small-body-small;
     display: flex;
     width: 100%;
     color: $secondary-dark;
@@ -39,7 +38,9 @@
     margin: 0;
     color: $primary-semi-light;
     font-weight: bold;
+    @include tp.small-body-medium;
     &-title {
+      @include tp.small-body-small;
       /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         display: none;
@@ -49,11 +50,6 @@
         display: none;
       }
     }
-    // &-icon {
-    // height: 16px;
-    // width: 6.17px;
-    // padding-left: 10px;
-    // }
     &-wrap {
       display: flex;
       flex-direction: column;
@@ -76,7 +72,9 @@
   }
   &__category {
     padding-top: 4px;
+    @include tp.small-body-medium;
     &-title {
+      @include tp.small-body-small;
       /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         display: none;
@@ -135,6 +133,7 @@
     }
     /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     &-title {
+      @include tp.small-body-small;
       @include bp.medium {
         display: none;
       }
@@ -169,7 +168,9 @@
   }
 
   &__qty {
+    @include tp.small-body-medium;
     &-title {
+      @include tp.small-body-small;
       /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         display: none;
@@ -200,6 +201,7 @@
     }
   }
   &__warehouse {
+    @include tp.small-body-medium;
     /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
     @include bp.small {
       padding-top: 4px;
@@ -207,6 +209,7 @@
       width: 50%;
     }
     &-title {
+      @include tp.small-body-small;
       margin-left: auto;
       width: 50%;
       /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
@@ -257,7 +260,7 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
-      padding: 1.1875rem 1.75rem 1.6875rem;
+      padding: 1.1875rem 1.75rem 1.6875rem 0;
       order: 6;
       /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {

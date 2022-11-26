@@ -10,7 +10,6 @@
   &-wrap {
     border-top: 0.75px solid $secondary-light;
     border-bottom: 0.75px solid $secondary-light;
-    @include tp.small-body-small;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -39,7 +38,9 @@
     margin: 0;
     color: $primary-semi-light;
     font-weight: bold;
+    @include tp.small-body-medium;
     &-title {
+      @include tp.small-body-small;
       /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         display: none;
@@ -78,7 +79,9 @@
   }
   &__contact-name {
     padding-top: 4px;
+    @include tp.small-body-medium;
     &-title {
+      @include tp.small-body-small;
       /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         display: none;
@@ -111,7 +114,9 @@
   }
   &__address {
     padding-top: 4px;
+    @include tp.small-body-medium;
     &-title {
+      @include tp.small-body-small;
       /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         display: none;
@@ -146,7 +151,9 @@
     }
   }
   &__contact-info {
+    @include tp.small-body-medium;
     &-title {
+      @include tp.small-body-small;
       /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
         display: none;
@@ -177,6 +184,10 @@
     }
     &-phone {
       padding-top: 4px;
+      @include tp.small-body-medium;
+    }
+    &-email {
+      @include tp.small-body-medium;
     }
   }
   &__icons {
@@ -218,17 +229,19 @@
     }
   }
 }
-// .warehouse-cards__hover {
-//   padding-top: 4.5px;
-//   &:hover {
-//     animation: horizontalmove 0.5s ease-in-out infinite alternate;
-//   }
-// }
-// @keyframes horizontalmove {
-//   from {
-//     transform: translateX(0);
-//   }
-//   to {
-//     transform: translateX(4px);
-//   }
-// }
+/* ----------------- ANIMATIONS ----------------- */
+
+@keyframes horizontalmove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(4px);
+  }
+}
+.warehouse-cards__hover {
+  padding-top: 4.5px;
+  &:hover {
+    animation: horizontalmove 0.5s ease-in-out infinite alternate;
+  }
+}
