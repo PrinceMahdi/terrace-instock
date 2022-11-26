@@ -4,7 +4,7 @@
 @import "../../styles/partials/typography";
 @import "../../styles/partials/mixins";
 
-.modal {
+.modal-inventory {
   position: fixed;
   top: 0;
   left: 0;
@@ -154,9 +154,9 @@
       bottom: 2.5rem;
     }
   }
-  .modal__icon {
-    position: absolute;
-    right: 1.13125rem;
-    top: 1.13125rem;
-  }
+}
+.modal-inventory__icon {
+  position: absolute;
+  right: 1.13125rem;
+  top: 1.13125rem;
 }
