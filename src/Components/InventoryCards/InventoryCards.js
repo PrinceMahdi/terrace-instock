@@ -16,18 +16,24 @@ const InventoryCards = ({ inventories, searchTerm }) => {
   const [inventoryID, setInventoryID] = useState("");
   const [inventoryName, setInventoryName] = useState("");
 
-  return inventories
-    .filter((inventory) => {
-      if (searchTerm === "") {
-        return inventory;
-      } else if (
-        inventory.item_name.toLowerCase().includes(searchTerm.toLowerCase())
-      ) {
-        return inventory;
-      }
-    })
-    .map((inventory) => (
-      <section className="inventory-cards-wrap" key={inventory.id}>
+  const [deleteName, setDeleteName] = useState("");
+  const [deleteID, setDeleteID] = useState("");
+
+  return ( 
+    <>
+      {
+        inventories
+        .filter((inventory) => {
+          if (searchTerm === "") {
+            return inventory;
+          } else if (
+            inventory.item_name.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return inventory;
+            }
+          })
+          .map((inventory) => (
+            <section className="inventory-cards-wrap" key={inventory.id}>
         <div className="inventory-cards__inventory-item-wrap">
           <div className="inventory-cards__inventory-item-title">
             INVENTORY ITEM
@@ -71,11 +77,15 @@ const InventoryCards = ({ inventories, searchTerm }) => {
         <div className="inventory-cards__icons-wrap">
           <img
             src={delIcon}
-            alt="delete-icon"
+            alt={inventory.item_name}
+            id={inventory.id}
             className="inventory-cards__icons-del"
-            onClick={() => {
-              setInventoryID(inventory.id);
-              setInventoryName(inventory.item_name);
+            onClick={(event) => {
+              console.log(event);
+              setDeleteName(event.target.alt)
+              setDeleteID(event.target.id)
+              // setInventoryID(inventory.id);
+              // setInventoryName(inventory.item_name);
               setOpenInventoryModal(true);
             }}
           />
@@ -87,16 +97,18 @@ const InventoryCards = ({ inventories, searchTerm }) => {
             />
           </Link>
         </div>
-        <InventoryDeleteModal
-          open={openInventoryModal}
-          onClose={() => {
-            setOpenInventoryModal(false);
-          }}
-          inventoryID={inventoryID}
-          inventoryName={inventoryName}
-        />
       </section>
-    ));
+    ))}
+<InventoryDeleteModal
+    open={openInventoryModal}
+    onClose={() => {
+      setOpenInventoryModal(false);
+    }}
+    inventoryID={deleteID}
+    inventoryName={deleteName}
+    />
+    </>
+   )
 };
 
 export default InventoryCards;
