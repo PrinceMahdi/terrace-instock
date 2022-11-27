@@ -18,9 +18,6 @@ const EditInventoryItem = () => {
   // array to map through; populate dropdown warehouse options
   const [warehouseListState, setWarehouseListState] = useState([]);
 
-  // targe warehouse to have selected on page load
-  const [dropdownTarget, setDropdownTarget] = useState("");
-
   const params = useParams();
 
   /**
@@ -51,16 +48,10 @@ const EditInventoryItem = () => {
         setWarehouseState(warehouse_id);
 
         axios.get(`http://localhost:8080/warehouses/`).then((response) => {
-          const warehouseData = response.data;
-          const found = warehouseData.find(
-            (warehouse) => warehouse.id === warehouse_id
-          );
-
-          setDropdownTarget(found.id);
           setWarehouseListState(response.data);
         });
       });
-  }, []);
+  }, [params.id]);
 
   // Event handlers to update state as form fields are edited
   const handleChangeName = (event) => {
@@ -76,8 +67,9 @@ const EditInventoryItem = () => {
     setStockState(event.target.value);
     if (event.target.value === "Out of Stock") {
       setQuantityState("0");
+    } else {
+      setQuantityState("");
     }
-    else{setQuantityState('')}
   };
   const handleChangeQuantity = (event) => {
     setQuantityState(event.target.value);
@@ -87,7 +79,6 @@ const EditInventoryItem = () => {
   };
 
   // check form field for content
-  // TODO: validate if type of quantity state is number **by regex?**
   const isFormValid = () => {
     if (
       itemNameState.length < 1 ||
@@ -270,22 +261,13 @@ const EditInventoryItem = () => {
                   name="location"
                   id="location"
                   onChange={handleChangeWarehouse}
+                  value={warehouseState}
                 >
-                  <option defaultValue="" hidden>
-                    Warehouse
-                  </option>
+                  <option hidden>Warehouse</option>
                   {Object.keys(warehouseListState).length > 0 ? (
                     warehouseListState.map((warehouse) => (
-                      <option
-                        // to display warehouse will need a conditional to add selected attribute to correct option
-                        selected={
-                          warehouse.id === dropdownTarget ? true : false
-                        }
-                        key={warehouse.id}
-                        value={warehouse.id}
-                      >
+                      <option key={warehouse.id} value={warehouse.id}>
                         {warehouse.warehouse_name}
-                        {/* match name in list to incoming list, add selected attribute */}
                       </option>
                     ))
                   ) : (
