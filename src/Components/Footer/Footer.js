@@ -11,7 +11,9 @@ function Footer() {
     <>
       <footer
         className={
-          location.pathname.includes("item")
+          location.pathname.includes("item") ||
+          location.pathname.includes("add") ||
+          location.pathname.includes("edit")
             ? "footer footer--bottom"
             : "footer"
         }
