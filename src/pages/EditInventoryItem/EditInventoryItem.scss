@@ -147,7 +147,7 @@
       }
       &__title {
         @include tp.small-page-header;
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         font-weight: 600;
       }
       &__section {
@@ -192,11 +192,17 @@
           @include mx.btn-secondary-mobile;
           /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
           @include bp.small {
-            width: 50%;
+            width: 100%;
           }
 
           &:hover {
             @include mx.btn-secondary-hover;
+          }
+          &__link {
+            /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
+            @include bp.small {
+              width: 50%;
+            }
           }
         }
       }
