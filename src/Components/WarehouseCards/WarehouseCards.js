@@ -18,7 +18,7 @@ const WarehouseCards = ({ warehouses, searchTerm }) => {
   if (warehouses)
     return warehouses
       .filter((warehouse) => {
-        if (searchTerm == "") {
+        if (searchTerm === "") {
           return warehouse;
         } else if (
           warehouse.warehouse_name
