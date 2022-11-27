@@ -15,8 +15,11 @@ const WarehouseCards = ({ warehouses, searchTerm }) => {
   const [warehouseID, setWarehouseID] = useState("");
   const [warehouseName, setWarehouseName] = useState("");
 
-  if (warehouses)
-    return warehouses
+  return (<>{
+
+ 
+
+  warehouses
       .filter((warehouse) => {
         if (searchTerm === "") {
           return warehouse;
@@ -89,6 +92,9 @@ const WarehouseCards = ({ warehouses, searchTerm }) => {
               />
             </Link>
           </div>
+        </section>
+       
+  ))}
           <WarehouseDeleteModal
             open={openModal}
             onClose={() => {
@@ -97,8 +103,7 @@ const WarehouseCards = ({ warehouses, searchTerm }) => {
             warehouseID={warehouseID}
             warehouseName={warehouseName}
           />
-        </section>
-      ));
+       </>);
 };
 
 export default WarehouseCards;
