@@ -236,6 +236,9 @@ const EditInventoryItem = () => {
               </div>
               <div className="edit__inventory-form__container">
                 <label
+                  style={
+                    stockState === "Out of Stock" ? { display: "none" } : {}
+                  }
                   htmlFor="itemName"
                   className="edit__inventory-item__label"
                 >
@@ -247,7 +250,10 @@ const EditInventoryItem = () => {
                   placeholder="Quantity"
                   name="quantity"
                   id="quantity"
-                  value={stockState === 'Out of Stock'? '0': quantityState}
+                  style={
+                    stockState === "Out of Stock" ? { display: "none" } : {}
+                  }
+                  value={stockState === "Out of Stock" ? "0" : quantityState}
                   onChange={handleChangeQuantity}
                   disabled={stockState === "Out of Stock" ? true : false}
                 />
