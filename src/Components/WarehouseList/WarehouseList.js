@@ -13,6 +13,8 @@ const warehouseData = "http://localhost:8080/warehouses";
 const WarehouseList = () => {
   const [warehouses, setWarehouses] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [sort, setSort] = useState(false);
+
   useEffect(() => {
     const getWarehouseData = async () => {
       try {
@@ -30,6 +32,61 @@ const WarehouseList = () => {
     let path = "/warehouses/add";
     navigate(path);
   };
+
+  const sortData = (e) => {
+    // copying the warehouse info so I don't modify it accidentally
+    const newWarehouses = [...warehouses];
+
+    const fieldName =
+      e.target.innerText != "" ? e.target.innerText : e.target.name;
+
+    let field = "";
+
+    switch (fieldName) {
+      case "WAREHOUSE":
+        field = "warehouse_name";
+        break;
+      case "ADDRESS":
+        field = "address";
+        break;
+      case "CONTACT NAME":
+        field = "contact_name";
+        break;
+      case "CONTACT INFORMATION":
+        field = "contact_email";
+        break;
+    }
+
+    if (!sort) {
+      const compare = (a, b) => {
+        if (a[field] < b[field]) {
+          return -1;
+        }
+        if (a[field] > b[field]) {
+          return 1;
+        }
+        return 0;
+      };
+      setSort(true);
+      setWarehouses(newWarehouses.sort(compare));
+      return;
+    }
+
+    if (sort) {
+      const compare = (a, b) => {
+        if (a[field] < b[field]) {
+          return 1;
+        }
+        if (a[field] > b[field]) {
+          return -1;
+        }
+        return 0;
+      };
+      setSort(false);
+      setWarehouses(newWarehouses.sort(compare));
+    }
+  };
+
   return (
     <section className="warehouse-list">
       <div className="warehouse-list-wrap">
@@ -55,51 +112,47 @@ const WarehouseList = () => {
         </div>
         <div className="warehouse-list-banner">
           <div className="warehouse-list-banner__text-icon-wrap">
-            <p className="warehouse-list-banner__title">WAREHOUSE</p>
+            <p className="warehouse-list-banner__title" onClick={sortData}>
+              WAREHOUSE
+            </p>
             <img
               src={sortIcon}
               className="warehouse-list-banner__sort-icon"
               alt="sort icon"
               id="sortWarehouse"
-              onClick={() => {
-                alert("it's working");
-              }}
             />
           </div>
           <div className="warehouse-list-banner__text-icon-wrap">
-            <p className="warehouse-list-banner__title">ADDRESS</p>
+            <p className="warehouse-list-banner__title" onClick={sortData}>
+              ADDRESS
+            </p>
             <img
               src={sortIcon}
               className="warehouse-list-banner__sort-icon"
               alt="sort icon"
               id="sortAddress"
-              onClick={() => {
-                alert("it's working");
-              }}
             />
           </div>
           <div className="warehouse-list-banner__text-icon-wrap">
-            <p className="warehouse-list-banner__title">CONTACT NAME</p>
+            <p className="warehouse-list-banner__title" onClick={sortData}>
+              CONTACT NAME
+            </p>
             <img
               src={sortIcon}
               className="warehouse-list-banner__sort-icon"
               alt="sort icon"
               id="sortContactName"
-              onClick={() => {
-                alert("it's working");
-              }}
             />
           </div>
           <div className="warehouse-list-banner__text-icon-wrap">
-            <p className="warehouse-list-banner__title">CONTACT INFORMATION</p>
+            <p className="warehouse-list-banner__title" onClick={sortData}>
+              CONTACT INFORMATION
+            </p>
             <img
               src={sortIcon}
               className="warehouse-list-banner__sort-icon"
               alt="sort icon"
               id="sortContactInfo"
-              onClick={() => {
-                alert("it's working");
-              }}
             />
           </div>
           <p className="warehouse-list-banner__actions">ACTIONS</p>

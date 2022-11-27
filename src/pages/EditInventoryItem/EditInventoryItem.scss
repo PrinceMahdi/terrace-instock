@@ -147,21 +147,21 @@
       }
       &__title {
         @include tp.small-page-header;
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         font-weight: 600;
       }
       &__section {
         box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-        margin: -3.2rem 1rem 0 1rem;
+        margin: -6.2rem 1rem 0 1rem;
         background-color: $primary-light;
         border-radius: 0.25rem;
         /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
         @include bp.medium {
-          margin: -5.3rem 3rem 0 3rem;
+          margin: -5.85rem 3rem 0 3rem;
         }
         /* --------------- STYLING FOR LARGE DEVICES --------------- */
         @include bp.large {
-          margin: -5.3rem 5rem 0 5rem;
+          margin: -5.85rem 5rem 0 5rem;
         }
       }
       &__button {
@@ -192,11 +192,17 @@
           @include mx.btn-secondary-mobile;
           /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
           @include bp.small {
-            width: 50%;
+            width: 100%;
           }
 
           &:hover {
             @include mx.btn-secondary-hover;
+          }
+          &__link {
+            /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
+            @include bp.small {
+              width: 50%;
+            }
           }
         }
       }

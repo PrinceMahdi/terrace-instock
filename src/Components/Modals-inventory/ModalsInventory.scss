@@ -65,6 +65,10 @@
     width: 50rem;
     margin-top: 3.6875rem;
     margin-bottom: 0;
+    /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
+    @include small {
+      width: 100%;
+    }
     /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
       margin-top: 0;

@@ -17,6 +17,7 @@ const warehouseData = "http://localhost:8080/warehouses";
 
 const WarehouseDetails = () => {
   const params = useParams();
+  const [sort, setSort] = useState(false);
   const [warehouseinventorydetails, setWarehouseinventorydetails] = useState(
     []
   );
@@ -42,6 +43,59 @@ const WarehouseDetails = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const sortData = (e) => {
+    const newInventories = [...warehouseinventorydetails];
+
+    const fieldName =
+      e.target.innerText != "" ? e.target.innerText : e.target.name;
+
+    let field = "";
+
+    switch (fieldName) {
+      case "INVENTORY ITEM":
+        field = "item_name";
+        break;
+      case "CATEGORY":
+        field = "category";
+        break;
+      case "STATUS":
+        field = "status";
+        break;
+      case "QUANTITY":
+        field = "quantity";
+        break;
+    }
+
+    if (!sort) {
+      const compare = (a, b) => {
+        if (a[field] < b[field]) {
+          return -1;
+        }
+        if (a[field] > b[field]) {
+          return 1;
+        }
+        return 0;
+      };
+      setSort(true);
+      setWarehouseinventorydetails(newInventories.sort(compare));
+      return;
+    }
+
+    if (sort) {
+      const compare = (a, b) => {
+        if (a[field] < b[field]) {
+          return 1;
+        }
+        if (a[field] > b[field]) {
+          return -1;
+        }
+        return 0;
+      };
+      setSort(false);
+      setWarehouseinventorydetails(newInventories.sort(compare));
+    }
+  };
+
   return (
     <section className="warehousedet">
       <div className="warehousedet__contact">
@@ -60,7 +114,7 @@ const WarehouseDetails = () => {
                 <img
                   className="warehousedet__edit-icon"
                   src={editIcon}
-                  alt=""
+                  alt="edit icon"
                 />
                 <p className="warehousedet__icon-text">Edit</p>
               </div>
@@ -106,47 +160,43 @@ const WarehouseDetails = () => {
       <div className="warehousedet__label-container">
         <div className="warehousedet__label-lists">
           <div className="warehousedet__label-list warehousedet__l1">
-            <p className="warehousedet__label-item">INVENTORY ITEM</p>
+            <p className="warehousedet__label-item" onClick={sortData}>
+              INVENTORY ITEM
+            </p>
             <img
               className="warehousedet__label-icon"
               src={sortIcon}
               alt="sort icon"
-              onClick={() => {
-                alert("It works!");
-              }}
             />
           </div>
           <div className="warehousedet__label-list warehousedet__l2">
-            <p className="warehousedet__label-item">CATEGORY</p>
+            <p className="warehousedet__label-item" onClick={sortData}>
+              CATEGORY
+            </p>
             <img
               className="warehousedet__label-icon"
               src={sortIcon}
               alt="sort icon"
-              onClick={() => {
-                alert("It works!");
-              }}
             />
           </div>
           <div className="warehousedet__label-list warehousedet__l3">
-            <p className="warehousedet__label-item">STATUS</p>
+            <p className="warehousedet__label-item" onClick={sortData}>
+              STATUS
+            </p>
             <img
               className="warehousedet__label-icon"
               src={sortIcon}
               alt="sort icon"
-              onClick={() => {
-                alert("It works!");
-              }}
             />
           </div>
           <div className="warehousedet__label-list warehousedet__l4">
-            <p className="warehousedet__label-item">QUANTITY</p>
+            <p className="warehousedet__label-item" onClick={sortData}>
+              QUANTITY
+            </p>
             <img
               className="warehousedet__label-icon"
               src={sortIcon}
               alt="sort icon"
-              onClick={() => {
-                alert("It works!");
-              }}
             />
           </div>
           <div className="warehousedet__label-list warehousedet__l5">

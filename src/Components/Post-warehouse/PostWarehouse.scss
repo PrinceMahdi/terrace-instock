@@ -186,7 +186,7 @@
       /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
       @include bp.small {
         height: 2.25rem;
-        width: 50%;
+        width: 100%;
         @include mx.btn-secondary-mobile;
       }
 
