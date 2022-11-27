@@ -13,7 +13,8 @@ function Footer() {
         className={
           location.pathname.includes("item") ||
           location.pathname.includes("add") ||
-          location.pathname.includes("edit")
+          location.pathname.includes("edit") ||
+          location.pathname.includes("150a36cf-f38e-4f59-8e31-39974207372d")
             ? "footer footer--bottom"
             : "footer"
         }
