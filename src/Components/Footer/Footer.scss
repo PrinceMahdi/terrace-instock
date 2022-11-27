@@ -1,6 +1,6 @@
 @use "../../styles/partials/colors" as colors;
 @use "../../styles/partials/fonts";
-@import "../../styles/partials/breakpoints";
+@use "../../styles/partials/breakpoints" as bp;
 @import "../../styles/partials/typography";
 
 .footer {
@@ -12,14 +12,20 @@
   margin-top: 2px;
 
   &--bottom {
+    @include bp.medium {
+      position: absolute;
+      bottom: 0;
+    }
+    @include bp.large {
     position: absolute;
-    bottom: 0;
+      bottom: 0;
+    }
   }
-  
-  @include medium {
+
+  @include bp.medium {
     padding-top: 4.375rem;
   }
-  @include large {
+  @include bp.large {
     padding-top: 5.9375rem;
   }
 
@@ -31,7 +37,7 @@
     @include small-body-small;
     color: colors.$secondary-dark;
 
-    @include medium {
+    @include bp.medium {
       @include large-table-header;
     }
   }

@@ -21,6 +21,15 @@
       margin: -5.85rem 5rem 0 5rem;
     }
   }
+
+  &__cancel {
+    &-button {
+      /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
+      @include bp.small {
+        width: 50%;
+      }
+    }
+  }
   &__header {
     display: flex;
     align-items: center;
@@ -101,7 +110,6 @@
     }
   }
   &__input {
-
     &:focus {
       outline: none;
       border-color: $primary-semi-light;
@@ -177,6 +185,10 @@
       @include mx.btn-secondary-mobile;
       &:hover {
         @include mx.btn-secondary-hover;
+      }
+      /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
+      @include bp.small {
+        width: 100%;
       }
       /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
       @include bp.medium {
