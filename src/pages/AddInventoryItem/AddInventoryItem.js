@@ -38,7 +38,7 @@ const AddInventoryItem = () => {
   };
   // when stock state is updated to outOfStock set quantity field to 0 and disable field
   useEffect(() => {
-    if (stockState === "Out Of Stock") {
+    if (stockState === "Out of Stock") {
       setQuantityState("0");
       setDisabledState(true);
     } else {
@@ -81,7 +81,7 @@ const AddInventoryItem = () => {
     event.preventDefault();
     // if form valid
     if (!isFormValid()) {
-      console.log("please provide correct form fields");
+      alert("please provide correct form fields");
     } else {
       const newItem = {
         warehouse_id: warehouseState,
@@ -191,14 +191,18 @@ const AddInventoryItem = () => {
                   type="radio"
                   id="outOfStock"
                   name="availability"
-                  value="Out Of Stock"
+                  value="Out of Stock"
                   onChange={handleChangeStock}
                 ></input>
                 <label htmlFor="outOfStock">Out of Stock</label>
               </div>
             </div>
             <div className="edit__inventory-form__container">
-              <label htmlFor="itemName" className="edit__inventory-item__label">
+              <label
+                htmlFor="itemName"
+                style={stockState === "Out of Stock" ? { display: "none" } : {}}
+                className="edit__inventory-item__label"
+              >
                 Quantity
               </label>
               <input
@@ -208,6 +212,7 @@ const AddInventoryItem = () => {
                 name="quantity"
                 id="quantity"
                 value={quantityState}
+                style={stockState === "Out of Stock" ? { display: "none" } : {}}
                 onChange={handleChangeQuantity}
                 disabled={disableState}
               />
