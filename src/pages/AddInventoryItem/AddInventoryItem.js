@@ -247,7 +247,10 @@ const AddInventoryItem = () => {
           </div>
         </div>
         <div className="edit__inventory-item__button-container">
-          <Link to={"/inventories"}>
+          <Link
+            to={"/inventories"}
+            className="edit__inventory-item__cancel-button__link"
+          >
             <button
               type="button"
               className="edit__inventory-item__cancel-button"
