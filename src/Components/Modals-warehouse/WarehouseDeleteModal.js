@@ -16,7 +16,6 @@ const WarehouseDeleteModal = ({
   const warehouseDelUrl = `http://localhost:8080/warehouses/${warehouseID}`;
   const deleteWarehouse = () => {
     axios.delete(warehouseDelUrl);
-    // onClose();
   };
 
   return (

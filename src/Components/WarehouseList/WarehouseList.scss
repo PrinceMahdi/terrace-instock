@@ -57,10 +57,13 @@
     margin-bottom: 1rem;
     /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include bp.medium {
+      @include tp.large-page-header;
+
       margin: 0;
     }
     /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include bp.large {
+      @include tp.large-page-header;
       margin: 0;
     }
   }

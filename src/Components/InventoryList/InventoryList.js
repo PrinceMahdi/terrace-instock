@@ -36,13 +36,8 @@ const InventoryList = () => {
   return (
     <section className="inventory-list">
       <div className="inventory-list-wrap">
-        <form className="inventory-list__search-form">
-          <label
-            htmlFor="inventoryList"
-            className="inventory-list__search-label"
-          >
-            Inventory
-          </label>
+        <div className="inventory-list__search-form">
+          <p className="inventory-list__search-label">Inventory</p>
           <div className="inventory-list__search-input-button-wrap">
             <input
               name="inventoryList"
@@ -60,7 +55,7 @@ const InventoryList = () => {
               + Add New Item
             </button>
           </div>
-        </form>
+        </div>
         <div className="inventory-list-banner">
           <div className="inventory-list-banner__text-icon-wrap">
             <p className="inventory-list-banner__title">INVENTORY ITEM</p>
@@ -124,10 +119,7 @@ const InventoryList = () => {
           </div>
           <p className="inventory-list-banner__actions">ACTIONS</p>
         </div>
-        <InventoryCards
-          inventories={inventories}
-          searchTerm={searchTerm}
-        />
+        <InventoryCards inventories={inventories} searchTerm={searchTerm} />
       </div>
     </section>
   );

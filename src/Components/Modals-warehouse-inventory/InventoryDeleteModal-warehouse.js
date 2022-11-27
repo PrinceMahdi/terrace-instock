@@ -1,5 +1,5 @@
 /* ----------------- SCSS IMPORTS ----------------- */
-import "../Modals-inventory/ModalsInventory.scss";
+import "./ModalsWarehouseInventory.scss";
 /* ----------------- REACT IMPORTS ----------------- */
 import React from "react";
 import axios from "axios";
@@ -20,21 +20,24 @@ const InventoryDeleteModal = ({
 
   return (
     <>
-      <div className="modal-inventory">
-        <div className="modal-inventory__delete">
-          <h1 className="modal-inventory__title">
+      <div className="modal-warehouseInventory">
+        <div className="modal-warehouseInventory__delete">
+          <h1 className="modal-warehouseInventory__title">
             Delete {inventoryName} inventory item?
           </h1>
-          <p className="modal-inventory__para">
+          <p className="modal-warehouseInventory__para">
             Please confirm that you'd like to delete {inventoryName} from the
             inventory list. You won't be able to undo this action.
           </p>
-          <button className="modal-inventory__cancel" onClick={onClose}>
+          <button
+            className="modal-warehouseInventory__cancel"
+            onClick={onClose}
+          >
             Cancel
           </button>
           <a href="/inventories">
             <button
-              className="modal-inventory__delete-button"
+              className="modal-warehouseInventory__delete-button"
               onClick={() => {
                 deleteInventory();
               }}
@@ -43,7 +46,7 @@ const InventoryDeleteModal = ({
             </button>
           </a>
           <img
-            className="modal-inventory__icon"
+            className="modal-warehouseInventory__icon"
             src={close}
             alt="x button"
             onClick={onClose}
