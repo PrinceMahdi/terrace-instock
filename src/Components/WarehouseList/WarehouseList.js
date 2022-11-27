@@ -33,13 +33,8 @@ const WarehouseList = () => {
   return (
     <section className="warehouse-list">
       <div className="warehouse-list-wrap">
-        <form className="warehouse-list__search-form">
-          <label
-            htmlFor="warehouseList"
-            className="warehouse-list__search-label"
-          >
-            Warehouses
-          </label>
+        <div className="warehouse-list__search-form">
+          <p className="warehouse-list__search-label">Warehouses</p>
           <div className="warehouse-list__search-input-button-wrap">
             <input
               name="warehouseList"
@@ -57,7 +52,7 @@ const WarehouseList = () => {
               + Add New Warehouse
             </button>
           </div>
-        </form>
+        </div>
         <div className="warehouse-list-banner">
           <div className="warehouse-list-banner__text-icon-wrap">
             <p className="warehouse-list-banner__title">WAREHOUSE</p>
@@ -109,10 +104,7 @@ const WarehouseList = () => {
           </div>
           <p className="warehouse-list-banner__actions">ACTIONS</p>
         </div>
-        <WarehouseCards
-          warehouses={warehouses}
-          searchTerm={searchTerm}
-        />
+        <WarehouseCards warehouses={warehouses} searchTerm={searchTerm} />
       </div>
     </section>
   );

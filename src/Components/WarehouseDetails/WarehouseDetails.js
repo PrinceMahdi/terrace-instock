@@ -11,7 +11,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 /* ----------------- SCSS IMPORTS ----------------- */
 import "./WarehouseDetails.scss";
-import InventoryDeleteModal from "../Modals-inventory/InventoryDeleteModal";
+import WarehouseInventoryDeleteModal from "../Modals-warehouse-inventory/InventoryDeleteModal-warehouse";
 
 const warehouseData = "http://localhost:8080/warehouses";
 
@@ -233,7 +233,7 @@ const WarehouseDetails = () => {
                   </Link>
                 </div>
               </div>
-              <InventoryDeleteModal
+              <WarehouseInventoryDeleteModal
                 open={openModal}
                 onClose={() => {
                   setOpenModal(false);
