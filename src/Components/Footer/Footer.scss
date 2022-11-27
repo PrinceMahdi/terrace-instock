@@ -10,6 +10,12 @@
   background-color: colors.$background-light;
   padding: 2.5rem 0;
   margin-top: 2px;
+
+  &--bottom {
+    position: absolute;
+    bottom: 0;
+  }
+  
   @include medium {
     padding-top: 4.375rem;
   }

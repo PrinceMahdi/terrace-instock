@@ -13,6 +13,7 @@ const inventoriesData = "http://localhost:8080/inventories";
 const InventoryList = () => {
   const [inventories, setinventories] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [sort, setSort] = useState(false);
   useEffect(() => {
     const getInventoryData = async () => {
       try {
@@ -31,6 +32,62 @@ const InventoryList = () => {
   const toAddInventoryComponent = () => {
     let path = "/inventories/add";
     navigate(path);
+  };
+
+  const sortData = (e) => {
+    const newInventories = [...inventories];
+
+    const fieldName =
+      e.target.innerText != "" ? e.target.innerText : e.target.name;
+
+    let field = "";
+
+    switch (fieldName) {
+      case "INVENTORY ITEM":
+        field = "item_name";
+        break;
+      case "CATEGORY":
+        field = "category";
+        break;
+      case "STATUS":
+        field = "status";
+        break;
+      case "QTY":
+        field = "quantity";
+        break;
+      case "WAREHOUSE":
+        field = "warehouse_name";
+        break;
+    }
+
+    if (!sort) {
+      const compare = (a, b) => {
+        if (a[field] < b[field]) {
+          return -1;
+        }
+        if (a[field] > b[field]) {
+          return 1;
+        }
+        return 0;
+      };
+      setSort(true);
+      setinventories(newInventories.sort(compare));
+      return;
+    }
+
+    if (sort) {
+      const compare = (a, b) => {
+        if (a[field] < b[field]) {
+          return 1;
+        }
+        if (a[field] > b[field]) {
+          return -1;
+        }
+        return 0;
+      };
+      setSort(false);
+      setinventories(newInventories.sort(compare));
+    }
   };
 
   return (
@@ -58,63 +115,58 @@ const InventoryList = () => {
         </div>
         <div className="inventory-list-banner">
           <div className="inventory-list-banner__text-icon-wrap">
-            <p className="inventory-list-banner__title">INVENTORY ITEM</p>
+            <p className="inventory-list-banner__title" onClick={sortData}>
+              INVENTORY ITEM
+            </p>
             <img
               src={sortIcon}
               className="inventory-list-banner__sort-icon"
               alt="sort icon"
               id="sortItem"
-              onClick={() => {
-                alert("sort it yourself");
-              }}
             />
           </div>
           <div className="inventory-list-banner__text-icon-wrap">
-            <p className="inventory-list-banner__title">CATEGORY</p>
+            <p className="inventory-list-banner__title" onClick={sortData}>
+              CATEGORY
+            </p>
             <img
               src={sortIcon}
               className="inventory-list-banner__sort-icon"
               alt="sort icon"
               id="sortStatus"
-              onClick={() => {
-                alert("sort it yourself");
-              }}
             />
           </div>
           <div className="inventory-list-banner__text-icon-wrap">
-            <p className="inventory-list-banner__title">STATUS</p>
+            <p className="inventory-list-banner__title" onClick={sortData}>
+              STATUS
+            </p>
             <img
               src={sortIcon}
               className="inventory-list-banner__sort-icon"
               alt="sort icon"
               id="sortCategory"
-              onClick={() => {
-                alert("sort it yourself");
-              }}
             />
           </div>
           <div className="inventory-list-banner__text-icon-wrap">
-            <p className="inventory-list-banner__title">QTY</p>
+            <p className="inventory-list-banner__title" onClick={sortData}>
+              QTY
+            </p>
             <img
               src={sortIcon}
               className="inventory-list-banner__sort-icon"
               alt="sort icon"
               id="sortQty"
-              onClick={() => {
-                alert("sort it yourself");
-              }}
             />
           </div>
           <div className="inventory-list-banner__text-icon-wrap">
-            <p className="inventory-list-banner__title">WAREHOUSE</p>
+            <p className="inventory-list-banner__title" onClick={sortData}>
+              WAREHOUSE
+            </p>
             <img
               src={sortIcon}
               className="inventory-list-banner__sort-icon"
               alt="sort icon"
               id="sortWarehouse"
-              onClick={() => {
-                alert("sort it yourself");
-              }}
             />
           </div>
           <p className="inventory-list-banner__actions">ACTIONS</p>

@@ -45,10 +45,6 @@ const InventoryCards = ({ inventories, searchTerm }) => {
         </div>
         <div className="inventory-cards__category-wrap">
           <div className="inventory-cards__category-title">CATEGORY</div>
-          <div className="inventory-cards__category">{inventory.category}</div>
-        </div>
-        <div className="inventory-cards__status-wrap">
-          <div className="inventory-cards__status-title">STATUS</div>
           {inventory.status === "In Stock" ? (
             <p className="inventory-cards__status">{inventory.status}</p>
           ) : (
@@ -56,6 +52,10 @@ const InventoryCards = ({ inventories, searchTerm }) => {
               {inventory.status}
             </p>
           )}
+        </div>
+        <div className="inventory-cards__status-wrap">
+          <div className="inventory-cards__status-title">STATUS</div>
+          <div className="inventory-cards__category">{inventory.category}</div>
         </div>
         <div className="inventory-cards__qty-wrap">
           <div className="inventory-cards__qty-title">QTY </div>
