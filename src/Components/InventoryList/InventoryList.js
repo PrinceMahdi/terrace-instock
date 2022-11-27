@@ -38,7 +38,7 @@ const InventoryList = () => {
     const newInventories = [...inventories];
 
     const fieldName =
-      e.target.innerText != "" ? e.target.innerText : e.target.name;
+      e.target.innerText !== "" ? e.target.innerText : e.target.name;
 
     let field = "";
 

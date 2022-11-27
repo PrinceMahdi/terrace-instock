@@ -18,7 +18,7 @@ const InventoryCards = ({ inventories, searchTerm }) => {
 
   return inventories
     .filter((inventory) => {
-      if (searchTerm == "") {
+      if (searchTerm === "") {
         return inventory;
       } else if (
         inventory.item_name.toLowerCase().includes(searchTerm.toLowerCase())
