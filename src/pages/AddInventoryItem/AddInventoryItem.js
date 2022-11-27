@@ -81,7 +81,7 @@ const AddInventoryItem = () => {
     event.preventDefault();
     // if form valid
     if (!isFormValid()) {
-      console.log("please provide correct form fields");
+      alert("please provide correct form fields");
     } else {
       const newItem = {
         warehouse_id: warehouseState,
