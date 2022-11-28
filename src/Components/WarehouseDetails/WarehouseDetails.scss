@@ -500,6 +500,8 @@
       @include large-body-medium;
     }
   }
+  /* ----------------- ANIMATION ----------------- */
+
   &__icon-chevron {
     &:hover {
       animation: horizontalmove 0.5s ease-in-out infinite alternate;

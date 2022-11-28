@@ -281,3 +281,20 @@
     }
   }
 }
+
+/* ----------------- ANIMATIONS ----------------- */
+
+@keyframes horizontalmove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(4px);
+  }
+}
+.inventory-cards--hover {
+  padding-top: 4.5px;
+  &:hover {
+    animation: horizontalmove 0.5s ease-in-out infinite alternate;
+  }
+}

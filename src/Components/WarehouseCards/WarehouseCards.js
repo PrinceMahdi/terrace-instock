@@ -43,7 +43,7 @@ const WarehouseCards = ({ warehouses, searchTerm }) => {
                 <img
                   src={chevronIcon}
                   alt="chevron icon right"
-                  className="warehouse-cards_warehouse-name-icon warehouse-cards__hover"
+                  className="warehouse-cards_warehouse-name-icon warehouse-cards--hover"
                 />
               </p>
             </Link>
