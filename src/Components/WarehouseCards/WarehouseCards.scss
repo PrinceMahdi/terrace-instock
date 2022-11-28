@@ -239,7 +239,7 @@
     transform: translateX(4px);
   }
 }
-.warehouse-cards__hover {
+.warehouse-cards--hover {
   padding-top: 4.5px;
   &:hover {
     animation: horizontalmove 0.5s ease-in-out infinite alternate;

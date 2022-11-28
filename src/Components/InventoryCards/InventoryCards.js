@@ -43,7 +43,7 @@ const InventoryCards = ({ inventories, searchTerm }) => {
                   <img
                     src={chevronIcon}
                     alt="chevron icon right"
-                    className="inventory-cards__inventory-item-icon"
+                    className="inventory-cards__inventory-item-icon inventory-cards--hover"
                   />
                 </p>
               </Link>
