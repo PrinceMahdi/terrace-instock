@@ -1,9 +1,9 @@
 /* ----------------- SCSS IMPORTS ----------------- */
-import { useParams, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./Footer.scss";
 
 function Footer() {
-  const params = useParams();
+
 
   const location = useLocation();
 

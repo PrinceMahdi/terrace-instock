@@ -33,7 +33,7 @@ const WarehouseDetails = () => {
         setWarehousecontactdetails(response.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [params.id]);
   useEffect(() => {
     axios
       .get(`${warehouseData}/${params.id}/inventories`)
@@ -47,7 +47,7 @@ const WarehouseDetails = () => {
     const newInventories = [...warehouseinventorydetails];
 
     const fieldName =
-      e.target.innerText != "" ? e.target.innerText : e.target.name;
+      e.target.innerText !== "" ? e.target.innerText : e.target.name;
 
     let field = "";
 
