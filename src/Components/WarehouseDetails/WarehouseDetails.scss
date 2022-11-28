@@ -401,6 +401,7 @@
     font-weight: 600;
     @include large-table-header;
     color: colors.$secondary-dark;
+    cursor: pointer;
   }
 
   &__list {
