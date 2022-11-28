@@ -60,9 +60,6 @@ const EditWarehouse = () => {
     ) {
       return true;
     } else {
-      setMessageState(
-        "please provide a valid phone number eg: +1 (555) 555-5555"
-      );
       return false;
     }
   };
@@ -74,7 +71,6 @@ const EditWarehouse = () => {
     if (emailState.match(emailRegex)) {
       return true;
     } else {
-      setMessageState("please provide a valid email eg: email@email.com");
       return false;
     }
   };
@@ -84,7 +80,7 @@ const EditWarehouse = () => {
     // set name
     setNameState(event.target.value);
     // if name is empty add error
-    if (nameState.length === 0) {
+    if (nameState.length < 1) {
       // if field has content remove error
       event.currentTarget.classList.add("warehouse__input--error");
     } else {
@@ -95,7 +91,7 @@ const EditWarehouse = () => {
   const handleChangeAddress = (event) => {
     setAddressState(event.target.value);
     // if name is empty add error
-    if (addressState.length === 0) {
+    if (addressState.length < 1) {
       // if field has content remove error
       event.currentTarget.classList.add("warehouse__input--error");
     } else {
@@ -106,7 +102,7 @@ const EditWarehouse = () => {
   const handleChangeCity = (event) => {
     setCityState(event.target.value);
     // if name is empty add error
-    if (cityState.length === 0) {
+    if (cityState.length < 1) {
       // if field has content remove error
       event.currentTarget.classList.add("warehouse__input--error");
     } else {
@@ -117,7 +113,7 @@ const EditWarehouse = () => {
   const handleChangeCountry = (event) => {
     setCountryState(event.target.value);
     // if name is empty add error
-    if (countryState.length === 0) {
+    if (countryState.length < 1) {
       // if field has content remove error
       event.currentTarget.classList.add("warehouse__input--error");
     } else {
@@ -128,7 +124,7 @@ const EditWarehouse = () => {
   const handleChangeContact = (event) => {
     setContactState(event.target.value);
     // if name is empty add error
-    if (contactState.length === 0) {
+    if (contactState.length < 1) {
       // if field has content remove error
       event.currentTarget.classList.add("warehouse__input--error");
     } else {
@@ -139,7 +135,7 @@ const EditWarehouse = () => {
   const handleChangePosition = (event) => {
     setPositionState(event.target.value);
     // if name is empty add error
-    if (positionState.length === 0) {
+    if (positionState.length < 1) {
       // if field has content remove error
       event.currentTarget.classList.add("warehouse__input--error");
     } else {
