@@ -5,6 +5,10 @@
 @use "../../styles/partials/breakpoints" as bp;
 @use "../../styles/partials/reset" as *;
 
+::placeholder{
+  color: $secondary-dark;
+}
+
 .warehouse {
   &__wrapper {
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
@@ -100,16 +104,17 @@
     }
   }
   &__input {
+    color: $secondary-dark;
     &:focus {
       outline: none;
       border-color: $primary-semi-light;
     }
     @include mx.formMobile;
     font-family: "Titillium";
-    color: $primary-dark;
     /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include bp.medium {
       @include tp.large-body-medium;
+      color: $secondary-dark;
       &:focus {
         outline: none;
         border-color: $primary-semi-light;
@@ -118,6 +123,7 @@
     /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include bp.large {
       @include tp.large-body-medium;
+      color: $secondary-dark;
       &:focus {
         outline: none;
         border-color: $primary-semi-light;
