@@ -5,7 +5,7 @@
 @use "../../styles/partials/breakpoints" as bp;
 @use "../../styles/partials/reset" as *;
 
-::placeholder{
+::placeholder {
   color: $secondary-dark;
 }
 
@@ -129,6 +129,9 @@
         border-color: $primary-semi-light;
       }
     }
+    &--error {
+      border: 1px solid $supporting-semi-light;
+    }
   }
   &__form-bottom {
     display: flex;
@@ -150,6 +153,16 @@
       border-left: 1px solid $secondary-light;
       padding: 0 2rem;
     }
+  }
+
+  &__message {
+    background-image: url(../../assets/icons/error-24px.svg);
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+    align-self: center;
+    color: $supporting-semi-light;
+    @include tp.large-auxiliary;
+    padding: 0 2rem;
   }
   &__buttons {
     display: flex;
@@ -203,13 +216,13 @@
       @include bp.medium {
         @include mx.btn-secondary;
         height: 2.375rem;
-          padding: 0 1.5rem;
+        padding: 0 1.5rem;
       }
       /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
       @include bp.large {
         @include mx.btn-secondary;
         height: 2.375rem;
-          padding: 0 1.5rem;
+        padding: 0 1.5rem;
       }
     }
   }
