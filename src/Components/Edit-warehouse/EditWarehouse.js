@@ -154,6 +154,7 @@ const EditWarehouse = () => {
       );
     } else {
       event.currentTarget.classList.remove("warehouse__input--error");
+      setMessageState('')
       //  error class: warehouse__input--error
     }
   };
@@ -166,6 +167,7 @@ const EditWarehouse = () => {
       setMessageState("please provide a valid email eg: email@email.com");
     } else {
       event.currentTarget.classList.remove("warehouse__input--error");
+      setMessageState('')
       //  error class: warehouse__input--error
     }
   };
