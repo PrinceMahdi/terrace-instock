@@ -81,7 +81,19 @@
       }
     }
     &-item {
+      &--message {
+        background-image: url(../../assets/icons/error-24px.svg);
+        background-repeat: no-repeat;
+        background-position: 0% 50%;
+        align-self: center;
+        color: $supporting-semi-light;
+        @include tp.large-auxiliary;
+        padding: 0 2rem;
+      }
       &__input {
+        &--error {
+          border: 1px solid $supporting-semi-light;
+        }
         color: $secondary-dark;
         font-family: Titillium;
         outline: none;
