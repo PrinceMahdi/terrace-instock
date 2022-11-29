@@ -31,3 +31,7 @@ button {
   font-family: "Titillium";
   color: $primary-dark;
 }
+
+::placeholder {
+  color: $secondary-dark;
+}

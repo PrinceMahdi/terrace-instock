@@ -44,6 +44,16 @@
       padding: 1rem 2rem 0 2rem;
     }
   }
+  &__message {
+    background-image: url(../../assets/icons/error-24px.svg);
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+    align-self: center;
+    color: $supporting-semi-light;
+    @include tp.large-auxiliary;
+    padding: 0 2rem;
+  }
+
   &__back {
     width: 1rem;
     height: 1rem;
@@ -110,13 +120,13 @@
     }
   }
   &__input {
+    color: $secondary-dark;
     &:focus {
       outline: none;
       border-color: $primary-semi-light;
     }
     @include mx.formMobile;
     font-family: "Titillium";
-    color: $primary-dark;
     /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include bp.medium {
       @include tp.large-body-medium;
@@ -132,6 +142,9 @@
         outline: none;
         border-color: $primary-semi-light;
       }
+    }
+    &--error {
+      border: 1px solid $supporting-semi-light;
     }
   }
   &__form-bottom {

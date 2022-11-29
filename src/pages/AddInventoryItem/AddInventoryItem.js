@@ -16,13 +16,32 @@ const AddInventoryItem = () => {
   const [warehouseState, setWarehouseState] = useState("");
   const [warehouseListState, setWarehouseListState] = useState([]);
   const [disableState, setDisabledState] = useState(null);
+  const [messageState, setMessageState] = useState("");
 
   // Event handlers to update state as form fields are edited
   const handleChangeName = (event) => {
     setItemNameState(event.target.value);
+    if (itemNameState.length < 1) {
+      // if field has content remove error
+      event.currentTarget.classList.add("edit__inventory-item__input--error");
+    } else {
+      event.currentTarget.classList.remove(
+        "edit__inventory-item__input--error"
+      );
+      //  error class: warehouse__input--error
+    }
   };
   const handleChangeDescription = (event) => {
     setItemDescriptionState(event.target.value);
+    if (itemNameState.length < 1) {
+      // if field has content remove error
+      event.currentTarget.classList.add("edit__inventory-item__input--error");
+    } else {
+      event.currentTarget.classList.remove(
+        "edit__inventory-item__input--error"
+      );
+      //  error class: warehouse__input--error
+    }
   };
   const handleChangeCategory = (event) => {
     setItemCategoryState(event.target.value);
@@ -81,7 +100,7 @@ const AddInventoryItem = () => {
     event.preventDefault();
     // if form valid
     if (!isFormValid()) {
-      alert("please provide correct form fields");
+      setMessageState("All fields required");
     } else {
       const newItem = {
         warehouse_id: warehouseState,
@@ -97,8 +116,10 @@ const AddInventoryItem = () => {
         .catch((err) => {
           console.log(err);
         });
-      alert("Item created, returning to inventories.");
-      navigate("/inventories");
+      setMessageState("Item created, returning to inventories in 5 seconds");
+      setTimeout(() => {
+        navigate("/inventories");
+      }, 5000);
     }
   };
   return (
@@ -247,6 +268,7 @@ const AddInventoryItem = () => {
           </div>
         </div>
         <div className="edit__inventory-item__button-container">
+          <div className="edit__inventory-item--messsage">{messageState}</div>
           <Link
             to={"/inventories"}
             className="edit__inventory-item__cancel-button__link"

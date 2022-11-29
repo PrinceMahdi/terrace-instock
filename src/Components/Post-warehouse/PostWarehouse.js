@@ -18,32 +18,7 @@ const PostWarehouse = () => {
   const [positionState, setPositionState] = useState("");
   const [phoneState, setPhoneState] = useState("");
   const [emailState, setEmailState] = useState("");
-
-  //track and set form content via state
-  const handleChangeName = (event) => {
-    setNameState(event.target.value);
-  };
-  const handleChangeAddress = (event) => {
-    setAddressState(event.target.value);
-  };
-  const handleChangeCity = (event) => {
-    setCityState(event.target.value);
-  };
-  const handleChangeCountry = (event) => {
-    setCountryState(event.target.value);
-  };
-  const handleChangeContact = (event) => {
-    setContactState(event.target.value);
-  };
-  const handleChangePosition = (event) => {
-    setPositionState(event.target.value);
-  };
-  const handleChangePhone = (event) => {
-    setPhoneState(event.target.value);
-  };
-  const handleChangeEmail = (event) => {
-    setEmailState(event.target.value);
-  };
+  const [messageState, setMessageState] = useState("");
 
   // regex for validation
   const phoneRegex = new RegExp(
@@ -60,7 +35,6 @@ const PostWarehouse = () => {
     ) {
       return true;
     } else {
-      alert("please provide a valid phone number eg: +1 (555) 555-5555");
       return false;
     }
   };
@@ -69,8 +43,104 @@ const PostWarehouse = () => {
     if (emailState.match(emailRegex)) {
       return true;
     } else {
-      alert("please provide a valid email eg: email@email.com");
       return false;
+    }
+  };
+
+  //track and set form content via state
+  const handleChangeName = (event) => {
+    // set name
+    setNameState(event.target.value);
+    // if name is empty add error
+    if (nameState.length < 1) {
+      // if field has content remove error
+      event.currentTarget.classList.add("warehouse__input--error");
+    } else {
+      event.currentTarget.classList.remove("warehouse__input--error");
+      //  error class: warehouse__input--error
+    }
+  };
+  const handleChangeAddress = (event) => {
+    setAddressState(event.target.value);
+    // if name is empty add error
+    if (addressState.length < 1) {
+      // if field has content remove error
+      event.currentTarget.classList.add("warehouse__input--error");
+    } else {
+      event.currentTarget.classList.remove("warehouse__input--error");
+      //  error class: warehouse__input--error
+    }
+  };
+  const handleChangeCity = (event) => {
+    setCityState(event.target.value);
+    // if name is empty add error
+    if (cityState.length < 1) {
+      // if field has content remove error
+      event.currentTarget.classList.add("warehouse__input--error");
+    } else {
+      event.currentTarget.classList.remove("warehouse__input--error");
+      //  error class: warehouse__input--error
+    }
+  };
+  const handleChangeCountry = (event) => {
+    setCountryState(event.target.value);
+    // if name is empty add error
+    if (countryState.length < 1) {
+      // if field has content remove error
+      event.currentTarget.classList.add("warehouse__input--error");
+    } else {
+      event.currentTarget.classList.remove("warehouse__input--error");
+      //  error class: warehouse__input--error
+    }
+  };
+  const handleChangeContact = (event) => {
+    setContactState(event.target.value);
+    // if name is empty add error
+    if (contactState.length < 1) {
+      // if field has content remove error
+      event.currentTarget.classList.add("warehouse__input--error");
+    } else {
+      event.currentTarget.classList.remove("warehouse__input--error");
+      //  error class: warehouse__input--error
+    }
+  };
+  const handleChangePosition = (event) => {
+    setPositionState(event.target.value);
+    // if name is empty add error
+    if (positionState.length < 1) {
+      // if field has content remove error
+      event.currentTarget.classList.add("warehouse__input--error");
+    } else {
+      event.currentTarget.classList.remove("warehouse__input--error");
+      //  error class: warehouse__input--error
+    }
+  };
+  const handleChangePhone = (event) => {
+    setPhoneState(event.target.value);
+    // if name is empty add error
+    if (phoneState.length < 7) {
+      // if field has content remove error
+      event.currentTarget.classList.add("warehouse__input--error");
+      setMessageState(
+        "please provide a valid phone number eg: +1 (555) 555-5555"
+      );
+    } else {
+      event.currentTarget.classList.remove("warehouse__input--error");
+      setMessageState('')
+      //  error class: warehouse__input--error
+    }
+  };
+  const handleChangeEmail = (event) => {
+    setEmailState(event.target.value);
+    // if name is empty add error
+    if (!emailState.match(emailRegex)) {
+      // if field has content remove error
+      event.currentTarget.classList.add("warehouse__input--error");
+      setMessageState("please provide a valid email eg: email@email.com");
+    } else {
+      event.currentTarget.classList.remove("warehouse__input--error");
+      setMessageState('')
+      //  error class: warehouse__input--error
     }
   };
 
@@ -110,10 +180,12 @@ const PostWarehouse = () => {
         .then((_response) => {
           event.target.reset();
         });
-      alert("success, returning to warehouse list");
-      navigate("/warehouses");
+      setMessageState("success, returning to warehouse list in 5 seconds");
+      setTimeout(() => {
+        navigate("/warehouses");
+      }, 5000);
     } else {
-      alert("error, please check form fields");
+      setMessageState("All fields required");
     }
   };
   return (
@@ -225,6 +297,7 @@ const PostWarehouse = () => {
           </div>
         </div>
         <div className="warehouse__buttons">
+          <div className="warehouse__message">{messageState}</div>
           <Link to={"/warehouses"} className="warehouse__cancel-button">
             <button
               type="button"

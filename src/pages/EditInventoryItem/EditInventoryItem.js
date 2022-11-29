@@ -14,6 +14,7 @@ const EditInventoryItem = () => {
   const [stockState, setStockState] = useState("");
   const [quantityState, setQuantityState] = useState("");
   const [warehouseState, setWarehouseState] = useState("");
+  const [messageState, setMessageState] = useState("");
 
   // array to map through; populate dropdown warehouse options
   const [warehouseListState, setWarehouseListState] = useState([]);
@@ -56,9 +57,27 @@ const EditInventoryItem = () => {
   // Event handlers to update state as form fields are edited
   const handleChangeName = (event) => {
     setItemNameState(event.target.value);
+    if (itemNameState.length < 1) {
+      // if field has content remove error
+      event.currentTarget.classList.add("edit__inventory-item__input--error");
+    } else {
+      event.currentTarget.classList.remove(
+        "edit__inventory-item__input--error"
+      );
+      //  error class: warehouse__input--error
+    }
   };
   const handleChangeDescription = (event) => {
     setItemDescriptionState(event.target.value);
+    if (itemNameState.length < 1) {
+      // if field has content remove error
+      event.currentTarget.classList.add("edit__inventory-item__input--error");
+    } else {
+      event.currentTarget.classList.remove(
+        "edit__inventory-item__input--error"
+      );
+      //  error class: warehouse__input--error
+    }
   };
   const handleChangeCategory = (event) => {
     setItemCategoryState(event.target.value);
@@ -99,7 +118,7 @@ const EditInventoryItem = () => {
     event.preventDefault();
     // if form valid
     if (!isFormValid()) {
-      alert("please provide correct form fields");
+      setMessageState("All fields required");
     } else {
       const newItem = {
         warehouse_id: warehouseState,
@@ -115,8 +134,10 @@ const EditInventoryItem = () => {
         .catch((err) => {
           console.log(err);
         });
-      alert("Item updated, returning to inventories.");
-      navigate("/inventories");
+      setMessageState("Item updated, returning to inventories in 5 seconds");
+      setTimeout(() => {
+        navigate("/inventories");
+      }, 5000);
     }
   };
 
@@ -278,6 +299,7 @@ const EditInventoryItem = () => {
             </div>
           </div>
           <div className="edit__inventory-item__button-container">
+            <div className="edit__inventory-item--messsage">{messageState}</div>
             <Link
               to="/inventories"
               className="edit__inventory-item__cancel-button__link"
