@@ -5,6 +5,14 @@
 - Travis
 - Gurpreet
 
+## Diving Deeper Section:
+#### All diving deeper sections have been completed.
+- Animations added to the arrow icon of warehouse/inventory items
+- Sort functionality works on all pages
+- Search functionality works on all pages
+
+<br>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
