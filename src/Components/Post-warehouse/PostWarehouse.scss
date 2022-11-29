@@ -27,11 +27,11 @@
     padding: 1rem 1rem 0 1rem;
     /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include bp.medium {
-      padding: 1rem 2rem 0 2rem;
+      padding: 0 2rem 0 2rem;
     }
     /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include bp.large {
-      padding: 1rem 2rem 0 2rem;
+      padding: 0 2rem 0 2rem;
     }
   }
   &__back {

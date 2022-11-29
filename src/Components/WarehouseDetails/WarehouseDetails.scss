@@ -46,11 +46,11 @@
     border-bottom: 1px solid colors.$secondary-light;
     /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
     @include medium {
-      padding: 2rem 2rem 1.4375rem 2rem;
+      padding: 2rem 2rem 1.3438rem 2rem;
     }
     /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
     @include large {
-      padding: 2rem 2.5rem 1.4375rem 2.5rem;
+      padding: 2rem 2.5rem 1.3438rem 2.5rem;
     }
   }
   &__icon-name {
