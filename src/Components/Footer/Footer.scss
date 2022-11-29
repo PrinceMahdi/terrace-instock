@@ -1,0 +1,44 @@
+@use "../../styles/partials/colors" as colors;
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/breakpoints" as bp;
+@import "../../styles/partials/typography";
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: colors.$background-light;
+  padding: 2.5rem 0;
+  margin-top: 2px;
+
+  &--bottom {
+    @include bp.medium {
+      position: absolute;
+      bottom: 0;
+    }
+    @include bp.large {
+    position: absolute;
+      bottom: 0;
+    }
+  }
+
+  @include bp.medium {
+    padding-top: 4.375rem;
+  }
+  @include bp.large {
+    padding-top: 5.9375rem;
+  }
+
+  &__text {
+    font-family: "Titillium";
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    @include small-body-small;
+    color: colors.$secondary-dark;
+
+    @include bp.medium {
+      @include large-table-header;
+    }
+  }
+}

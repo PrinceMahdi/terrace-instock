@@ -1,0 +1,166 @@
+@use "../../styles/partials/colors" as colors;
+@use "../../styles/partials/fonts";
+@import "../../styles/partials/breakpoints";
+@import "../../styles/partials/typography";
+@import "../../styles/partials/mixins";
+
+.modal-inventory {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(19, 24, 44, 0.7);
+  /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+  @include medium {
+    top: 0;
+    left: 0;
+  }
+
+  &__delete {
+    background-color: colors.$primary-light;
+    width: 100%;
+    height: 42rem;
+    padding: 1rem 1rem 1.5rem 1rem;
+    border-radius: 0.1875rem;
+    pointer-events: auto;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    position: fixed;
+    top: 25%;
+    position: relative;
+    /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
+    @include small {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+    }
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+    @include medium {
+      height: 16.375rem;
+      max-width: 48rem;
+      width: 48rem;
+      position: fixed;
+      top: 12.6rem;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 2.5rem 4rem;
+    }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+    @include large {
+      height: 16.375rem;
+      top: 12.7rem;
+      width: 42rem;
+      left: 50%;
+      padding: 2.5rem 4rem;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__title {
+    @include small-page-header;
+    font-weight: 600;
+    font-style: normal;
+    color: colors.$primary-dark;
+    width: 50rem;
+    margin-top: 3.6875rem;
+    margin-bottom: 0;
+    /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
+    @include small {
+      width: 100%;
+    }
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+    @include medium {
+      margin-top: 0;
+      @include large-page-header;
+    }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+    @include large {
+      margin-top: 0;
+      @include large-page-header;
+    }
+  }
+
+  &__para {
+    @include small-body-large;
+    margin-top: 1rem;
+    color: colors.$primary-dark;
+    font-weight: 400;
+    font-style: normal;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+    @include medium {
+      @include large-body-large;
+    }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+    @include large {
+      @include large-body-large;
+    }
+  }
+  &__cancel {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1rem;
+    font-family: Titillium;
+    color: colors.$secondary-dark;
+    @include small-auxiliary;
+    padding: 0.75rem 3rem;
+    border-radius: 1.25rem;
+    border: 1px solid colors.$secondary-light;
+    font-style: normal;
+    font-weight: 600;
+    transition: 0.3s ease;
+    background-color: colors.$primary-light;
+    cursor: pointer;
+    &:hover {
+      color: colors.$primary-semi-light;
+      border: 1px solid colors.$primary-semi-light;
+    }
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+    @include medium {
+      bottom: 2.5rem;
+      left: 32rem;
+      @include large-body-medium;
+      padding: 0.75rem 1.5rem;
+    }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+    @include large {
+      @include large-body-medium;
+      bottom: 2.5rem;
+      left: 20rem;
+    }
+  }
+
+  &__delete-button {
+    position: absolute;
+    right: 1rem;
+    bottom: 1.5rem;
+    padding: 0.75rem 3rem;
+    @include small-auxiliary;
+    color: colors.$primary-light;
+    background-color: colors.$supporting-semi-light;
+    border: 1px solid colors.$supporting-semi-light;
+    border-radius: 1.25rem;
+    cursor: pointer;
+    &:hover {
+      background-color: colors.$background-dark;
+      border: 1px solid colors.$background-dark;
+    }
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+    @include medium {
+      bottom: 2.5rem;
+      right: 4rem;
+      @include large-body-medium;
+      padding: 0.75rem 1.5rem;
+    }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+    @include large {
+      right: 4rem;
+      bottom: 2.5rem;
+    }
+  }
+}
+.modal-inventory__icon {
+  position: absolute;
+  right: 1.13125rem;
+  top: 1.13125rem;
+}

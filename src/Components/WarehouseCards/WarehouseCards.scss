@@ -1,0 +1,247 @@
+/* --------------- PARTIAL IMPORTS --------------- */
+@use "../../styles/partials/reset";
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/breakpoints" as bp;
+@use "../../styles/partials/typography" as tp;
+@use "../../styles/partials/mixins" as mx;
+
+.warehouse-cards {
+  &-wrap {
+    border-top: 0.75px solid $secondary-light;
+    border-bottom: 0.75px solid $secondary-light;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    color: $secondary-dark;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+    @include bp.medium {
+      flex-wrap: nowrap;
+      align-items: center;
+      border-top: none;
+      padding: 1rem 2rem;
+      @include tp.large-body-small;
+    }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+    @include bp.large {
+      flex-wrap: nowrap;
+      align-items: center;
+      border-top: none;
+      padding: 1rem 3rem;
+      @include tp.large-body-small;
+    }
+  }
+  &__warehouse-name {
+    display: flex;
+    align-items: center;
+    // padding-top: 4px;
+    margin: 0;
+    color: $primary-semi-light;
+    font-weight: bold;
+    @include tp.small-body-medium;
+    &-title {
+      @include tp.small-body-small;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+      @include bp.medium {
+        display: none;
+      }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+      @include bp.large {
+        display: none;
+      }
+    }
+    &-icon {
+      height: 0.625rem;
+      width: 6.17px;
+      padding-left: 10px;
+    }
+
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 1.5rem 0;
+      width: 50%;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+      @include bp.medium {
+        padding: 0;
+        max-width: 20%;
+        order: 1;
+        flex: 1;
+      }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+      @include bp.large {
+        padding: 0;
+        max-width: 20%;
+        order: 1;
+        flex: 1;
+      }
+    }
+  }
+  &__contact-name {
+    padding-top: 4px;
+    @include tp.small-body-medium;
+    &-title {
+      @include tp.small-body-small;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+      @include bp.medium {
+        display: none;
+      }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+      @include bp.large {
+        display: none;
+      }
+    }
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1rem;
+      width: 50%;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+      @include bp.medium {
+        padding: 0;
+        order: 3;
+        max-width: 20%;
+        flex: 1;
+      }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+      @include bp.large {
+        padding: 0;
+        order: 3;
+        max-width: 20%;
+        flex: 1;
+      }
+    }
+  }
+  &__address {
+    padding-top: 4px;
+    @include tp.small-body-medium;
+    &-title {
+      @include tp.small-body-small;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+      @include bp.medium {
+        display: none;
+      }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+      @include bp.large {
+        display: none;
+      }
+    }
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      padding: 4px;
+      width: 50%;
+      padding: 1rem 1.5rem 0;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+      @include bp.medium {
+        width: 100%;
+        padding: 0 1rem 0 0;
+        order: 2;
+        max-width: 20%;
+        flex: 1;
+      }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+      @include bp.large {
+        width: 100%;
+        padding: 0 1rem 0 0;
+        order: 2;
+        max-width: 20%;
+        flex: 1;
+      }
+    }
+  }
+  &__contact-info {
+    @include tp.small-body-medium;
+    &-title {
+      @include tp.small-body-small;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+      @include bp.medium {
+        display: none;
+      }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+      @include bp.large {
+        display: none;
+      }
+    }
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1rem;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+      @include bp.medium {
+        padding: 0;
+        order: 4;
+        max-width: 20%;
+        flex: 1;
+      }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+      @include bp.large {
+        padding: 0;
+        order: 4;
+        max-width: 20%;
+        flex: 1;
+      }
+    }
+    &-phone {
+      padding-top: 4px;
+      @include tp.small-body-medium;
+    }
+    &-email {
+      @include tp.small-body-medium;
+    }
+  }
+  &__icons {
+    &-del {
+      height: 20px;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+    }
+    &-edit {
+      height: 20px;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+    }
+    &-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 1.1875rem 1.75rem 1.6875rem;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+      @include bp.medium {
+        padding: 0;
+        margin: 0;
+        order: 5;
+        max-width: 20%;
+        justify-content: space-evenly;
+        flex: 1;
+      }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+      @include bp.large {
+        padding: 0;
+        margin: 0;
+        order: 5;
+        max-width: 20%;
+        justify-content: space-evenly;
+        flex: 1;
+      }
+    }
+  }
+}
+/* ----------------- ANIMATIONS ----------------- */
+
+@keyframes horizontalmove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(4px);
+  }
+}
+.warehouse-cards--hover {
+  padding-top: 4.5px;
+  &:hover {
+    animation: horizontalmove 0.5s ease-in-out infinite alternate;
+  }
+}

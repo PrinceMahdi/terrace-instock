@@ -1,0 +1,43 @@
+/* --------------- PARTIAL IMPORTS --------------- */
+@use "../../styles/partials/reset";
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/breakpoints" as bp;
+@use "../../styles/partials/typography" as tp;
+@use "../../styles/partials/mixins" as mx;
+
+.edit {
+  &__inventory {
+    &-form {
+      &__quantity {
+        /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+        @include bp.large {
+          width: 35%;
+        }
+      }
+    }
+    &-item {
+      &--message {
+        background-image: url(../../assets/icons/error-24px.svg);
+        background-repeat: no-repeat;
+        background-position: 0% 50%;
+        align-self: center;
+        color: $supporting-semi-light;
+        @include tp.large-auxiliary;
+        padding: 0 2rem;
+      }
+      &__radio {
+        &--left label {
+          font-size: 0.9375rem;
+        }
+      }
+      &__input {
+        &--error {
+          border: 1px solid $supporting-semi-light;
+        }
+        color: $secondary-dark;
+        outline: none;
+      }
+    }
+  }
+}

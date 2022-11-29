@@ -1,0 +1,300 @@
+/* --------------- PARTIAL IMPORTS --------------- */
+@use "../../styles/partials/reset";
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/breakpoints" as bp;
+@use "../../styles/partials/typography" as tp;
+@use "../../styles/partials/mixins" as mx;
+
+.inventory-cards {
+  &-wrap {
+    border-top: 0.75px solid $secondary-light;
+    border-bottom: 0.75px solid $secondary-light;
+    display: flex;
+    width: 100%;
+    color: $secondary-dark;
+    padding: 0 2rem;
+    flex-wrap: wrap;
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+    @include bp.medium {
+      flex-wrap: nowrap;
+      align-items: center;
+      border-top: none;
+      padding: 1rem 2rem;
+      @include tp.large-body-small;
+    }
+    /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+    @include bp.large {
+      flex-wrap: nowrap;
+      align-items: center;
+      border-top: none;
+      padding: 1rem 3rem;
+      @include tp.large-body-small;
+    }
+  }
+  &__inventory-item {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    color: $primary-semi-light;
+    font-weight: bold;
+    @include tp.small-body-medium;
+    &-title {
+      @include tp.small-body-small;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+      @include bp.medium {
+        display: none;
+      }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+      @include bp.large {
+        display: none;
+      }
+    }
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1rem;
+      width: 50%;
+      order: 1;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+      @include bp.medium {
+        padding: 0;
+        max-width: 16.67%;
+        flex: 1;
+      }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+      @include bp.large {
+        padding: 0;
+        max-width: 16.67%;
+        flex: 1;
+      }
+    }
+  }
+  &__category {
+    padding-top: 4px;
+    @include tp.small-body-medium;
+    &-title {
+      @include tp.small-body-small;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+      @include bp.medium {
+        display: none;
+      }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+      @include bp.large {
+        display: none;
+      }
+    }
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1rem;
+      width: 50%;
+      order: 3;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+      @include bp.medium {
+        width: 100%;
+        padding: 0 1rem 0 0;
+        max-width: 16.67%;
+        flex: 1;
+      }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+      @include bp.large {
+        width: 100%;
+        padding: 0 1rem 0 0;
+        max-width: 16.67%;
+        flex: 1;
+      }
+    }
+  }
+  &__status {
+    // padding-top: 4px;
+    width: 4rem;
+    height: 1.5rem;
+    background: rgba(21, 132, 99, 0.07);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.25rem;
+    padding: 0.25rem 0.5rem;
+    color: $supporting-light;
+    font-weight: 600;
+    text-transform: uppercase;
+    @include tp.small-table-header;
+    &--outofstock {
+      color: $supporting-semi-light;
+      width: 5.6rem;
+      height: 1.5rem;
+      background: rgba(201, 69, 21, 0.07);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1.25rem;
+      padding: 0.25rem 0.5rem;
+    }
+    /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+    &-title {
+      @include tp.small-body-small;
+      @include bp.medium {
+        display: none;
+      }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+      @include bp.large {
+        display: none;
+      }
+    }
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1rem;
+      width: 50%;
+      order: 2;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+      @include bp.medium {
+        padding: 0;
+
+        max-width: 16.67%;
+        flex: 1;
+        @include tp.large-table-header;
+      }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+      @include bp.large {
+        padding: 0;
+
+        max-width: 16.67%;
+        flex: 1;
+        @include tp.large-table-header;
+      }
+    }
+  }
+
+  &__qty {
+    @include tp.small-body-medium;
+    &-title {
+      @include tp.small-body-small;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+      @include bp.medium {
+        display: none;
+      }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+      @include bp.large {
+        display: none;
+      }
+    }
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1rem;
+      width: 50%;
+      order: 5;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+      @include bp.medium {
+        padding: 0;
+        max-width: 16.67%;
+        flex: 1;
+      }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+      @include bp.large {
+        padding: 0;
+        max-width: 16.67%;
+        flex: 1;
+      }
+    }
+  }
+  &__warehouse {
+    @include tp.small-body-medium;
+    /* ----------------- STYLING FOR SMALL DEVICES ----------------- */
+    @include bp.small {
+      padding-top: 4px;
+      margin-left: auto;
+      width: 50%;
+    }
+    &-title {
+      @include tp.small-body-small;
+      margin-left: auto;
+      width: 50%;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+      @include bp.medium {
+        display: none;
+      }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+      @include bp.large {
+        display: none;
+      }
+    }
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1rem;
+      width: 100%;
+      order: 6;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+      @include bp.medium {
+        width: 100%;
+        padding: 0 1rem 0 0;
+        max-width: 16.67%;
+        flex: 1;
+      }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+      @include bp.large {
+        width: 100%;
+        padding: 0 1rem 0 0;
+        max-width: 16.67%;
+        flex: 1;
+      }
+    }
+  }
+  &__icons {
+    &-del {
+      height: 20px;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+    }
+    &-edit {
+      height: 20px;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+    }
+    &-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 1.1875rem 1.75rem 1.6875rem 0;
+      order: 6;
+      /* ----------------- STYLING FOR MEDIUM DEVICES ----------------- */
+      @include bp.medium {
+        padding: 0;
+        margin: 0;
+        max-width: 16.67%;
+        justify-content: space-evenly;
+        flex: 1;
+      }
+      /* ----------------- STYLING FOR LARGE DEVICES ----------------- */
+      @include bp.large {
+        padding: 0;
+        margin: 0;
+        max-width: 16.67%;
+        justify-content: space-evenly;
+        flex: 1;
+      }
+    }
+  }
+}
+
+/* ----------------- ANIMATIONS ----------------- */
+
+@keyframes horizontalmove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(4px);
+  }
+}
+.inventory-cards--hover {
+  padding-top: 4.5px;
+  &:hover {
+    animation: horizontalmove 0.5s ease-in-out infinite alternate;
+  }
+}

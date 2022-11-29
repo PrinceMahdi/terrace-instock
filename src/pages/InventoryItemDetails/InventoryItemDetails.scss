@@ -1,0 +1,197 @@
+/* --------------- PARTIAL IMPORTS --------------- */
+@use "../../styles/partials/reset";
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/breakpoints" as bp;
+@use "../../styles/partials/typography" as tp;
+@use "../../styles/partials/mixins" as mx;
+
+.inventory {
+  &__item {
+    &-description {
+      /* --------------- STYLING FOR MOBILE DEVICES --------------- */
+      @include bp.small {
+        @include tp.small-auxiliary;
+      }
+      /* --------------- STYLING FOR MEDIUM DEVICES --------------- */
+      @include bp.medium {
+        @include tp.large-auxiliary;
+        width: 75%;
+        &--top {
+          margin-bottom: 1.5rem;
+        }
+      }
+      /* --------------- STYLING FOR LARGE DEVICES --------------- */
+      @include bp.large {
+        @include tp.large-auxiliary;
+      }
+      &__title {
+        color: $secondary-dark;
+        /* --------------- STYLING FOR MOBILE DEVICES --------------- */
+        @include bp.small {
+          @include tp.small-table-header;
+        }
+        /* --------------- STYLING FOR MOBILE DEVICES --------------- */
+        @include bp.medium {
+          @include tp.large-table-header;
+        }
+        /* --------------- STYLING FOR LARGE DEVICES --------------- */
+        @include bp.large {
+          @include tp.large-table-header;
+        }
+      }
+
+      &__label {
+        @include mx.inStock;
+        @include bp.small {
+          @include tp.small-auxiliary;
+        }
+        @include bp.medium {
+          @include tp.large-auxiliary;
+        }
+        @include bp.large {
+          @include tp.large-auxiliary;
+        }
+        &--modified {
+          @include mx.outOfStock;
+          @include bp.small {
+            @include tp.small-auxiliary;
+          }
+          @include bp.medium {
+            @include tp.large-auxiliary;
+          }
+          @include bp.large {
+            @include tp.large-auxiliary;
+          }
+        }
+      }
+    }
+    &-details {
+      box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+      margin: -6.2rem 1rem 0 1rem;
+      background-color: $primary-light;
+      border-radius: 0.25rem;
+      /* --------------- STYLING FOR MOBILE DEVICES --------------- */
+      @include bp.medium {
+        margin: -5.85rem 3rem 0 3rem;
+      }
+      /* --------------- STYLING FOR LARGE DEVICES --------------- */
+      @include bp.large {
+        margin: -5.85rem 5rem 0 5rem;
+      }
+
+      &__back {
+        &__arrow {
+          background-image: url("../../assets/icons/arrow_back-24px.svg");
+          background-repeat: no-repeat;
+          width: 1.5rem;
+          height: 1.5rem;
+          cursor: pointer;
+        }
+      }
+
+      &__button {
+        background-color: $primary-semi-light;
+        border: 1px solid $primary-semi-light;
+        color: $primary-light;
+        position: relative;
+        padding: 0.5rem 1rem;
+        border-radius: 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.3125rem;
+        cursor: pointer;
+        &:hover {
+          @include mx.btn-primary-hover;
+        }
+        /* --------------- STYLING FOR MOBILE DEVICES --------------- */
+        @include bp.small {
+          border-radius: 50%;
+          width: 3rem;
+          height: 3rem;
+          justify-content: center;
+        }
+        &-icon {
+          content: url("../../assets/icons/edit-24px.svg");
+          background-repeat: no-repeat;
+        }
+        &-text {
+          display: inline;
+          /* --------------- STYLING FOR MOBILE DEVICES --------------- */
+          @include bp.small {
+            display: none;
+          }
+        }
+      }
+
+      &__title {
+        /* --------------- STYLING FOR MOBILE DEVICES --------------- */
+        @include bp.small {
+          @include tp.small-page-header;
+          font-weight: 600;
+        }
+        /* --------------- STYLING FOR MEDIUM DEVICES --------------- */
+        @include bp.medium {
+          @include tp.large-page-header;
+          font-weight: 600;
+        }
+        /* --------------- STYLING FOR LARGE DEVICES --------------- */
+        @include bp.large {
+          @include tp.large-page-header;
+          font-weight: 600;
+        }
+      }
+
+      &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1rem 0 1rem;
+        border-bottom: 1px solid $secondary-light;
+        @include bp.small {
+          padding: 1rem 1rem 0 1rem;
+        }
+        &--top {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+      }
+
+      &--bottom {
+        padding: 1rem;
+        /* --------------- STYLING FOR MEDIUM DEVICES --------------- */
+        @include bp.medium {
+          display: flex;
+          gap: 5%;
+        }
+        /* --------------- STYLING FOR LARGE DEVICES --------------- */
+        @include bp.large {
+          display: flex;
+          gap: 5%;
+        }
+        &-container {
+          display: flex;
+          gap: 5rem;
+          /* --------------- STYLING FOR LARGE DEVICES --------------- */
+          @include bp.large {
+            gap: 15rem;
+          }
+        }
+      }
+
+      &--left {
+        /* --------------- STYLING FOR MEDIUM DEVICES --------------- */
+        @include bp.medium {
+          border-right: 1px solid $secondary-light;
+          width: 50%;
+        }
+        /* --------------- STYLING FOR LARGE DEVICES --------------- */
+        @include bp.large {
+          border-right: 1px solid $secondary-light;
+          width: 50%;
+        }
+      }
+    }
+  }
+}
